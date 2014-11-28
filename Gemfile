@@ -9,3 +9,4 @@ gem "middleman-syntax"
 gem "rspec"
 
 gem "builder", "~> 3.0"
+gem "nokogiri"

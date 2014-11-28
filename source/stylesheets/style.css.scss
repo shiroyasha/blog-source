@@ -10,6 +10,9 @@ body, html {
 }
 
 article {
+  padding-left: 10px;
+  padding-right: 10px;
+
   img.top-image {
     margin: 0px auto 100px auto;
     display: block;
@@ -39,19 +42,14 @@ article {
   h2 {
     font-size: 25px;
     margin: 70px auto 20px auto;
-    width: 600px;
+    width: 620px;
     max-width: 100%;
-    border-bottom: 1px solid #eee;
-    padding: 10px 10px;
   }
 
   p {
     width: 620px;
     max-width: 100%;
     margin: auto;
-
-    padding-left: 10px;
-    padding-right: 10px;
 
     margin-top: 25px;
     margin-bottom: 15px;
@@ -93,6 +91,60 @@ article {
   }
 }
 
+aside {
+  width: 620px;
+  margin: auto;
+  margin-bottom: 100px;
+
+  h1 {
+    font-size: 25px;
+    margin-top: 0px;
+  }
+
+  p.next {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 0px;
+  }
+
+  p {
+    width: 620px;
+    max-width: 100%;
+    margin: auto;
+
+    margin-top: 25px;
+    margin-bottom: 15px;
+
+    line-height: 1.5;
+    color: #444;
+
+    code {
+      background: #fffce0;
+      color: #6b4e32;
+      padding: 2px 5px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: deepskyblue;
+    border-bottom: 1px solid white;
+    -webkit-transition: all 0.3s;
+
+    &:hover {
+      border-bottom: 1px solid deepskyblue;
+    }
+  }
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #eee;
+  width: 95%;
+
+  margin: 100px auto;
+}
 
 .box {
   margin: 20px;

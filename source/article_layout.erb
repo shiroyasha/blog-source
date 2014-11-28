@@ -4,7 +4,9 @@
   </div>
 
   <article>
-    <img class="top-image" src="/images/<%= current_article.data.image %>">
+    <% if current_article.data.image %>
+      <img class="top-image" src="/images/<%= current_article.data.image %>">
+    <% end %>
 
     <div class="header">
       <div class="subtitle">
@@ -18,4 +20,17 @@
 
     <%= yield %>
   </article>
+
+  <hr>
+
+  <aside>
+    <p class="next">Read this next</p>
+
+    <% random_article = page_articles.reject { |a| a == current_article }.sample %>
+    
+    <h1><%= random_article.title %></h1>
+    <%= random_article.summary %>
+    <%= link_to "Continue reading &#10230;", random_article %>
+
+  </aside>
 <% end %>
