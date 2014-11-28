@@ -94,7 +94,8 @@ article {
 aside {
   width: 620px;
   margin: auto;
-  margin-bottom: 100px;
+  max-width: 100%;
+  padding: 10px 0;
 
   h1 {
     font-size: 25px;
@@ -105,7 +106,7 @@ aside {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 15px;
-    margin-bottom: 0px;
+    margin: 0px;
   }
 
   p {
@@ -136,6 +137,17 @@ aside {
       border-bottom: 1px solid deepskyblue;
     }
   }
+
+  &.follow {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 50px;
+
+    img {
+      display: block;
+      margin: 30px auto;
+    }
+  }
 }
 
 hr {
@@ -143,7 +155,7 @@ hr {
   border-bottom: 1px solid #eee;
   width: 95%;
 
-  margin: 100px auto;
+  margin: 60px auto;
 }
 
 .box {
