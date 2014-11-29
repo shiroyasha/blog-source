@@ -105,8 +105,8 @@ puts "\e[a;b;c;dm" # where a, b, c, d are parameters
 Notice how the parameters are delimited with the ; symbol. You can write as many parameters as you want. Here are some nice examples:
 
 ``` ruby
-puts "\e[31mtest" # output red test
-puts "\e[31;47mtest" # output red test with white background
+puts "\e[31mtest"        # output red test
+puts "\e[31;47mtest"     # output red test with white background
 puts "\e[1;4;31;47mtest" # output red on white, bold, underlined test
 ```
 
