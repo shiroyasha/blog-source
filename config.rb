@@ -108,3 +108,10 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
+
+
+helpers do
+  def random_article
+    page_articles.reject { |a| a == current_article }.sample
+  end
+end

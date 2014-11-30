@@ -23,21 +23,10 @@
 
   <hr>
 
-  <aside>
-    <p class="next">Read this next</p>
-
-    <% random_article = page_articles.reject { |a| a == current_article }.sample %>
-    
-    <h1><%= random_article.title %></h1>
-    <%= random_article.summary %>
-    <%= link_to "Continue reading &#10230;", random_article %>
-
-  </aside>
+  <%= partial "partials/article_showcase", :locals => { :article => random_article } %> 
 
   <hr>
 
-  <aside class="follow">
-    <img height="50px" src="https://g.twimg.com/Twitter_logo_blue.png">
-    You should <a href="https://twitter.com/igor_sarcevic">follow me on Twitter.</a>
-  </aside>
+  <%= partial "partials/follow_on_twitter" %>
+
 <% end %>

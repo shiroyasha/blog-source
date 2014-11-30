@@ -1,0 +1,37 @@
+.showcase {
+  width: 960px;
+  display: block;
+  clear: both;
+
+  margin: 100px auto;
+
+  .image {
+    width: 360px;
+    float: left;
+    padding: 10px 30px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .summary {
+    width: 600px;
+    float: left;
+  }
+}
+
+@media (max-width: 960px) {
+  .showcase {
+    width: 600px;
+    padding: 10px;
+
+    .image {
+      display: none;
+    }
+
+    .summary {
+      width: 100%;
+    }
+  }
+}

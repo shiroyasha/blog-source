@@ -1,0 +1,16 @@
+<aside class="showcase cf">
+  <div class="image">
+    <% if article.data.image %>
+      <img src="/images/<%= article.data.image %>">
+    <% end %>
+  </div>
+
+  <div class="summary">
+    <p class="next">Read this next</p>
+
+    <h1><%= article.title %></h1>
+
+    <%= article.summary %>
+    <%= link_to "Continue reading &#8594;", article %>
+  </div>
+</aside>
