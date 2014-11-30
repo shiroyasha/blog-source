@@ -1,5 +1,5 @@
 ---
-title: Alias methods &mdash; CoffeeScript
+title: Alias methods in CoffeeScript
 date: 2014-10-10
 tags: coffeescript
 image: alias-methods-coffeescript.png
