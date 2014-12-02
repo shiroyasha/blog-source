@@ -36,9 +36,9 @@ $ ./hello_world.sh
 
 ## Rules for the shebang
 
-The shebang command must be the first line of the file and can contain any valid path for the interpreter, followed by the arguments that will be sent with the invocation.
+The shebang command must be the first line of the file and can contain any valid path for the interpreter, followed by an argument that the command will receive.
 
-The shebang line is read by the system before the execution of the program, but the shebang line will not be automatically deleted. So if you want to write your own interpreter, you must manually handle that line.
+The shebang line is read by the system before the execution of the program, but the that line will not be automatically deleted. So if you want to write your own interpreter, you must manually handle that line.
 
 For example we can even write a program that outputs itself by writing
 
@@ -47,8 +47,21 @@ For example we can even write a program that outputs itself by writing
 Answer to the ultimate question is 42!
 ```
 
+## Better paths in the shebang
+
+The above examples used absolute paths to address the commands in the shebang line. While this is *ok*, it would be a safer alternative to use the `/usr/bin/env` path like in the following example.
+
+``` sh
+#!/usr/bin/env cat
+Answer to the ultimate question is 42!
+```
+
+The above can help you mitigate problems when the command is not in its expected folder by using the paths set in your environment variables.
+
 ## Summary
 
 This is one of the easiest things you can learn to write better scripts,  and it is invaluable if you never heard of it before.
 
 Happy hacking!
+
+*Update:* [maandree](https://github.com/maandree) pointed out that it is safer to use `/usr/bin/env` and that the shebang command takes only one argument
