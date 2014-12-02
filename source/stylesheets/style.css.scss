@@ -108,6 +108,12 @@ article {
     border-radius: 5px;
     position: relative;
   }
+
+  blockquote p {
+    border-left: 8px solid #ff625a;
+    padding: 22px;
+    font-size: 22px;
+  }
 }
 
 aside, article.listing {
