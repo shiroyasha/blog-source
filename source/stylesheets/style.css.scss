@@ -34,6 +34,21 @@ img.top-image {
   }
 }
 
+a {
+  text-decoration: none;
+  color: deepskyblue;
+  border-bottom: 1px solid white;
+  -webkit-transition: all 0.3s;
+}
+
+a:hover {
+  border-bottom: 1px solid deepskyblue;
+}
+
+.top-navigation {
+  padding: 30px;
+}
+
 article {
   padding-left: 10px;
   padding-right: 10px;
@@ -83,16 +98,6 @@ article {
     }
   }
 
-  a {
-    text-decoration: none;
-    color: deepskyblue;
-    border-bottom: 1px solid white;
-    -webkit-transition: all 0.3s;
-  }
-
-  a:hover {
-    border-bottom: 1px solid deepskyblue;
-  }
 
   pre {
     width: 620px;
@@ -181,20 +186,4 @@ hr {
   width: 95%;
 
   margin: 60px auto;
-}
-
-.box {
-  margin: 20px;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  border-radius: 50%;
-
-  background: black;
-  color: white;
-  font-size: 25px;
-  line-height: 39px;
-  text-align: center;
-  margin-right: 5px;
-  cursor: pointer;
 }
