@@ -28,6 +28,7 @@ img.top-image {
   display: block;
   max-width: 100%;
   max-height: 500px;
+  width: initial;
 
   &.index {
     margin: 100px auto;
@@ -71,6 +72,10 @@ article {
       font-size: 20px;
       color: #777;
     }
+  }
+
+  img {
+    width: 100%;  
   }
 
   h2 {
