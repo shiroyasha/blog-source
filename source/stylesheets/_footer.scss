@@ -1,0 +1,16 @@
+footer.footer {
+  text-align: center;
+  padding: 15px;
+  background: #444;
+  color: white;
+
+  font-size: 14px;
+
+  a {
+    border-bottom-color: #444;
+
+    &:hover {
+      border-bottom-color: deepskyblue;
+    }
+  }
+}

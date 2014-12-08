@@ -1,0 +1,10 @@
+a {
+  text-decoration: none;
+  color: deepskyblue;
+  border-bottom: 1px solid white;
+  -webkit-transition: all 0.3s;
+}
+
+a:hover {
+  border-bottom: 1px solid deepskyblue;
+}
