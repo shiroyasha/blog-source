@@ -110,7 +110,7 @@ puts "\e[31;47mtest"     # output red test with white background
 puts "\e[1;4;31;47mtest" # output red on white, bold, underlined test
 ```
 
-A great resource for finding arguments for the above command is [the wikipedia article describing escape sequences](http://en.wikipedia.org/wiki/ANSI_escape_code#CSI_codes).
+A great resource for finding arguments for the above command is [the Wikipedia article describing escape sequences](http://en.wikipedia.org/wiki/ANSI_escape_code#CSI_codes).
 
 ## Summary
 

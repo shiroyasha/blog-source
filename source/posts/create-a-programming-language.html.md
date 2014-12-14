@@ -85,6 +85,6 @@ And then read out the result as the first thing in our array. That is 9. Eureka!
 
 This is a very rough sketch that should give you an idea what an actual interpreter does. Of course it is much smarter, and can recognize other datatypes, not just numbers, but at its core it does something similar to this.
 
-Also you can check out my source code [at github](https://github.com/shiroyasha/bracket).
+Also you can check out my source code [at GitHub](https://github.com/shiroyasha/bracket).
 
 Happy hacking!

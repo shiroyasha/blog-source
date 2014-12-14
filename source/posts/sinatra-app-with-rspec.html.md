@@ -7,9 +7,9 @@ image: sinatra-app-with-rspec.png
 
 There are times when the only thing I want to create is a simple API. In the Ruby ecosystem the standard for creating something simple is Sinatra. But, there are a lot of things you miss in Sinatra that you have predefined in Rails. Sinatra let's you define and include only the things you actually need. Maybe this is a good thing, maybe it is not.
 
-However, the things you need for a complete Sinatra application are sometimes hard to include. This tutorial aims to help you in that process, by showing you how to create a simple Sinatra web application that uses Rspec for testing.
+However, the things you need for a complete Sinatra application are sometimes hard to include. This tutorial aims to help you in that process, by showing you how to create a simple Sinatra web application that uses RSpec for testing.
 
-We will create a simple TODO application with only two actions. One for listing all the existing Todos and another one for adding a new one. It will use Sinatra for creating the API, Rpsec for testing, and it will also include Active Support for adding a couple of nice functionality to the Ruby language.
+We will create a simple Todo application with only two actions. One for listing all the existing Todos and another one for adding a new one. It will use Sinatra for creating the API, RSpec for testing, and it will also include Active Support for adding a couple of nice functionality to the Ruby language.
 
 ## Bootstrap
 
@@ -34,7 +34,7 @@ We can install the dependencies with `bundle install`. I like to put my dependen
 bundle install --path vendor/bundle
 ```
 
-Then we can init RSpec in for project. The following command should create an `.rspec` and a `spec/spec_helper.rb` file.
+Then we can initialize RSpec in for project. The following command should create an `.rspec` and a `spec/spec_helper.rb` file.
 
 ``` sh
 bundle exec rspec --init
@@ -74,9 +74,9 @@ $db = []                                    # a fake database
 
 Now we should make the spec_helper load this file before the tests are run. To do that we need to prepend that file with a require statement.
 
-While we are here it would be also a good idea to set the environment to test when running rspec, include some rake test helpers, and clear the fake database before each test. 
+While we are here it would be also a good idea to set the environment to test when running RSpec, include some rake test helpers, and clear the fake database before each test. 
 
-Your `spec/spec_helper.rb` file should look similiar to this.
+Your `spec/spec_helper.rb` file should look similar to this.
 
 ``` ruby
 ENV['RACK_ENV'] = 'test'
@@ -235,4 +235,4 @@ bundle exec rackup config.ru
 
 Hooray! Our simple API is finished.
 
-Read the full source code [in this Github repo](https://github.com/shiroyasha/sinatra_rspec).
+Read the full source code [in this GitHub repository](https://github.com/shiroyasha/sinatra_rspec).
