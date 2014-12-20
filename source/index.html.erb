@@ -1,48 +1,23 @@
 ---
 pageable: true
-per_page: 10
+per_page: 5
 ---
-<% if paginate && num_pages > 1 %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
-
-  <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
-  <% end %>
-<% end %>
 
 <% page_articles.each_with_index do |article, i| %>
-  <%= partial "partials/article_showcase", :locals => { :article => article } %> 
+  <%= partial "partials/article_showcase", :locals => { 
+     :article => article,
+     :first_article => (i == 0)} %> 
 <% end %>
 
 <% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
-  <% end %>
+  <p class="pagination">
+    <% if next_page %>
+      <%= link_to "&#8592; Older articles ", next_page, :class => "older" %>
+    <% end %>
+    <% if prev_page %>
+      <%= link_to "Newer articles &#8594;", prev_page, :class => "newer" %>
+    <% end %>
+  </p>
 <% end %>
 
 <hr>
-
-<!--
-<aside>
-  <h2>Recent Articles</h2>
-  <ol>
-    <% blog.articles[0...10].each do |article| %>
-      <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
-  <% end %>
-  </ol>
-
-  <h2>Tags</h2>
-  <ol>
-    <% blog.tags.each do |tag, articles| %>
-      <li><%= link_to "#{tag} (#{articles.size})", tag_path(tag) %></li>
-  <% end %>
-  </ol>
-
-  <h2>By Year</h2>
-  <ol>
-    <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
-      <li><%= link_to "#{year} (#{articles.size})", blog_year_path(year) %></li>
-  <% end %>
-  </ol>
-</aside>
--->

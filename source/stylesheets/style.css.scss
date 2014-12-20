@@ -6,6 +6,8 @@
 @import "clearfix";
 @import "links";
 @import "article_image";
+@import "code_highlight";
+@import "pagination";
 
 article {
   padding-left: 10px;
@@ -54,7 +56,7 @@ article {
     color: #444;
 
     code {
-      background: #fffce0;
+      background: #fffff0;
       color: #6b4e32;
       padding: 2px 5px;
     }
@@ -65,13 +67,10 @@ article {
     width: 620px;
     max-width: 100%;
     margin: auto;
-    color: #382927;
-    background: #fffce0;
     padding: 15px;
 
     overflow-y: auto;
     line-height: 1.5;
-    font-size: 14px;
     border-radius: 5px;
     position: relative;
   }

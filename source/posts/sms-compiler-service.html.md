@@ -62,7 +62,7 @@ When you run the application and visit `/sms-code` you should see an output like
 </Response>
 ```
 
-## Connection this service to Twilio
+## Connecting this service to Twilio
 
 At this point you should create a Twilio account with a phone number that will receive the messages, and a server from which your application will be available on the internet, for example a [Heroku](https://www.heroku.com/) server is a good choice.
 
