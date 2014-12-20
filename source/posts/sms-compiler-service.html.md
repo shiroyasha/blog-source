@@ -98,7 +98,7 @@ After you deploy this code you should be able to send some ruby code to your pho
 
 ## Summary
 
-Working with sms is really fun especially the part where my phone vibrates and shows me the result. This can be also a great exercise for creating two factor authorization or similar useful things.
+Working with sms is really fun especially the part where my phone vibrates and shows me the result. This can also be a great exercise for creating two factor authorization or similar useful things.
 
 Also check out the [example repository on GitHub](https://github.com/shiroyasha/sms-ruby-code).
 

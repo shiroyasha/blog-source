@@ -7,7 +7,7 @@ image: escape-sequences-a-quick-guide.png
 
 Two year ago I thought I know a lot about the Linux command line. Then I started digging deeper. Replaced Bash with Zsh, learned about jobs, started writing shell scripts, and even ditched Sublime text in favor of editing with command line Vim. Again I thought I know a lot about the Linux command line. Then I started digging deeper again...
 
-Few weeks ago I wrote a blog post that described [how to create progress bars for command line application](http://shiroyasha.svbtle.com/processbar-for-console-applications). There I have described how to stay on the same line, and thus simulate a filling progress bar. That blog post made me wonder if there is a way to change multiple lines of text at once. I started looking for a solution, but what I found was more amazing than I ever thought it would be.
+A few weeks ago I wrote a blog post that described [how to create progress bars for command line application](http://shiroyasha.svbtle.com/processbar-for-console-applications). There I have described how to stay on the same line, and thus simulate a filling progress bar. That blog post made me wonder if there is a way to change multiple lines of text at once. I started looking for a solution, but what I found was more amazing than I ever thought it would be.
 
 The thing I have found was a way to insert escape characters in the output of your commands that would tell the terminal to do all sorts of crazy things, like move your cursor up several lines, blink the output, change the color, etc...
 
@@ -114,6 +114,6 @@ A great resource for finding arguments for the above command is [the Wikipedia a
 
 ## Summary
 
-These control characters may seem complicated at first glance, but once you play around with them they become simple and powerful. With this knowledge you can finally understand the PS1 environment variable, have beautiful command line applications, or as in my case, make a nyancat run through your screen representing the progress of you test suite.
+These control characters may seem complicated at first glance, but once you play around with them they become simple and powerful. With this knowledge you can finally understand the PS1 environment variable, have beautiful command line applications, or as in my case, make a nyancat run through your screen representing the progress of your test suite.
 
 Happy hacking!

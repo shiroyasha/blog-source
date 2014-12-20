@@ -74,7 +74,7 @@ $db = []                                    # a fake database
 
 Now we should make the spec_helper load this file before the tests are run. To do that we need to prepend that file with a require statement.
 
-While we are here it would be also a good idea to set the environment to test when running RSpec, include some rake test helpers, and clear the fake database before each test. 
+While we are here it would also be a good idea to set the environment to test when running RSpec, include some rake test helpers, and clear the fake database before each test. 
 
 Your `spec/spec_helper.rb` file should look similar to this.
 

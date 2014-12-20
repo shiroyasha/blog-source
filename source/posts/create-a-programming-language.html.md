@@ -7,7 +7,7 @@ image: lambda.png
 
 I have been programming for a long time. Probably much longer than I  want to admit. Yet, for a long time, there was something mysterious about the way I created my programs. Yes, I could write a lot of stuff in programming languages, but I had no idea how to create a programming language itself. 
 
-With time, and some healthy logic, I kinda deducted how that process could be achieved, but at the beginning of this year I actually wrote a programming language prototype of my own. This is a story that shows some how I crated a Lisp like programming language prototype called Bracket.
+With time, and some healthy logic, I kinda deducted how that process could be achieved, but at the beginning of this year I actually wrote a programming language prototype of my own. This is a story that shows how I crated a Lisp like programming language prototype called Bracket.
 
 ## Programs are only strings in a file
 

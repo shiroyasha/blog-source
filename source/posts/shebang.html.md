@@ -5,7 +5,7 @@ tags: shell
 image: shebang.png
 ---
 
-Unix systems are really smart when it comes to interpreting your application. Not only do  they provide you with an excellent environment for development, but also let you specify the interpret in you source file. As it turns out, this technique lets you write an application in any programming language without forcing your end users to know the details of your implementation. This article is about describing this simple technique.
+Unix systems are really smart when it comes to interpreting your application. Not only do  they provide you with an excellent environment for development, but also let you specify the interpreter in you source file. As it turns out, this technique lets you write an application in any programming language without forcing your end users to know the details of your implementation. This article is about describing this simple technique.
 
 Lets start with an example hello world application written in bash script.
 
@@ -38,7 +38,7 @@ $ ./hello_world.sh
 
 The shebang command must be the first line of the file and can contain any valid path for the interpreter, followed by an argument that the command will receive.
 
-The shebang line is read by the system before the execution of the program, but the that line will not be automatically deleted. So if you want to write your own interpreter, you must manually handle that line.
+The shebang line is read by the system before the execution of the program, but that line will not be automatically deleted. So if you want to write your own interpreter, you must manually handle that line.
 
 For example we can even write a program that outputs itself by writing
 
