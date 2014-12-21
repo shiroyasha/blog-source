@@ -11,11 +11,13 @@ The majority of today's development is oriented around the web or around desktop
 
 Two or three months ago I watched [an episode on Computerphile](http://shiroyasha.github.io/sinatra-app-with-rspec.html), where a young programmer demonstrated his applications that receives code through sms messages, runs that code, and answers him back on his phone. I was fascinated with his applications, and today I will try to demonstrate the basics of this process, using a service that connects sms messages to web applications &mdash; [Twilio](https://www.twilio.com/). In a nutshell:
 
-> I will create a web application that receives ruby code from sms messages, executes that code, and sends back an sms with the output.
+> Create a web application that receives ruby code from sms messages,
+> executes that code, and sends back an sms with the output.
 
 ## Bootstrap
 
-To achieve the above I will use Sinatra web framework and Twilio's gem to receive sms messages. My Gemfile looks like this:
+To achieve the above we will use the Sinatra web framework, and Twilio's
+gem to receive SMS messages. Our Gemfile should look like this:
 
 ``` ruby
 source "https://rubygems.org"
@@ -31,9 +33,10 @@ group :test do
 end
 ```
 
-Also, I will have a route set up to receive Twilio's webhooks in my main application file.
+Also, we will set up a Sinatra route that will receive Twilio's webhooks 
+in our main application file.
 
-``` sh
+``` ruby
 post "/sms-code" do
   "Hello human!"
 end
@@ -41,7 +44,9 @@ end
 
 ## Responding to sms messages
 
-To respond to sms messages, you will have to use Twilio's `twiml` language, and construct an xml response that Twilio can understand. To answer `Hello human!` to every incoming message you can do the following
+To respond to sms messages, we will have to use Twilio's `twiml` language,
+and construct an XML response that Twilio can understand. To answer 
+`Hello human!` to every incoming message we can do the following:
 
 ``` ruby
 post "/sms-code" do
@@ -53,7 +58,7 @@ post "/sms-code" do
 end
 ```
 
-When you run the application and visit `/sms-code` you should see an output like this
+When we run our application and visit `/sms-code` we should see an output like this:
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -64,15 +69,29 @@ When you run the application and visit `/sms-code` you should see an output like
 
 ## Connecting this service to Twilio
 
-At this point you should create a Twilio account with a phone number that will receive the messages, and a server from which your application will be available on the internet, for example a [Heroku](https://www.heroku.com/) server is a good choice.
+At this point we should create a Twilio account with a phone number that will 
+receive the messages and a place to host our application online. For example a 
+[Heroku](https://www.heroku.com/) dyno would be an excellent choice.
 
-After that go to your numbers settings on Twilio and set the webhook url to the location of your web application. Choose `POST` as a method of communication.
+After that we need to set up a webhook for our number on Twilio, where
+all the incoming messages will arrive. We should visit our number's settings
+and add the full URL to our sms handler. We will use the `POST` HTTP
+method so that Twilio won't cache our requests and responses.
+The setting screen should look similar to this:
 
-**Note**: If you want Twilio to cache your responses, use the `GET` method. In our use case we don't want that caching to happen so we use `POST`.
+![Webhook settings on Twilio](/images/twilio_number_setup.png)
+
+**Note**: If you want Twilio to cache your responses, use the `GET` method.
+In our use case we don't want that caching to happen so we use `POST`.
 
 ## Receiving the message
 
-The previous example responded `Hello human!` to every received sms. Now we will extend our application and use the body of the sms message to respond according to it.
+The previous example responded `Hello human!` to every received sms message.
+We will now extend our application and use the body of the incoming sms 
+message.
+
+The following example takes the incoming message with `params[:Body]`
+and evaluates it as executable Ruby code.
 
 ``` ruby
 #
@@ -92,14 +111,19 @@ post "/sms-code" do
 end
 ```
 
-After you deploy this code you should be able to send some ruby code to your phone and receive its output. Enjoy!
+After deployment this code you should evaluate and return the results of
+incoming sms messages.
 
-**Note:** The above code segment uses the body parameter of the sms message to evaluate some ruby code. This is very dangerous, and is only here for demonstration purpose.
+**Note:** The above code segment uses the body parameter of the sms message
+to evaluate some Ruby code. This is very dangerous, and is only used for 
+demonstration purposes.
 
 ## Summary
 
-Working with sms is really fun especially the part where my phone vibrates and shows me the result. This can also be a great exercise for creating two factor authorization or similar useful things.
+Working with sms is really fun especially the part where your phone vibrates
+and shows the result of your code. This exercise can also serve as a great
+warm up before creating two factor authorization or similar sms bound systems.
 
-Also check out the [example repository on GitHub](https://github.com/shiroyasha/sms-ruby-code).
+Check out the [example repository on GitHub](https://github.com/shiroyasha/sms-ruby-code).
 
 Happy hacking!

@@ -5,7 +5,7 @@ tags: example
 image: escape-sequences-a-quick-guide.png
 ---
 
-Two year ago I thought I know a lot about the Linux command line. Then I started digging deeper. Replaced Bash with Zsh, learned about jobs, started writing shell scripts, and even ditched Sublime text in favor of editing with command line Vim. Again I thought I know a lot about the Linux command line. Then I started digging deeper again...
+Two years ago I thought I knew a lot about the Linux command line. Then I started digging deeper. Replaced Bash with Zsh, learned about jobs, started writing shell scripts, and even ditched Sublime text in favor of editing with command line Vim. Again I thought I know a lot about the Linux command line. Then I started digging deeper again...
 
 A few weeks ago I wrote a blog post that described [how to create progress bars for command line application](http://shiroyasha.svbtle.com/processbar-for-console-applications). There I have described how to stay on the same line, and thus simulate a filling progress bar. That blog post made me wonder if there is a way to change multiple lines of text at once. I started looking for a solution, but what I found was more amazing than I ever thought it would be.
 

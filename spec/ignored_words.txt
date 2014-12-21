@@ -21,11 +21,14 @@ Sep
 sms
 sms
 Sms
+SMS
 Twilio
 unmaintainable
 url
 webhook
 webhooks
+Webhook
+Webhooks
 Wikipedia
 xml
 Zsh
@@ -40,3 +43,4 @@ couldn
 aren
 th
 didn
+dyno
