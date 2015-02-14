@@ -30,7 +30,7 @@ machine. We will use the `system` command instead of the back-ticks, so we can
 _join the output_ of the command with the output of our ruby script.
 
 ``` ruby
-system "sudo apt-get -y intall vim"
+system "sudo apt-get -y install vim"
 ```
 
 This should work fine. But not always...  If your internet connection is
@@ -42,7 +42,7 @@ the status code of the last executed shell command. Let's use to show an error
 message to the user:
 
 ``` ruby
-system "sudo apt-get -y intall vim"
+system "sudo apt-get -y install vim"
 
 if $?.exitstatus > 0
   puts "I failed to install Vim, I am very sorry :'(" 
