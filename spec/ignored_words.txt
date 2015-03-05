@@ -11,6 +11,11 @@ Heroku
 html
 http
 nyancat
+wildcard
+boolean
+Bourne
+Expr
+POSIX
 ok
 parameterized
 Parameterized
