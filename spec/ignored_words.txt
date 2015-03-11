@@ -11,6 +11,10 @@ Heroku
 html
 http
 nyancat
+ftw
+Hah
+isn
+Whooa
 wildcard
 boolean
 Bourne
