@@ -54,3 +54,4 @@ th
 didn
 dyno
 doesn
+SemaphoreCI
