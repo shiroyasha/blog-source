@@ -29,6 +29,7 @@ activate :blog do |blog|
   # blog.page_link = "page/{num}"
 end
 
+page "/sitemap.xml", :layout => false
 page "/feed.xml", :layout => false
 page "/index.html", :layout => "layout"
 
