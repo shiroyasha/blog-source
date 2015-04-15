@@ -105,30 +105,30 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
-  activate :imageoptim do |options|
-    # Silence problematic image_optim workers
-    options.skip_missing_workers = true
-
-    # Setting these to true or nil will let options determine them (recommended)
-    options.nice = true
-    options.threads = true
-
-    # Image extensions to attempt to compress
-    options.image_extensions = %w(.png .jpg .gif .svg)
-
-    # Compressor worker options, individual optimisers can be disabled by passing
-    # false instead of a hash
-    options.advpng    = { :level => 4 }
-    options.gifsicle  = { :interlace => false }
-    options.jpegoptim = { :strip => ['all'], :max_quality => 100 }
-
-    options.jpegtran  = { :copy_chunks => false,
-                          :progressive => true,
-                          :jpegrescan => true }
-
-    options.optipng   = { :level => 6, :interlace => false }
-    options.pngcrush  = { :chunks => ['alla'], :fix => false, :brute => false }
-    options.pngout    = false
-    options.svgo      = false
-  end
+#  activate :imageoptim do |options|
+#    # Silence problematic image_optim workers
+#    options.skip_missing_workers = true
+#
+#    # Setting these to true or nil will let options determine them (recommended)
+#    options.nice = true
+#    options.threads = true
+#
+#    # Image extensions to attempt to compress
+#    options.image_extensions = %w(.png .jpg .gif .svg)
+#
+#    # Compressor worker options, individual optimisers can be disabled by passing
+#    # false instead of a hash
+#    options.advpng    = { :level => 4 }
+#    options.gifsicle  = { :interlace => false }
+#    options.jpegoptim = { :strip => ['all'], :max_quality => 100 }
+#
+#    options.jpegtran  = { :copy_chunks => false,
+#                          :progressive => true,
+#                          :jpegrescan => true }
+#
+#    options.optipng   = { :level => 6, :interlace => false }
+#    options.pngcrush  = { :chunks => ['alla'], :fix => false, :brute => false }
+#    options.pngout    = false
+#    options.svgo      = false
+#  end
 end
