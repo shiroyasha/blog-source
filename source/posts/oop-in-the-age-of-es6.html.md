@@ -32,7 +32,7 @@ new OOP system uses it to define new classes. Here is an example:
 ``` javascript
 class Dog {
   constructor(name) {
-    this.name;
+    this.name = name;
   }
 
   bark() {
@@ -55,7 +55,7 @@ ES5 format:
 
 ``` javascript
 function Dog(name) {
-  this.name;
+  this.name = name;
 }
 
 Dog.prototype.bark = function() {
@@ -185,7 +185,7 @@ class User {
   }
 
   fullName() {
-    `${this.firstName} ${this.lastName}`
+    return `${this.firstName} ${this.lastName}`
   }
 }
 
@@ -197,8 +197,8 @@ console.log(user.fullName());
 Note: I used the sexy new string template syntax, go look it up, you won't regret it. :D
 
 The `fullName` method is simple but it can bother you that you must
-to append the function invoking brackets `user.fullName()` every time you need to know 
-the full name of the user. Luckily, we can user getters:
+append the function invoking brackets `user.fullName()` every time you need to know 
+the full name of the user. Luckily, we can use getters:
 
 ``` javascript
 class User {
@@ -210,7 +210,7 @@ class User {
   }
 
   get fullName() {
-    `${this.firstName} ${this.lastName}`
+    return `${this.firstName} ${this.lastName}`
   }
 }
 
