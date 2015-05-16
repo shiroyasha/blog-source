@@ -6,7 +6,7 @@
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
-  # blog.prefix = "blog"
+  blog.name = "blog"
 
   blog.permalink = "{title}.html"
   # Matcher for blog source files
@@ -27,6 +27,16 @@ activate :blog do |blog|
   blog.paginate = true
   # blog.per_page = 10
   # blog.page_link = "page/{num}"
+end
+
+activate :blog do |blog|
+  blog.name = "tips"
+
+  blog.permalink = "tips/{title}.html"
+  blog.sources = "tips/posts/{title}.html"
+
+  blog.paginate = true
+  blog.layout = "article_layout"
 end
 
 page "/sitemap.xml", :layout => false

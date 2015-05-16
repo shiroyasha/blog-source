@@ -1,7 +1,5 @@
 <% wrap_layout :layout do %>
-  <div class='top-navigation'>
-    <%= link_to "&#8592; Other articles", "/" %>
-  </div>
+  <%= partial "partials/navigation", :locals => {:section => :articles} %>
 
   <article>
     <% if current_article.data.image %>
