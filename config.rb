@@ -20,8 +20,8 @@ activate :blog do |blog|
   # blog.day_link = "{year}/{month}/{day}.html"
   # blog.default_extension = ".markdown"
 
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
+  # blog.tag_template = "tag.html"
+  # blog.calendar_template = "calendar.html"
 
   # Enable pagination
   blog.paginate = true
@@ -36,7 +36,7 @@ activate :blog do |blog|
   blog.sources = "tips/posts/{title}.html"
 
   blog.paginate = true
-  blog.layout = "article_layout"
+  blog.layout = "tip_layout"
 end
 
 page "/sitemap.xml", :layout => false
@@ -44,6 +44,7 @@ page "/feed.xml", :layout => false
 page "/index.html", :layout => "layout"
 
 ignore "article_layout.erb"
+ignore "tip_layout.erb"
 
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true
