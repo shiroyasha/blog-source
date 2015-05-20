@@ -2,6 +2,7 @@
 title: Create a programming language
 date: 2014-12-04
 tags: general
+blog: blog
 image: lambda.png
 ---
 

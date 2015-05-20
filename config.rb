@@ -6,7 +6,7 @@
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
-  # blog.prefix = "blog"
+  blog.name = "blog"
 
   blog.permalink = "{title}.html"
   # Matcher for blog source files
@@ -20,8 +20,8 @@ activate :blog do |blog|
   # blog.day_link = "{year}/{month}/{day}.html"
   # blog.default_extension = ".markdown"
 
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
+  # blog.tag_template = "tag.html"
+  # blog.calendar_template = "calendar.html"
 
   # Enable pagination
   blog.paginate = true
@@ -29,11 +29,22 @@ activate :blog do |blog|
   # blog.page_link = "page/{num}"
 end
 
+activate :blog do |blog|
+  blog.name = "tips"
+
+  blog.permalink = "tips/{title}.html"
+  blog.sources = "tips/posts/{title}.html"
+
+  blog.paginate = true
+  blog.layout = "tip_layout"
+end
+
 page "/sitemap.xml", :layout => false
 page "/feed.xml", :layout => false
 page "/index.html", :layout => "layout"
 
 ignore "article_layout.erb"
+ignore "tip_layout.erb"
 
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true

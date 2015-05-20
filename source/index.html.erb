@@ -1,7 +1,10 @@
 ---
 pageable: true
 per_page: 5
+blog: blog
 ---
+
+<%= partial "partials/navigation", :locals => {:section => :articles} %>
 
 <% page_articles.each_with_index do |article, i| %>
   <%= partial "partials/article_showcase", :locals => { 

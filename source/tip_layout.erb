@@ -1,10 +1,8 @@
 <% wrap_layout :layout do %>
   <%= partial "partials/navigation", :locals => {:section => :articles} %>
 
-  <article>
-    <% if current_article.data.image %>
-      <img class="top-image" src="/images/<%= current_article.data.image %>">
-    <% end %>
+  <article class="tip">
+    <img class="top-image" src="/images/tip1.png">
 
     <div class="header">
       <div class="subtitle">
@@ -13,7 +11,7 @@
         <time><%= current_article.date.strftime("%B %e, %Y") %></time>
       </div>
 
-      <h1><%= current_article.title %></h1>
+      <h1 class="tip-title"><%= current_article.title %></h1>
     </div>
 
     <%= yield %>
