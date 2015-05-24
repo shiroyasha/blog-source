@@ -2,7 +2,7 @@
   <%= partial "partials/navigation", :locals => {:section => :articles} %>
 
   <article class="tip">
-    <img class="top-image" src="/images/tip1.png">
+    <img class="top-image" src="/images/<%= current_article.data.image || "tip1.png" %>">
 
     <div class="header">
       <div class="subtitle">
