@@ -21,7 +21,7 @@
 
   <div class="share-icons">
     <% title = ERB::Util.url_encode("#{current_article.title}") %>
-    <% url   = ERB::Util.url_encode("http://shiroyasha.github.io/#{current_article.url}") %>
+    <% url   = ERB::Util.url_encode("http://shiroyasha.github.io#{current_article.url}") %>
 
     <a class="reddit" href="http://www.reddit.com/submit?url=<%= url %>&title=<%= title %>">
       <i class="fa fa-reddit-square"></i>
