@@ -19,6 +19,29 @@
     <%= yield %>
   </article>
 
+  <div class="share-icons">
+    <% title = ERB::Util.url_encode("#{current_article.title}") %>
+    <% url   = ERB::Util.url_encode("http://shiroyasha.github.io/#{current_article.url}") %>
+
+    <a class="reddit" href="http://www.reddit.com/submit?url=<%= url %>&title=<%= title %>">
+      <i class="fa fa-reddit-square"></i>
+    </a>
+
+    <a class="twitter" href="https://twitter.com/intent/tweet?status=<%= "#{title} #{url} via @igor_sarcevic" %>">
+      <i class="fa fa-twitter-square"></i>
+    </a>
+
+    <a class="facebook" href="http://www.facebook.com/share.php?u=<%= url %>&title=<%= title %>">
+      <i class="fa fa-facebook-square"></i>
+    </a>
+
+    <a class="google-plus" href="https://plus.google.com/share?url=<%= url %>">
+      <i class="fa fa-google-plus-square"></i>
+    </a>
+
+    <p>Share this article</p>
+  </div>
+
   <hr>
 
   <%= partial "partials/article_showcase", :locals => { :article => current_article.previous_article || page_articles.first, :first_article => false } %> 
