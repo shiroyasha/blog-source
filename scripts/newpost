@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+
+class Article
+  attr_reader :title
+
+  def initialize(title)
+    @title = title
+  end
+
+  def file_name
+    @title.downcase.gsub(/\s/, "-")
+  end
+
+  def image_path
+    "#{file_name}.png"
+  end
+
+  def article_path
+    "source/posts/#{file_name}.html.md"
+  end
+
+  def date
+    @date ||= Time.now.strftime("%Y-%m-%d")
+  end
+
+  def default_tags
+    "programming"
+  end
+
+  def header
+    {
+      :title => title,
+      :date => date,
+      :tags => default_tags,
+      :image => image_path
+    }
+  end
+
+  def content
+    [
+      "---",
+      header.map { |k, v| "#{k.to_s}: #{v}" },
+      "---"
+    ].join("\n")
+  end
+
+end
+
+article = Article.new(ARGV.join(" "))
+
+File.write(article.article_path, article.content)
+
+puts "Article path: #{article.article_path}"
