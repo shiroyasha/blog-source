@@ -2,13 +2,13 @@
   <h1>
     <a href="/">
       <img width="25px" class="logo" src="/favicon.ico">
-      <span>shiroyasha</span>
+      <span>shiroyasha.io</span>
     </a>
   </h1>
 
   <ul>
-    <li><%= link_to "Articles", "/" %></li>
-    <li><%= link_to "Projects", "/projects.html" %></li>
-    <li><%= link_to "About", "/about.html" %></li>
+    <li><%= link_to "Articles", "/", :class => (section == :articles ? "active" : "") %></li>
+    <li><%= link_to "Projects", "/projects.html", :class => (section == :projects ? "active" : "")%></li>
+    <li><%= link_to "About", "/about.html", :class => (section == :about ? "active" : "")%></li>
   </ul>
 </div>

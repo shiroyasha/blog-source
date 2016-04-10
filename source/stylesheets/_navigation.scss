@@ -17,7 +17,7 @@
     span {
       padding-left: 5px;
     }
-    
+
     a {
       &, &:hover {
         display: block;
@@ -31,15 +31,19 @@
 
   ul {
     float: right;
-    
+
     li {
       display: inline-block;
 
       a {
         display: block;
-        padding: 15px 10px;
+        padding: 15px 10px 5px;
         color: #444;
         font-weight: bold;
+
+        &.active {
+          border-bottom: 3px solid deepskyblue;
+        }
       }
     }
   }
