@@ -1,5 +1,51 @@
 <%= partial "partials/navigation", :locals => {:section => :about} %>
 
-<article>
-  List of personal projects
-</article>
+<ul class="project-showcase cf">
+  <li>
+    <div class="project-screenshot">
+      <img src="/images/projects/goku.png">
+    </div>
+
+    <%= link_to "Goku", "http://github.com/shiroyasha/goku" %>
+  </li>
+
+  <li>
+    <div class="project-screenshot">
+      <img src="/images/projects/elm-2048.png">
+    </div>
+
+    <%= link_to "Elm 2048", "http://shiroyasha.io/elm-2048" %>
+  </li>
+
+  <li>
+    <div class="project-screenshot">
+      <img src="/images/projects/tetris.png">
+    </div>
+
+    <%= link_to "ES6 Tetris", "http://shiroyasha.io/tetris" %>
+  </li>
+
+  <li>
+    <div class="project-screenshot">
+      <img src="/images/projects/hrc.png">
+    </div>
+
+    <%= link_to "HRC", "http://hrc.herokuapp.com" %>
+  </li>
+
+  <li>
+    <div class="project-screenshot">
+      <img src="/images/projects/xogame.png">
+    </div>
+
+    <%= link_to "Tic-Tac-Toe", "http://xogame.herokuapp.com" %>
+  </li>
+
+  <li>
+    <div class="project-screenshot">
+      <img src="/images/projects/game-of-life.png">
+    </div>
+
+    <%= link_to "Game Of Life", "http://shiroyasha.io/randomGameOfLife/" %>
+  </li>
+</ul>
