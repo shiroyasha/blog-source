@@ -11,6 +11,3 @@ gem "rspec"
 
 gem "builder", "~> 3.0"
 gem "nokogiri"
-
-# gem "middleman-imageoptim"
-# gem "image_optim_pack"
