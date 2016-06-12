@@ -94,6 +94,49 @@ can color our prompt indicator green, and red otherwise.
 
 ![Exit status prompt indicator](images/prompt/exit_status.png)
 
+### Current directory display
+
+I am not a big fan of long command line prompts. A good way to save some place
+on your command prompt is to display only the name of the current directory
+instead of the full path.
+
+For example, instead of the following:
+
+``` bash
+code/blog/source/images/prompt $
+```
+
+I am perfectly fine with displaying only:
+
+``` bash
+prompt $
+```
+
+At first, you may find the lack of the full path confusing, but with time you
+get used to it and you rarely need to lookup the full path.
+
+
+### Git branch
+
+As a developer, you probably spend most of your time in git repositories. A
+valuable information on your prompt can be the name of the current branch. This
+comes even more handy when you have dozens of repositories on your machine.
+
+For example, I store all of my repositories in the `~/code` directory. When I
+enter a directory, I want to have a way to immediately recognize the state where
+I left off work yesterday.
+
+![Git branch in the prompt](images/prompt/git-branch.png)
+
+### Git status indicators
+
+Another useful information in the prompt can be the state of your git
+repository. Instead of writing `git status` every time you want to check if you
+have some uncommitted changes, you can use the combination of the green/red
+color to get this information effortlessly.
+
+In my prompt, if the name of the branch is green, that means that I don't have
+any uncommitted changes. It is red otherwise.
 
 
 
