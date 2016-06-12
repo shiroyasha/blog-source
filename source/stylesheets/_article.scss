@@ -24,14 +24,20 @@ article {
 
   img {
     width: 100%;
-    border: 10px solid #fffff0;
+  }
+
+  h2, h3, h4 {
+    width: 620px;
+    max-width: 100%;
+    margin: 70px auto 20px auto;
   }
 
   h2 {
     font-size: 25px;
-    margin: 70px auto 20px auto;
-    width: 620px;
-    max-width: 100%;
+  }
+
+  h3 {
+    font-size: 18px;
   }
 
   p, ul {
