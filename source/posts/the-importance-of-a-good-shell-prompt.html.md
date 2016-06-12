@@ -138,30 +138,20 @@ color to get this information effortlessly.
 In my prompt, if the name of the branch is green, that means that I don't have
 any uncommitted changes. It is red otherwise.
 
+![Git status in the prompt](images/prompt/git-status.png)
 
+### Minimized jobs
 
+If you are anything like me, you probably open a lot of files with Vim, edit
+them, minimize them with `Ctrl+z`, commit the changes, and then continue to edit
+the file by doing `fg`.
 
+Unfortunately, I used to forget that I have minimized some of the Vim windows,
+and I ended up with several open files, that sometimes conflicted with each
+other.
 
+To avoid this pain, I decided to display this information on my prompt. I use
+the following logic: If I have zero minimized jobs, the prompt displays nothing.
+If I have one or more jobs, the prompt displays the count of the jobs.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Job count on the prompt](images/prompt/job-count.png)
