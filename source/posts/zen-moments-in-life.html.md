@@ -88,6 +88,8 @@ For some weird reason, that moment changed everything. It felt like a giant rock
 fell of my back, and I was free to enjoy life, again. This was around two months
 from today, but I am still happy, calm, and wear a genuine smile every day.
 
+![Happiness](images/zen/happiness.jpg)
+
 It is still super weird how easy was for me to get depressed, angry, anxious
 and pissed of at life. It is even weirded that I only needed to jump into cold
 water at the other side of Europe for it to all go away.
