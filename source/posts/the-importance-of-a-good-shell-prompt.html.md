@@ -1,5 +1,5 @@
 ---
-title: The importance of a good command line shell prompt
+title: The importance of a good command line prompt
 date: 2016-06-12
 tags: programming
 image: running-shell-commands-from-ruby.png
@@ -155,3 +155,15 @@ the following logic: If I have zero minimized jobs, the prompt displays nothing.
 If I have one or more jobs, the prompt displays the count of the jobs.
 
 ![Job count on the prompt](images/prompt/job-count.png)
+
+## Final words
+
+If you like the above changes, you can take a peek at my [current zsh
+prompt](https://github.com/shiroyasha/dotfiles/blob/master/files/prompt).
+
+Also, a good source of inspiration can be the awesome [oh-my-zsh
+project](https://github.com/robbyrussell/oh-my-zsh) or the [bash-it
+project](https://github.com/Bash-it/bash-it) if you prefer Bash as your shell.
+
+Hope you enjoyed the article.<br>
+Stay awesome!
