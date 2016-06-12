@@ -16,7 +16,7 @@ learn and configure the various parts of the system. At first, this time
 investment will slow you down, but with time, your investment will reward you
 development workflow exponentially.
 
-One of the first things you want to modify in your shell is command line prompt.
+One of the first things you want to modify in your shell is the command line prompt.
 
 ## The prompt
 
@@ -34,12 +34,12 @@ example, in the above image you can immediately recognize the following:
 - the current directory (in this case _tmp_)
 - the authority level (`$` for normal users, `#` for admins)
 
-These are very valuable information when you enter the system for the first
+These are valuable information when you enter the system for the first
 time, or when you SSH into an unfamiliar remote server. However, for a local
 development environment, it contains too much information that we don't really
 care about (hostname and username for example).
 
-This is very the power of the shell comes handy. If we don't like something,
+This is where the power of the shell comes handy. If we don't like something,
 there is usually a really simple, _scriptable_, way to change it. In the case of
 the prompt, we want to modify the `PS1` environment variable. For exercise sake,
 we will remove the username and the hostname from our `PS1` variable.
@@ -72,8 +72,8 @@ permanent, we should execute it every time when you log into your system.
 On Linux, or more specifically bash, if you want to execute something every time
 you log into the system, you should put it inside the `~/.bashrc` file.
 
-Let's do that. Open the file, and add `export PS1='\w\$'` as the last line. Now,
-your change in the prompt will remain permanent.
+Let's do that. Open the file, and add `export PS1='\w\$'` at the end of the
+file. Now, your change in the prompt will remain permanent.
 
 ## Ideas for an awesome command line prompt
 
@@ -85,8 +85,8 @@ use to boost my shell productivity.
 
 It has been a long time since we moved from monochromatic displays to the ones
 that support colors. We should definitely make use of this fact. However,
-instead of making our simply colorful, we can use the colors to attach meaning
-to some events and make an awesome indicator in our prompt.
+instead of making our prompt just colorful, we can use the colors to attach
+meaning to some events and make an awesome indicator in our prompt.
 
 The green and red colors are a very good indicators for representing the success
 of the previous command. If the previous command returned an exit status `0` we
