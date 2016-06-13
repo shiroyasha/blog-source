@@ -10,7 +10,7 @@ end
 page "/sitemap.xml", :layout => false
 page "/feed.xml", :layout => false
 page "/index.html", :layout => "layout"
-page "/about.html", :layout => "layout"
+page "/about.html", :layout => "about_layout"
 
 ignore "article_layout.erb"
 

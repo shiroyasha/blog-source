@@ -1,0 +1,17 @@
+<% wrap_layout :layout do %>
+  <%= partial "partials/navigation", :locals => {:section => :articles} %>
+
+  <article>
+    <% if current_page.data.image %>
+      <img class="top-image" src="/images/<%= current_page.data.image %>">
+    <% end %>
+
+    <div class="header">
+      <h1><%= current_page.data.title %></h1>
+    </div>
+
+    <%= yield %>
+  </article>
+
+  <hr>
+<% end %>
