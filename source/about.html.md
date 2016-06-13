@@ -13,7 +13,8 @@ Currently, I am `Time.now - 1991 #=> 25` years old.
 I live in a beautiful city near the
 great river Danube &mdash; [Novi Sad](https://en.wikipedia.org/wiki/Novi_Sad),
 spending my days hacking the hidden & dirty parts of the continuous delivery
-service &mdash; [Semaphore](https://semaphoreci.com/).
+service &mdash; [Semaphore](https://semaphoreci.com/). Enjoying every bit of
+it.
 
 ### Hacker / Engineer
 
@@ -53,3 +54,5 @@ I also enjoy origami. I have even completed several
 was younger and had a bit more time to waste. This was my first one:
 
 ![Senzaburu](images/about/senzaburu.png)
+
+It took me around 3 years to make it. Life well spent!
