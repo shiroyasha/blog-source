@@ -13,6 +13,7 @@ page "/index.html", :layout => "layout"
 page "/about.html", :layout => "about_layout"
 
 ignore "article_layout.erb"
+ignore "about_layout.erb"
 
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true
