@@ -8,8 +8,8 @@ image: zen-moments-in-life.png
 [A Serious Man](http://www.imdb.com/title/tt1019452/) is probably one of my all
 time favorite movies. The protagonist, a simple physics professor, with a
 simple, happy life, is suddenly hit by a streak of miss fortunate events. His
-wife leaves him for another man, while he is forced out of his own house. He is
-blackmailed at work.
+wife leaves him, while he is forced out of his own house. He is blackmailed
+at work.
 
 He is a good man, and he considers himself a serious, but kind person. Every
 issue he faces is not a life-or-death situation, but rather, a calm storm that
@@ -30,13 +30,13 @@ happened, wasn't a major issue, but my general life happiness decreased
 significantly.
 
 I started this year by splitting up with my long time girlfriend, which left me
-in a state of numbness. In a state when the only thing you want to do is to
-scream at life and solve your issue by punching walls as hard as you can. I even
-hooked up with another girl, just to numb the pain, a decision which
-probably made the situation even worse.
+in a state of general numbness. In a state when the only thing you want to
+do is to scream at life and solve your issue by punching walls as hard as you
+can. I even hooked up with another girl, just to numb the pain, a decision
+which probably made the situation even worse.
 
 This was followed by the fact that the person who made me join my current
-workplace, a man I loved and respected immensely, left the company.
+workplace, a man I respected immensely, left the company.
 
 Financially, I was still struggling to pay back my student loans, which were
 keeping me in a constant state of anxiety.
