@@ -2,7 +2,7 @@ activate :blog do |blog|
   blog.name = "blog"
 
   blog.permalink = "{title}.html"
-  blog.sources = "posts/{title}.html"
+  blog.sources = "posts/{year}-{month}-{day}-{title}.html"
   blog.layout = "article_layout"
   blog.paginate = true
 end
