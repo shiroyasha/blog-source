@@ -1,6 +1,5 @@
 ---
 title: Comparing files on different servers
-date: 2015-05-27
 tags: shell, bash
 image: comparing-files.png
 ---

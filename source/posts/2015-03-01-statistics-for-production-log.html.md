@@ -1,6 +1,5 @@
 ---
 title: Sorting your production.log
-date: 2015-03-01
 tags: shell
 image: sorting-your-production-log.png
 ---

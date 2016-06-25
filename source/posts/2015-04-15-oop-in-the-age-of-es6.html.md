@@ -1,6 +1,5 @@
 ---
 title: OOP in the age of ES6
-date: 2015-04-15
 tags: javascript
 image: es6-ninja.png
 ---

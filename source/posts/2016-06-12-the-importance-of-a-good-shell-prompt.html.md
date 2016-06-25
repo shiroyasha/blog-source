@@ -1,6 +1,5 @@
 ---
 title: The importance of a good command line prompt
-date: 2016-06-12
 tags: programming
 image: running-shell-commands-from-ruby.png
 ---

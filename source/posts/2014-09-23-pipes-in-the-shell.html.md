@@ -1,6 +1,5 @@
 ---
 title: Pipes in the shell
-date: 2014-09-23
 tags: shell
 image: pipes-in-the-shell.png
 ---
