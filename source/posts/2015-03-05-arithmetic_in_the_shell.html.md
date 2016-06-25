@@ -1,6 +1,5 @@
 ---
 title: Arithmetic in the Shell
-date: 2015-03-05
 tags: shell
 image: arithmetic.png
 ---

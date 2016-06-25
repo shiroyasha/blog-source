@@ -1,6 +1,5 @@
 ---
 title: Moving files with curly braces
-date: 2015-05-25
 tags: shell, bash
 image: moving_files.png
 ---

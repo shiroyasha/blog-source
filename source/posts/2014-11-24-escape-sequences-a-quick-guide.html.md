@@ -1,6 +1,5 @@
 ---
 title: Escape Sequences - A Quick Guide
-date: 2014-11-24
 tags: example
 image: escape-sequences-a-quick-guide.png
 ---

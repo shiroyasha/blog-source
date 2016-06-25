@@ -1,6 +1,5 @@
 ---
 title: What can you learn from production.log?
-date: 2015-02-10
 tags: shell
 image: what-can-you-learn-from-production-log.png
 ---

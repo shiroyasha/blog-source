@@ -1,6 +1,5 @@
 ---
 title: Running shell commands from Ruby
-date: 2015-02-06
 tags: shell
 image: running-shell-commands-from-ruby.png
 ---

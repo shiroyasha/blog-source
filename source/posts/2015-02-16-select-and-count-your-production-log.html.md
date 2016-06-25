@@ -1,6 +1,5 @@
 ---
 title: Select and count your production.log!
-date: 2015-02-16
 tags: shell
 image: select-and-count-your-production-log.png
 ---

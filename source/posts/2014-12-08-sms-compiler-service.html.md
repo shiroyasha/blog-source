@@ -1,6 +1,5 @@
 ---
 title: Sms compiler service
-date: 2014-12-08
 tags: ruby
 image: sms.png
 ---

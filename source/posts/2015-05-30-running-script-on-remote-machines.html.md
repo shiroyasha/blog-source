@@ -1,6 +1,5 @@
 ---
 title: Running scripts on remote machines
-date: 2015-05-30
 tags: shell, bash
 image: running.png
 ---

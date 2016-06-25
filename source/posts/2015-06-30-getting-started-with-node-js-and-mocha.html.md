@@ -1,6 +1,5 @@
 ---
 title: Getting Started with Node.js and Mocha
-date: 2015-06-30
 tags: node
 image: mocha.png
 external: true

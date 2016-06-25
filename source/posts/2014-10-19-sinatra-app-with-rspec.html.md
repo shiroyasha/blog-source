@@ -1,6 +1,5 @@
 ---
 title: Sinatra applications with RSpec
-date: 2014-10-19
 tags: ruby
 image: sinatra-app-with-rspec.png
 ---

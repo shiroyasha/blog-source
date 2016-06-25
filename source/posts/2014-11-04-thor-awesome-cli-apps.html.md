@@ -1,6 +1,5 @@
 ---
 title: Thor - Awesome CLI applications
-date: 2014-11-4
 tags: shell
 image: thor-awesome-cli-apps.png
 ---

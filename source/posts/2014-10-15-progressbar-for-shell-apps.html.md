@@ -1,6 +1,5 @@
 ---
 title: Progress bar for shell apps
-date: 2014-10-15
 tags: shell
 image: lol.png
 ---

@@ -1,6 +1,5 @@
 ---
 title: Zen moments in life
-date: 2016-06-12
 tags: programming
 image: zen-moments-in-life.png
 ---

@@ -1,8 +1,6 @@
 ---
-title: Tip test
-date: 2014-12-02
+title: A challenge
 tags: challenge
-blog: tips
 image: a-challenge.jpg
 ---
 

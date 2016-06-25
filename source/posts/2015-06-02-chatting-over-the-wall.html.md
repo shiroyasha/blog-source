@@ -1,6 +1,5 @@
 ---
 title: Chatting over the Wall
-date: 2015-06-02
 tags: shell, bash
 image: wall.png
 ---

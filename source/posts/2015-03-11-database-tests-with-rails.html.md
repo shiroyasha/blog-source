@@ -1,6 +1,5 @@
 ---
 title: Database Tests with Rails
-date: 2015-03-11
 tags: ruby
 image: database.png
 ---
