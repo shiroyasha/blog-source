@@ -6,11 +6,23 @@
   </div>
 
   <div class="summary">
-    <p class="next">Read this <%= first_article ? "first" : "next" %></p>
+    <p class="next">
+      <% if article.data[:external] == true %>
+        <span class="external-article">external</span>
+      <% end %>
+
+      Read this <%= first_article ? "first" : "next" %>
+    </p>
 
     <h1><%= article.title %></h1>
 
     <%= article.summary %>
-    <%= link_to "Continue reading &#8594;", article %>
+
+    <% if article.data[:external] == true %>
+      <%= link_to "Continue reading on #{article.data[:source]} &#8594;", article.data[:link] %>
+    <% else %>
+      <%= link_to "Continue reading &#8594;", article %>
+    <% end%>
+
   </div>
 </aside>
