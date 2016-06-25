@@ -7,9 +7,9 @@ blog: blog
 <%= partial "partials/navigation", :locals => {:section => :articles} %>
 
 <% page_articles.each_with_index do |article, i| %>
-  <%= partial "partials/article_showcase", :locals => { 
+  <%= partial "partials/article_showcase", :locals => {
      :article => article,
-     :first_article => (i == 0)} %> 
+     :first_article => (i == 0)} %>
 <% end %>
 
 <% if paginate %>

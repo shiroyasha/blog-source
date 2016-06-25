@@ -18,6 +18,14 @@
     float: left;
     overflow: hidden;
   }
+
+  .external-article {
+    background-color: crimson;
+    color: white;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+  }
 }
 
 @media (max-width: 960px) {
