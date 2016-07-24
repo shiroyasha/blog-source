@@ -12,15 +12,13 @@ blog: blog
      :first_article => (i == 0)} %>
 <% end %>
 
-<div>
-  <% if paginate %>
-    <p class="pagination">
-      <% if next_page %>
-        <%= link_to "&#8592; Older articles ", next_page, :class => "older" %>
-      <% end %>
-      <% if prev_page %>
-        <%= link_to "Newer articles &#8594;", prev_page, :class => "newer" %>
-      <% end %>
-    </p>
-  <% end %>
-</div>
+<% if paginate %>
+  <p class="pagination cf">
+    <% if next_page %>
+      <%= link_to "&#8592; Older articles ", next_page, :class => "older" %>
+    <% end %>
+    <% if prev_page %>
+      <%= link_to "Newer articles &#8594;", prev_page, :class => "newer" %>
+    <% end %>
+  </p>
+<% end %>
