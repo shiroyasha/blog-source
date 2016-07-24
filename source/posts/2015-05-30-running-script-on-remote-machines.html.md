@@ -1,4 +1,5 @@
 ---
+id: 55ce2ff3-d661-4805-acaf-fca5cac327ab
 title: Running scripts on remote machines
 tags: shell, bash
 image: running.png

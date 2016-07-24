@@ -1,4 +1,5 @@
 ---
+id: b60b358e-3173-479c-8ad6-782102a3a05a
 title: Getting Started with Node.js and Mocha
 tags: node
 image: mocha.png

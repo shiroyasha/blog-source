@@ -1,4 +1,5 @@
 ---
+id: 6db62db2-8291-44a0-a2e8-560a33dc1b21
 title: Progress bar for shell apps
 tags: shell
 image: lol.png

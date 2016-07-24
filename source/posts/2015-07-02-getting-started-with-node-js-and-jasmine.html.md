@@ -1,4 +1,5 @@
 ---
+id: e2be8e0a-d7e0-438a-aaf2-9eb19c25c2f9
 title: Getting Started with Node.js and Jasmine
 tags: node
 image: jasmine.png

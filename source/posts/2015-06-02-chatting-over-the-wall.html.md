@@ -1,4 +1,5 @@
 ---
+id: 00bb9753-4b57-4dc2-9fb1-49ca0a784614
 title: Chatting over the Wall
 tags: shell, bash
 image: wall.png

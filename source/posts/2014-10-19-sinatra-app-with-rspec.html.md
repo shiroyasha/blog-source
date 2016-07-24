@@ -1,4 +1,5 @@
 ---
+id: b492d5f2-243a-4d0d-b49c-c437de53e63d
 title: Sinatra applications with RSpec
 tags: ruby
 image: sinatra-app-with-rspec.png

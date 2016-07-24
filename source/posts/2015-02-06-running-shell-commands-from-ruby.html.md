@@ -1,4 +1,5 @@
 ---
+id: 2f22fdf7-a257-4373-a2e6-4eec8ccc761e
 title: Running shell commands from Ruby
 tags: shell
 image: running-shell-commands-from-ruby.png

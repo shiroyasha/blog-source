@@ -1,4 +1,5 @@
 ---
+id: 6c6335e6-4c71-4645-b29e-f9f5a1871f64
 title: Comparing files on different servers
 tags: shell, bash
 image: comparing-files.png

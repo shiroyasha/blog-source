@@ -1,4 +1,5 @@
 ---
+id: 6e334d4d-8a54-4f00-abaa-0cee51fd68b1
 title: Sms compiler service
 tags: ruby
 image: sms.png

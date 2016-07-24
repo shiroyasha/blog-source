@@ -1,4 +1,5 @@
 ---
+id: f6960503-7724-4ddd-be83-fcca0c000e01
 title: Pipes in the shell
 tags: shell
 image: pipes-in-the-shell.png

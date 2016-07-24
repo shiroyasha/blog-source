@@ -1,4 +1,5 @@
 ---
+id: a9e297eb-eee2-4b4c-b055-3ba52ecfdcd8
 title: Escape Sequences - A Quick Guide
 tags: example
 image: escape-sequences-a-quick-guide.png

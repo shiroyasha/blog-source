@@ -1,4 +1,5 @@
 ---
+id: ad196c51-1bac-42f9-a591-d156a90b7cb2
 title: How to Deploy Sinatra Applications with Capistrano
 tags: node
 image: sinatra-capistrano.png
