@@ -19,8 +19,6 @@
     <%= yield %>
   </article>
 
-  <hr>
-
   <%= partial "partials/comments", :locals => { :url => current_article.url, :id => current_article.data[:id] } %>
 
   <hr>
