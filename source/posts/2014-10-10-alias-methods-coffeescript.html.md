@@ -1,4 +1,5 @@
 ---
+id: a92f4666-f4a1-4bf4-af6f-9d299ce35c6b
 title: Alias methods in CoffeeScript
 tags: CoffeeScript
 image: alias-methods-coffeescript.png

@@ -1,4 +1,5 @@
 ---
+id: 5bb186b7-9d6a-43bb-9b09-fa2674034c89
 title: Moving files with curly braces
 tags: shell, bash
 image: moving_files.png

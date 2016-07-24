@@ -1,4 +1,5 @@
 ---
+id: 557f1b22-74f9-4211-9b76-70bac15a587e
 title: What can you learn from production.log?
 tags: shell
 image: what-can-you-learn-from-production-log.png

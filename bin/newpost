@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require "securerandom"
+
 class Article
   attr_reader :title
 
@@ -29,6 +31,7 @@ class Article
 
   def header
     {
+      :id => SecureRandom.uuid,
       :title => title,
       :date => date,
       :tags => default_tags,

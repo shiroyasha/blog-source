@@ -1,4 +1,5 @@
 ---
+id: a53321e0-d286-4d92-bccc-0aea386ee973
 title: Thor - Awesome CLI applications
 tags: shell
 image: thor-awesome-cli-apps.png

@@ -1,4 +1,5 @@
 ---
+id: 4509c73d-7627-4e4d-a126-2a994a85c74d
 title: Select and count your production.log!
 tags: shell
 image: select-and-count-your-production-log.png

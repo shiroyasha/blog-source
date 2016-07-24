@@ -1,4 +1,5 @@
 ---
+id: b28137fe-d9b8-4f7e-9be2-971ec181bbdd
 title: A challenge
 tags: challenge
 image: a-challenge.jpg

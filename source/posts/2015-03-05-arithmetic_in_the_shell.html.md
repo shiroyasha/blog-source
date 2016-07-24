@@ -1,4 +1,5 @@
 ---
+id: 08e67fd9-ebfb-4a48-817c-1e29177ad4c4
 title: Arithmetic in the Shell
 tags: shell
 image: arithmetic.png

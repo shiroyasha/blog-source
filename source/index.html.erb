@@ -13,7 +13,7 @@ blog: blog
 <% end %>
 
 <% if paginate %>
-  <p class="pagination">
+  <p class="pagination cf">
     <% if next_page %>
       <%= link_to "&#8592; Older articles ", next_page, :class => "older" %>
     <% end %>
@@ -22,5 +22,3 @@ blog: blog
     <% end %>
   </p>
 <% end %>
-
-<hr>

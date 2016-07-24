@@ -1,4 +1,5 @@
 ---
+id: d57c11a0-db9c-4848-9ac4-532026f18598
 title: OOP in the age of ES6
 tags: javascript
 image: es6-ninja.png
