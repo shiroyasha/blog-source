@@ -48,3 +48,21 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .navigation {
+    text-align: center;
+
+    h1 {
+      display: block;
+      float: none;
+    }
+
+    ul {
+      display: block;
+      float: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
