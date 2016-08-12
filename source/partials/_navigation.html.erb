@@ -6,6 +6,13 @@
     </a>
   </h1>
 
+  <div class="navigation-toggle">
+    <label for="navigation-toggle-checkbox">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <input type="checkbox" id="navigation-toggle-checkbox"/>
   <ul>
     <li><%= link_to "Articles", "/", :class => (section == :articles ? "active" : "") %></li>
     <li><%= link_to "Projects", "/projects.html", :class => (section == :projects ? "active" : "")%></li>
