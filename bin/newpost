@@ -51,6 +51,10 @@ end
 
 article = Article.new(ARGV.join(" "))
 
-File.write(article.article_path, article.content)
-
-puts "Article path: #{article.article_path}"
+if article.file_name.empty?
+  puts "ERROR: Article name can't be an empty string"
+  exit 1
+else
+  File.write(article.article_path, article.content)
+  puts "Article path: #{article.article_path}"
+end
