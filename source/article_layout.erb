@@ -20,8 +20,5 @@
 
   </article>
 
-  <%# <%= partial "partials/article_showcase", :locals => { :article => current_article.previous_article || page_articles.first, :first_article => false } %1> %>
-
   <%= partial "partials/comments", :locals => { :url => current_article.url, :id => current_article.data[:id] } %>
-
 <% end %>
