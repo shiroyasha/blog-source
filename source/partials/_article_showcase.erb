@@ -11,7 +11,7 @@
         <span class="external-article">external</span>
       <% end %>
 
-      Read this <%= first_article ? "first" : "next" %>
+      <time><%= article.date.strftime("%B %e, %Y") %></time>
     </p>
 
     <h1><%= article.title %></h1>
