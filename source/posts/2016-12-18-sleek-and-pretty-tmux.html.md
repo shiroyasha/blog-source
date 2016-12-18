@@ -1,9 +1,9 @@
 ---
 id: ef018655-316e-4147-8cd9-af78a60edc1b
-title: Sleak and Pretty Tmux
+title: Sleek and Pretty Tmux
 date: 2016-12-18
 tags: programming
-image: sleak-and-pretty-tmux.png
+image: sleek-and-pretty-tmux.png
 ---
 
 A good craftsman is known by his tools. He never uses the biggest hammer in
@@ -79,4 +79,26 @@ Changing split dimensions:
 - `Alt + <` - Resize the split to the left
 - `Alt + >` - Resize the split to the right
 
+## Moving the tmux panel to the top
 
+I always prefer to use two, and exactly two, monitors. One where my terminal is
+in full screen, and one where my browser is in full screen. My browser keeps its
+tabs on top. It makes a whole lot of sense to keep my tmux tabs(windows) on the
+top as well.
+
+It reduced the time necessary to move and adjust my eyes between two screens.
+Simple change, but it means a lot.
+
+## Making simple things simple
+
+You might be wondering, why did I wrote a whole article about such a simple
+topic. Let me share a story.
+
+When I was younger, I craved for the big and complex. If something was more more
+complex, it was automatically a better thing in my eyes. However, with time and
+experience, I learned to love and adore the simple and the mundane.
+
+Keeping simple things simple, and transforming complexity into simplicity, is
+the main goal of my every programming endeavor.
+
+Let's keep Tmux simple and fast.
