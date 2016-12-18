@@ -8,7 +8,7 @@ image: tmux.png
 
 A good craftsman is known by his tools. He never uses the biggest hammer in
 his shed to fix a little bump, neither does he use a duct tape to join together
-the most fragile parts of his craft. For a good craftsman both the hammer and
+the most fragile parts of his craft. For a good craftsman both a hammer and
 a duct tape are vital elements of his toolbox. He has a good eye, and the
 intuition to choose the most appropriate tool for every situation he faces.
 
@@ -18,14 +18,14 @@ tools that will make him ready to tackle even grander projects in the future. He
 cherishes his tools and keeps them sharp and clean.
 
 The master craftsman can seem orders of magnitude faster and smarter, but in
-reality he is just like everyone else but he has a better toolbox.
+reality he is just like everyone else, except that he has a better toolbox.
 
 I believe the same is true for us software developers.
 
 ## Multiplexing a terminal
 
 Long ago, I choose the terminal as my default work environment. I strongly
-believe that in the Unix world there is simply no better alternatives to well
+believe that in the Unix world there is simply no better alternatives to a well
 customized Vim, good terminal emulator, and customizable command line tools that
 fit nicely in an automated environment.
 
@@ -35,12 +35,12 @@ candidates, where the later is the more recent and feature rich copy of the
 first.
 
 `tmux` is great, but my first encounter with it wasn't the happiest. The
-keyboard shortcuts were simply horrible. I was forced to hit `Ctrl + b + c` just
-to create a new window. My fragile fingers were not good enough for this, so I
-simply gave up and stopped using `tmux`.
+keyboard shortcuts were simply horrible for my taste. I was forced to hit
+`Ctrl + b + c` just to create a new window. My fragile fingers are not good
+enough for this, so I simply gave up and stopped using it.
 
 However, I really liked the speed and versatilities that it offered in my
-environment. I know that it was a good tool I simply need to sharpen it a bit.
+environment. I knew that it was a good tool I simply needed to sharpen it a bit.
 
 ## Simplifying the keyboard shortcuts
 
@@ -99,6 +99,8 @@ complex, it was automatically a better thing in my eyes. However, with time and
 experience, I learned to love and adore the simple and the mundane.
 
 Keeping simple things simple, and transforming complexity into simplicity, is
-the main goal of my every programming endeavor.
+the main goal of my every programming endeavor. Take a look how I achieved
+simplicity with my
+[Tmux configuration](https://github.com/shiroyasha/dotfiles/blob/master/files/tmux.conf).
 
 Let's keep Tmux simple and fast.
