@@ -3,7 +3,7 @@ id: ef018655-316e-4147-8cd9-af78a60edc1b
 title: Sleek and Pretty Tmux
 date: 2016-12-18
 tags: programming
-image: sleek-and-pretty-tmux.png
+image: tmux.png
 ---
 
 A good craftsman is known by his tools. He never uses the biggest hammer in
