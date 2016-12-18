@@ -7,18 +7,30 @@ blog: blog
 <%= partial "partials/navigation", :locals => {:section => :articles} %>
 
 <% page_articles.each_with_index do |article, i| %>
-  <%= partial "partials/article_showcase", :locals => {
-     :article => article,
-     :first_article => (i == 0)} %>
+  <%= partial "partials/article_showcase", :locals => { :article => article } %>
 <% end %>
 
 <% if paginate %>
-  <p class="pagination cf">
-    <% if next_page %>
-      <%= link_to "&#8592; Older articles ", next_page, :class => "older" %>
-    <% end %>
+  <ul class="pagination">
     <% if prev_page %>
-      <%= link_to "Newer articles &#8594;", prev_page, :class => "newer" %>
+      <li>
+        <%= link_to "<", prev_page %>
+      </li>
     <% end %>
-  </p>
+
+    <% num_pages.times do |index| %>
+      <% page_link = index == 0 ? "/" : "/page/#{index + 1}" %>
+      <% page_class = page_number == index + 1 ? "active" : "" %>
+
+      <li class="<%= page_class %>">
+        <%= link_to "#{index + 1}", page_link %>
+      </li>
+    <% end %>
+
+    <% if next_page %>
+      <li>
+        <%= link_to ">", next_page %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
