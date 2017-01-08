@@ -6,7 +6,7 @@ tags: programming
 image: 2017-01-08-better-sleep.png
 ---
 
-Every three months, I like to sit down, zoom out from the daily issues, and
+Every three months, I like to sit down, zoom out from daily issues, and
 try concentrate on the big picture. I like to write down the things I want to
 achieve in the next three months, and to write a retrospect of the goals I
 set myself in the previous session. The three month schedule is ideal, as it is
@@ -24,5 +24,27 @@ lifestyle and perspective on life.
 
 This year, I wrote down two things, and one of them is to improve the quality of
 my sleep.
+
+## Why is better sleep important?
+
+I never had a good sleep etiquette. Even when I was really young, I was usually
+up till 12 watching cartoons or doing my homework. This was not such a big issue
+when I was younger because I could usually sleep in every morning.
+
+However, as I got older this balance was ruined. I had to realize the sad truth
+that this world is optimized for early birds, people who can wake up before 7am
+and be full of energy.
+
+I hit the bottom last year. I waked up at 8am every morning, and got back from
+working out at 11pm just to binge watch YouTube till 1:30am. Sleeping less than
+7 hours on average per day.
+
+This had a lot of consequences on my life:
+
+- Constant migraines and irritability
+- A crappy attitude toward life, friends, and colleagues
+- Degraded work and fitness performance
+- Total dependence on caffeine to keep myself productive
+- Binge sleeping on weekends to regain sanity
 
 
