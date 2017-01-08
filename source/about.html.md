@@ -23,7 +23,7 @@ years of sitting in front of a monitor, I still carry an endless passion for
 the craft. With time, I got quite good at my hobby, and I have even reached a
 point when people want to pay me actual money to write code and have fun.
 
-![Senzaburu](images/about/hackers.png)
+![Hackers](images/about/hackers.png)
 
 Random programming facts about me:
 
