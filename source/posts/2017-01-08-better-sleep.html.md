@@ -60,7 +60,7 @@ I must find the root cause of the issue.
 I spend most of my Sundays resting and staying in the bed longer than usual.
 Which in turn makes me not sleepy even at 2am on Monday, and then my alarm wakes
 me up at 8am. Then, I spend most of day craving for sleep, and I end up drinking
-3-4 cups of coffee on Monday.
+4 to 5 cups of coffee on Monday.
 
 The overconsumption of coffee makes me too hyper to fall asleep again, and I
 repeat the same thing on Tuesdays. Even more tired, drinking even more coffee.
@@ -78,4 +78,68 @@ At the end of the week, I always make up the lost sleep time somehow, but it
 took me too long to realize that I have an issue with sleep and that I need to
 invest concious effort to improve this part of my life.
 
+## How I plan to tackle this issue?
 
+To be honest, I already started working on this issue in December, and I can
+already feel the positive effects. My focus has improved, and I already feel
+that I have more positive energy during the day.
+
+Here is my action plan:
+
+#### 1. Tracking sleep quality
+
+The only proven way in which I can improve something in my life is to track,
+measure and retrospect. So I started with tracked my sleep quality. A simple
+style sheet where I write down when I went to sleep, and when did I wake up.
+
+By doing this, I can experiment with various approaches, and find the most
+optimal solution.
+
+#### 2. Tracking caffeine consumption
+
+Luckily, I have been tracking my calorie intake in the last two years, so I
+have a pretty good metric that I can rely on:
+
+![caffeine intake](images/better-sleep/caffeine.png)
+
+My plan is to reduce my caffeine intake to around 100mg per day. This should
+allow me to drink one cup of coffee per day, or two cups of green tea per day.
+
+My research on the internet tells me that a cup of coffee has an effect on my
+body for around six hours. This made me limit the period of caffeine
+consumption. I started only drinking coffee in the morning. In the afternoon I
+only drink hibiscus or camomile tea.
+
+#### 3. Making a better sleep ritual
+
+I usually keep my phone/tablet near my bed and I fall asleep by browsing,
+reading, and watching YouTube. This can keep me up for hours.
+
+Instead of this, I started to prepare for bed by doing some basic stretches,
+drinking a cup of camomile tea, and instead of internet I try to read a book.
+
+I found this practice very rewarding. The stretches relax my muscles, the tea
+relaxes nerves, and a book makes me fall asleep much faster then a YouTube
+video.
+
+#### 4. Waking up without an alarm clock
+
+I have a very lucky position that I work in an industry where flexible work
+hours are the norm. There is absolutely no need to force myself to wake up at
+8am. No one will appreciate it if I come to work at 8:30am with baggy eyes,
+groggy, unproductive, and resonating an unpleasant "leave me alone" aura.
+
+From this perspective, it is probably even better to show up around 11am
+with a big smile, full of energy, positive vibes, and ready to make a dent in
+the universe
+
+From my estimates, I think I can wake up naturally without an alarm around
+9am. So I decided to set my alarm clock to 10am. This will hopefully enable me
+possible to wake up without it, but I will still have a safety net to avoid
+sleeping till noon.
+
+#### 5. Making sleep a priority
+
+The biggest change I have to do is to recognize the importance of sleep. That
+means that I'll try to avoid programming after 11am, to avoid Facebook chatting
+till 2am, going to a jog at 11pm, things that I have regularly done last year.
