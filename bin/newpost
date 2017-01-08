@@ -10,7 +10,7 @@ class Article
   end
 
   def file_name
-    @title.downcase.gsub(/\s/, "-")
+    "#{date}-#{title.downcase.gsub(/\s/, "-")}"
   end
 
   def image_path
