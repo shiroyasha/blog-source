@@ -127,7 +127,7 @@ video.
 I have a very lucky position that I work in an industry where flexible work
 hours are the norm. There is absolutely no need to force myself to wake up at
 8am. No one will appreciate it if I come to work at 8:30am with baggy eyes,
-groggy, unproductive, and resonating an unpleasant "leave me alone" aura.
+groggy, unproductive, and resonating with an unpleasant "leave me alone" aura.
 
 From this perspective, it is probably even better to show up around 11am
 with a big smile, full of energy, positive vibes, and ready to make a dent in
@@ -143,3 +143,16 @@ sleeping till noon.
 The biggest change I have to do is to recognize the importance of sleep. That
 means that I'll try to avoid programming after 11am, to avoid Facebook chatting
 till 2am, going to a jog at 11pm, things that I have regularly done last year.
+
+## Final words
+
+Sleep was always one of the major issues in my life, that often prevented me to
+fully enjoy my days. Hopefully, by making a concious effort to improve it, I
+will improve not only my health and social life, but also my work productivity.
+
+This is my first attempt ever to improve my sleep ritual. I'll probably make a
+lot of mistakes during the way. If you have any good tips or tricks, or if you
+have a similar issue please leave a comment in the comment section bellow. Any
+help will be very appreciated.
+
+Cheers for a good night of sleep!
