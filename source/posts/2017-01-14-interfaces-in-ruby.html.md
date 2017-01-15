@@ -1,16 +1,22 @@
 ---
 id: 35df3513-e739-4d6d-82f4-85580c58fac4
-title: Interfaces in Ruby
+title: The Power of Interfaces in Ruby
 date: 2017-01-14
 tags: programming
 image: interfaces-in-ruby.png
 ---
 
 Ruby is not the fastest language, nor is it the simplest language, but damn it,
-it is definitely one of the most fun languages. For someone like me, who enjoys
-programming maybe a bit too much, a language that puts little or no limitations
-on the things I can tweak feels very natural and an obvious first choice when it
-comes to solving complex issues.
+it is definitely one of the most fun languages out there. For someone like me,
+who enjoys programming maybe a bit too much, a language that puts little or no
+limitations on the things I can tweak feels very natural and an obvious choice
+when it comes to solving complex issues.
+
+While I really do love the Ruby language, sometimes I find myself missing
+features that are available elsewhere. For example, lightweight threads like in
+Go, or easy access to memory like in C.
+
+Lately, I started missing _interfaces_ from Java.
 
 ## Interfaces
 
@@ -19,13 +25,13 @@ However, I always found the concept of interfaces interesting. I think that they
 are an excellent tool to communicate intent and to set up constraints on the
 objects that implement them.
 
-For example, in Java if I wanted to say that an object can be transformed to and
+For example, in Java, if I want to say that an object can be transformed to and
 from CSV (comma separated values) I could simply declare a CSV interface.
 
 ``` java
 interface CSV {
-  void fromCSV(String line);
-  String toCSV();
+  public void fromCSV(String line);
+  public String toCSV();
 }
 ```
 
@@ -34,11 +40,11 @@ transformed to and from a CSV file. Here are two examples:
 
 ``` java
 class User implements CSV {
-  String toCSV() {
+  public String toCSV() {
     return this.name + "," + this.age + "," + this.password;
   }
 
-  void fromCSV(String csvLine) {
+  public void fromCSV(String csvLine) {
     String[] parts = csvLine.split(",");
 
     this.name = parts[0];
@@ -46,15 +52,13 @@ class User implements CSV {
     this.password = parts[2];
   }
 }
-```
 
-``` java
 class Book implements CSV {
-  String toCSV() {
+  public String toCSV() {
     return this.title + "," + this.author;
   }
 
-  void fromCSV(String csvLine) {
+  public void fromCSV(String csvLine) {
     String[] parts = csvLine.split(",");
 
     this.title = parts[0];
@@ -64,15 +68,16 @@ class Book implements CSV {
 ```
 
 Some people argue that interfaces are not important in Ruby, and that I should
-simply embrace the language and rely on duck typing. This is however is in
-direct opposition of what Ruby is all about. The Ruby community is well known
-for not accepting the status quo, and not limiting itself by what is available
-in the core of the language.
+simply embrace the language and rely on duck typing.
+
+This is however in direct opposition of what Ruby is all about. The Ruby
+community is well known for not accepting the status quo, and not limiting
+itself by what is currently available in the core of the language.
 
 ## Interfaces in Ruby with modules
 
 The simplest way to emulate interfaces in Ruby is to declare a module with
-methods that raise a not implemented exception.
+methods that raise a "not implemented" exception.
 
 ``` ruby
 module CSV
@@ -110,8 +115,8 @@ end
 ```
 
 This looks and feels like interfaces in Java, however there is a huge downside.
-If we include the `CSV` module and forget to implement `to_csv`, we won't notice
-this issue until we run our code and an exception pops up.
+If we include the `CSV` module and forget to implement the `to_csv` method, we
+won't notice this mistake until we run our code and an exception pops up.
 
 This completely defeats the purpose of interfaces. I want to catch
 inconsistencies __before__ I execute my code. If the `CSV` module can't
@@ -120,12 +125,12 @@ for the methods I need to implement, without any actual checks?
 
 ## Describing behaviour
 
-Instead of focusing on the syntax, it is better to focus on the semantics of
-interfaces. What I really want is to define a set of methods that define the
-behaviour of an object, and check them before I run my application.
+Instead of focusing on the syntax, it is probably better to focus on the
+semantics of interfaces. What I actually want, is a set of constraints that
+define the behaviour of an object, and check them before I run my application.
 
 When we put it that way, it is very obvious that what I want is actually a set
-of tests that describe my object. For the previous CSV example, we would write
+of tests that describe my object. For the previous CSV example, we could write
 the following in RSpec:
 
 ``` ruby
@@ -134,6 +139,8 @@ shared_examples "a CSV serializable object" do
   it { is_expected.to respond_to(:from_csv) }
 end
 ```
+
+This is exactly the constraint that I expect from my object.
 
 We can use the above definition as a substitute for interfaces in Ruby. If we
 want to enforce that an object can be transformed to and from CSV, we can simply
@@ -152,11 +159,11 @@ end
 ## Tests are better than interfaces
 
 Many things that are traditionally enforced with type systems are checked via
-unit tests in dynamic languages.
+unit tests in dynamically typed languages.
 
 Type systems can be helpful, but it is very hard to define a type system that is
 simple enough, and at the same time strong enough to actually help the developer
-to write correct code. From my experience, type systems are are an excellent
+to write correct code. From my experience, type systems are an excellent
 tool to let the compiler know where to optimize your code, but I still am not
 convinced that it actually helps the developers to write better code.
 
@@ -164,8 +171,8 @@ The same is true for interfaces. They are able to describe the behaviour of an
 object, but they are fundamentally limited. Unit tests can describe much, much
 more about an object.
 
-For example, to describe the behaviour a collection, we can write down the
-following:
+For example, to describe the behaviour of objects that act as collections, we
+can write down the following:
 
 ``` ruby
 shared_examples "a collection" do
@@ -224,20 +231,20 @@ shared_examples "a collection" do
 end
 ```
 
-Just look at the above example, and realize how much stronger is the above tests
+Just look at the above example, and realize how much stronger are the above tests
 compared to a simple interface. We have successfully enforced and communicated
 to fellow developers the following:
 
 - A collection must answer to `add`, `remove` and `include?` methods
 - The arity of the methods and their return values
-- The remove method removes all the values from the collection
+- The `remove` method removes all the values from the collection
 - No exception is raised when `remove` is called on an empty collection
 
 ## Avoiding mistakes and trusting unit tests
 
-Until now, I frequently used the not implemented exception to communicate intent
-to other developers in my team. I used it to define interfaces, and also to
-define virtual methods on base abstract classes.
+Until now, I frequently used the "not implemented" exception to communicate
+intent to other developers in my team. I used it to define interfaces, and also
+to define virtual methods on base abstract classes.
 
 ``` ruby
 # to define an interface
@@ -257,14 +264,9 @@ class Vehicle
 end
 ```
 
-I now realize that this was a mistake for several reasons:
-
-- I was trying to use a mimic a mechanism that is not available in Ruby, but I
-    missed their main point
-- There is no need to explicitly define an exception in Ruby when a method is
-    not present on the object. Ruby does that by default.
-- Unit tests are a much better alternative. It can define the behaviour of my
-    objects in fine details.
+I now realize that this was a mistake. Instead of doing this, I should have
+relied on the implicit `NoMethodError` that is raised by default in Ruby, and
+to use tests to describe the behaviour of my objects.
 
 That's all.<br>
 Keep learning, Ruby is great.
