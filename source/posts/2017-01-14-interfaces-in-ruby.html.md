@@ -235,4 +235,36 @@ to fellow developers the following:
 
 ## Avoiding mistakes and trusting unit tests
 
+Until now, I frequently used the not implemented exception to communicate intent
+to other developers in my team. I used it to define interfaces, and also to
+define virtual methods on base abstract classes.
 
+``` ruby
+# to define an interface
+
+module JsonSerialization
+  def to_json
+    raise "Not Implemented"
+  end
+end
+
+# to define virtual methods
+
+class Vehicle
+  def speed
+    raise "Not Implemented"
+  end
+end
+```
+
+I now realize that this was a mistake for several reasons:
+
+- I was trying to use a mimic a mechanism that is not available in Ruby, but I
+    missed their main point
+- There is no need to explicitly define an exception in Ruby when a method is
+    not present on the object. Ruby does that by default.
+- Unit tests are a much better alternative. It can define the behaviour of my
+    objects in fine details.
+
+That's all.<br>
+Keep learning, Ruby is great.
