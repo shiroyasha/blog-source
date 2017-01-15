@@ -3,7 +3,7 @@ id: 35df3513-e739-4d6d-82f4-85580c58fac4
 title: Interfaces in Ruby
 date: 2017-01-14
 tags: programming
-image: 2017-01-14-interfaces-in-ruby.png
+image: interfaces-in-ruby.png
 ---
 
 Ruby is not the fastest language, nor is it the simplest language, but damn it,
@@ -63,12 +63,13 @@ class Book implements CSV {
 }
 ```
 
-## Interfaces in Ruby with modules
-
 Some people argue that interfaces are not important in Ruby, and that I should
 simply embrace the language and rely on duck typing. This is however is in
 direct opposition of what Ruby is all about. The Ruby community is well known
-for not accepting the status quo, and always embracing new ideas.
+for not accepting the status quo, and not limiting itself by what is available
+in the core of the language.
+
+## Interfaces in Ruby with modules
 
 The simplest way to emulate interfaces in Ruby is to declare a module with
 methods that raise a not implemented exception.
@@ -117,4 +118,70 @@ inconsistencies __before__ I execute my code. If the `CSV` module can't
 guarantee that, than what is its purpose? Does it act like a simple todo list
 for the methods I need to implement, without any actual checks?
 
-## Interfaces in Ruby with modules
+## Describing behaviour
+
+Instead of focusing on the syntax, it is better to focus on the semantics of
+interfaces. What I really want is to define a set of methods that define the
+behaviour of an object, and check them before I run my application.
+
+When we put it that way, it is very obvious that what I want is actually a set
+of tests that describe my object. For the previous CSV example, we would write
+the following in RSpec:
+
+``` ruby
+shared_examples "a CSV serializable object" do
+  it { is_expected.to respond_to(:to_csv) }
+  it { is_expected.to respond_to(:from_csv) }
+end
+```
+
+We can use the above definition as a substitute for interfaces in Ruby. If we
+want to enforce that an object can be transformed to and from CSV, we can simply
+drop a line in their specs:
+
+``` ruby
+describe User do
+  it_behaves_like "a CSV serializable object"
+end
+
+describe Book do
+  it_behaves_like "a CSV serializable object"
+end
+```
+
+## Tests are better than interfaces
+
+Many things that are traditionally enforced with type systems are checked via
+unit tests in dynamic languages.
+
+Type systems can be helpful, but it is very hard to define a type system that is
+simple enough, and at the same time strong enough to actually help the developer
+to write correct code. From my experience, type systems are are an excellent
+tool to let the compiler know where to optimize your code, but I still am not
+convinced that it actually helps the developers to write better code.
+
+The same is true for interfaces. They are able to describe the behaviour of an
+object, but they are fundamentally limited. Unit tests can describe much, much
+more about an object.
+
+For example, to describe the behaviour a collection, we can write down the
+following:
+
+``` ruby
+shared_example "a collection" do
+  it { is_expected.to respond_to(:add).with(1).argument }
+  it { is_expected.to respond_to(:remove).with(1).argument }
+  it { is_expected.to respond_to(:include?).with(1).argument }
+end
+```
+
+This is roughly equivalent to an interface in Java, but why stop here? We can
+write down a lot more things that we expect from a collection.
+
+``` ruby
+shared_example "a collection" do
+  it { is_expected.to respond_to(:add).with(1).argument }
+  it { is_expected.to respond_to(:remove).with(1).argument }
+  it { is_expected.to respond_to(:include?).with(1).argument }
+end
+```
