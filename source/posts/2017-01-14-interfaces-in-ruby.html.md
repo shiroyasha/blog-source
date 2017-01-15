@@ -168,7 +168,7 @@ For example, to describe the behaviour a collection, we can write down the
 following:
 
 ``` ruby
-shared_example "a collection" do
+shared_examples "a collection" do
   it { is_expected.to respond_to(:add).with(1).argument }
   it { is_expected.to respond_to(:remove).with(1).argument }
   it { is_expected.to respond_to(:include?).with(1).argument }
@@ -179,9 +179,60 @@ This is roughly equivalent to an interface in Java, but why stop here? We can
 write down a lot more things that we expect from a collection.
 
 ``` ruby
-shared_example "a collection" do
+shared_examples "a collection" do
   it { is_expected.to respond_to(:add).with(1).argument }
   it { is_expected.to respond_to(:remove).with(1).argument }
   it { is_expected.to respond_to(:include?).with(1).argument }
+
+  before do
+    @collection = described_class.new
+  end
+
+  describe ".add" do
+    it "adds an element into the collection" do
+      @collection.add(12)
+
+      expect(@collection).to include(12)
+    end
+
+    it "returns the collection" do
+      expect(@collection.add(12)).to eq(@collection)
+    end
+  end
+
+  describe ".remove" do
+    context "the element is not present" do
+      it "doesn't raise an exception" do
+        expect { @collection.remove(12) }.to_not raise_exception
+      end
+    end
+
+    it "removes all the elements from the collection" do
+      @collection.add(12)
+      @collection.add(12)
+
+      expect(@collection).to include(12)
+
+      @collection.remove(12)
+      expect(@collection).to_not include(12)
+    end
+
+    it "returns the collection" do
+      expect(@collection.remove(12)).to eq(@collection)
+    end
+  end
 end
 ```
+
+Just look at the above example, and realize how much stronger is the above tests
+compared to a simple interface. We have successfully enforced and communicated
+to fellow developers the following:
+
+- A collection must answer to `add`, `remove` and `include?` methods
+- The arity of the methods and their return values
+- The remove method removes all the values from the collection
+- No exception is raised when `remove` is called on an empty collection
+
+## Avoiding mistakes and trusting unit tests
+
+
