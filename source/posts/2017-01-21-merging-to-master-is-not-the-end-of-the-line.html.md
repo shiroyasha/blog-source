@@ -18,4 +18,11 @@ whiskey in the office and celebrate with your team. You are now ready to tackle
 new challenges! Not so fast! Writing good code and deploying to production is
 not the end of the game, you have only done half of the job.
 
+Think about it. What is your job? To write good code that produces zero bugs, or
+to make a useful new feature that will improve the lives of your users?
+Hopefully, you choose the second answer.
 
+If you share my beliefs, a good programmer should always aim to make someone's
+life better. You must make sure that you not only write good code, but to make
+that code easily and instantly usable. In rare occasions, it is even better to
+simply remove the new feature if you have not met your users expectation.
