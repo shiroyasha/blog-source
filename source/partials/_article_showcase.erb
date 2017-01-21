@@ -6,7 +6,7 @@
   </div>
 
   <div class="summary">
-    <p class="next">
+    <p class="time">
       <% if article.data[:external] == true %>
         <span class="external-article">external</span>
       <% end %>
@@ -14,7 +14,7 @@
       <time><%= article.date.strftime("%B %e, %Y") %></time>
     </p>
 
-    <h1><%= article.title %></h1>
+    <h1 class="title"><%= article.title %></h1>
 
     <%= article.summary %>
 
