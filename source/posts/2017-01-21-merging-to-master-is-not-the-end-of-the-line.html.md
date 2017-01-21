@@ -26,3 +26,17 @@ If you share my beliefs, a good programmer should always aim to make someone's
 life better. You must make sure that you not only write good code, but to make
 that code easily and instantly usable. In rare occasions, it is even better to
 simply remove the new feature if you have not met your users expectation.
+
+## Test running your new feature
+
+## Setting up metrics and alerts
+
+## Announcing the new feature
+
+## Communicating with the users
+
+## Improving the feature
+
+## Removing the feature (if necessary)
+
+## Opening the bottle of the finest whisky
