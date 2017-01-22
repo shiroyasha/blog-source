@@ -1,9 +1,9 @@
 ---
 id: 7da14a7b-662e-41d4-9526-5249157c91e0
 title: Merging to Master is not the end of the line
-date: 2017-01-21
+date: 2017-01-23
 tags: programming
-image: 2017-01-21-merging-to-master-is-not-the-end-of-the-line.png
+image: merging-to-master-is-not-the-end-of-the-line.png
 ---
 
 After weeks of planing, painful debugging sessions, and making sure that
