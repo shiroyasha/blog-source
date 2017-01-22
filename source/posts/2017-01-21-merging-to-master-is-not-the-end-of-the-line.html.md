@@ -121,4 +121,9 @@ Being open and friendly is always the best way to go.
 
 ## Opening the bottle of the finest whisky
 
+Everything went great, and some customers are sending you "This rocks guys, keep
+up the good work"? If yes, then the time has come to open a bottle of the finest
+booze.
 
+Never skip this step. It is very important to celebrate every victory. It gives
+you the stamina to do this once again, and brings the team closer.
