@@ -82,9 +82,27 @@ the ratio of users who have tried, succeeded, or dropped of in the process.
 
 ## Announcing the new feature
 
-## Communicating with the users
+You should now be fairly confident that your new feature is good enough to be
+used by real people. It is time to let the world know.
 
-## Improving the feature
+First, you should make sure that you have notified everyone in the company that
+a new feature is coming. That includes customer support who will suffer the most
+if you have failed to make the software bulletproof, marketing folks who are far
+more capable in bringing the new feature close to your users, and the rest of
+the programming crew who might suffer if something breaks in the infrastructure.
+
+Then, it is time to prepare a public announcement. I always like to start with
+a simple blog post. Nothing too fancy, simply a "Hey guys, we produced something
+new. Give it a try." post with several screenshots.  You don't need to be a
+marketing/seo guru to do this, but you do need to take this step as serious as
+the coding part.
+
+When everything is ready, I click the "enable" button for my new feature,
+publish the blog post, and write a short summary on Twitter.
+
+My new feature is now live.
+
+## Communicating with the users
 
 ## Removing the feature (if necessary)
 
