@@ -55,6 +55,31 @@ and is not blinded with the technical limitations of your software.
 
 ## Setting up metrics and alerts
 
+Every test went well, and you and your team are convinced that the new feature
+has a true potential. Now it is time to set up some metrics.
+
+First, you must make sure that the basic metrics are in its place. The ones that
+measure overall response time, performance of the most critical method calls,
+and metrics for the affected records in your database.
+
+This is the step, where you want to make sure that your feature works not only
+for you and your team, but it works correctly for thousands or millions of
+customers.
+
+I always like to say to myself: "If a user has a painful experience using my
+software, I should feel double the amount of that pain". PagerDuty is the worst,
+especially when it calls during the night, but it is the best incentive to make
+my software truly stable and bug free. Also, it is far better to be awaken
+during the night then to wake up in the morning and handle thousands of customer
+complaints.
+
+When the basic metrics and alerts are covered and tested, it is time to
+implement a truly valuable metric &mdash; a metric that can track the happiness
+of your users. This is usually much harder to measure, but you should at least
+make sure that you have covered the simplest things &mdash; how many clicks does
+it take to use the new feature, how long does it take to set it up, and what is
+the ratio of users who have tried, succeeded, or dropped of in the process.
+
 ## Announcing the new feature
 
 ## Communicating with the users
