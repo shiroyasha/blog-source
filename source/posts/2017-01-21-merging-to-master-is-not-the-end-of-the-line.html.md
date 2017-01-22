@@ -29,6 +29,30 @@ simply remove the new feature if you have not met your users expectation.
 
 ## Test running your new feature
 
+You can go two ways with releasing a new feature. You can simply push to
+production and make the new feature available for all users, or you can hide
+your new feature behind a feature flag.
+
+I almost always prefer to use a feature flag. It helps me to release new
+features much faster, because at first it is only enabled for my team only. This
+allows me to deploy features that are not yet polished. Instead of worrying, and
+trying to find every edge case &mdash; a process which can take days or even
+weeks &mdash; I can push immediately and verify that the new feature delivers
+its basic promises.
+
+With this in mind, my first step after pushing to production is to enable the
+feature for my user, and giving it a test run. If I am happy with the results,
+the next step is to enable the feature for my team, and then if everything goes
+smoothly I go from team to team and enable the new feature, gathering valuable
+feedback and recording every bug that we encounter.
+
+A very good practice can also be to include existing customers into the test
+phase. A simple email that explains the awesomeness of your new feature can go a
+long way. From one side, it reassures your customers that you truly care about
+their needs and that you highly value their feedback. From the other side you
+can get an outsiders opinion, someone who is not familiar with your code base
+and is not blinded with the technical limitations of your software.
+
 ## Setting up metrics and alerts
 
 ## Announcing the new feature
