@@ -104,6 +104,21 @@ My new feature is now live.
 
 ## Communicating with the users
 
-## Removing the feature (if necessary)
+Is everything ready new, can I start celebrating? Not so fast. Your new feature
+has just be announced, how can you be sure that it is successful?
+
+Tracking the behaviour of early adopters is a must. We must make sure that they
+are happy with the change. Unfortunately, many of them won't be happy, people
+don't like change, even if it a change for the better. Your task now is to
+collect the feedback, improve, and collect even more feedback.
+
+It is also totally acceptable to contact the early adopters, and ask for
+feedback. Engineers are usually most afraid of this part, but you really
+shouldn't be. This experience can be very rewarding and an excellent connect
+your feeling with the feelings of your customers.
+
+Being open and friendly is always the best way to go.
 
 ## Opening the bottle of the finest whisky
+
+
