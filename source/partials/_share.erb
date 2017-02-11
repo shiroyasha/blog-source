@@ -1,0 +1,30 @@
+<p>
+  <a href="https://twitter.com/share"
+    class="twitter-share-button"
+    data-text="<%= current_article.title %>"
+    data-via="igor_sarcevic"
+    data-show-count="true">Tweet</a>
+
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <% fb_params = {
+      :href => URI.join("http://shiroyasha.io",current_article.url),
+      :layout => "button",
+      :size => "small",
+      :mobile_iframe => true,
+      :appId => "619972441395428",
+      :width => 59,
+      :height => 20
+    }.to_query %>
+
+  <% fb_link = "https://www.facebook.com/plugins/share_button.php?#{fb_params}" %>
+
+  <iframe src="<%= fb_link %>"
+    width="59"
+    height="20"
+    style="border:none;overflow:hidden"
+    scrolling="no"
+    frameborder="0"
+    allowTransparency="true"></iframe>
+
+</p>
