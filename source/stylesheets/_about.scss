@@ -1,0 +1,32 @@
+.about {
+  .profile-card {
+    width: 100%;
+    width: 620px;
+    margin: auto;
+
+    .image {
+      width: 100px;
+      height: 100px;
+      padding: 5px;
+      border: 1px solid #eee;
+      border-radius: 50%;
+    }
+
+    .info {
+      display: inline-block;
+      vertical-align: top;
+      padding-top: 13px;
+      padding-left: 12px;
+
+      h1 {
+        font-size: 24px;
+        margin: 0;
+        font-weight: normal;
+      }
+
+      p {
+        margin-top: 10px;
+      }
+    }
+  }
+}

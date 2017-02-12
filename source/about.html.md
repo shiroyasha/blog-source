@@ -1,58 +1,97 @@
 ---
-title: Igor Šarčević — a nerd with passion
+title: Igor Šarčević
 tags: programming
 image: igor.png
 ---
 
-Hi there, dear visitor! My name is Igor, and as you can probably deduce from the
-title, I am a nerd, with a passion for everything nerdy. Be it computers, anime,
-swords, chess, cosplay, origami, or any other weird hobby, I probably enjoy it.
+Hi there!
 
-Currently, I am `Time.now - 1991 #=> 25` years old.
+Welcome to my personal blog, a space where I like to share updates, tips,
+tricks, and events I take place in.
 
-I live in a beautiful city near the
-great river Danube &mdash; [Novi Sad](https://en.wikipedia.org/wiki/Novi_Sad),
-spending my days hacking the hidden & dirty parts of the continuous delivery
-service &mdash; [Semaphore](https://semaphoreci.com/). Enjoying every bit of
-it.
+My name is Igor, but many people know me by my handle @shiroyasha. I'm a
+software engineer, working at [Rendered Text](http://renderedtext.com),
+the company that creates [SemaphoreCI](https://semaphoreci.com), the leading
+continuous delivery platform focused on speed and simplicity.
 
-### Hacker / Engineer
+I enjoy everything that is connected to shipping and maintaining a great
+product. Writing code, setting up the infrastructure, promoting the product,
+giving technical talks, drawing, writing, teaching, doing customer support... I
+enjoy every part and every role.
 
-I've picked up the hobby of programming when I was a little kid. Even after 16
-years of sitting in front of a monitor, I still carry an endless passion for
-the craft. With time, I got quite good at my hobby, and I have even reached a
-point when people want to pay me actual money to write code and have fun.
+## Skills
 
-![Hackers](images/about/hackers.png)
+I am most skilled with writing Rails based software by following BDD principles,
+but I have developed solid skills in other areas as well. Instead of sharing a
+list of technologies, I'll share the list of major features that I implemented
+on Semaphore.
 
-Random programming facts about me:
+- The first major feature I shipped was the introduction of
+  [interactive SSH sessions](https://semaphoreci.com/blog/2015/02/04/ssh-access-to-your-ci-environment.html)
+  into our build machines. From the UI, through virtual machines,
+  down to firewall settings.
 
-- I don't really have a favorite language, I love them all. Especially Lisp.
-    JavaScript is good too. Lately I enjoy Elixir. And when the moments are
-    ready I like to go hardcore and write something in C.
+- Software that orchestrates virtual machines. Starting, stopping, and preparing
+  clean build environments for every CI job executed on Semaphore.
 
-- Vim is the best editor. Period. Or emacs. I can even live with `ed`.
+- I was part of a small team that wrote our first microservice 3 years ago. The
+  start of our effort to break our monolith into small, dedicated components.
 
-- The terminal is the best IDE you can use.
+- I laid the foundations of our AWS infrastructure,
+  [introducing Docker](https://semaphoreci.com/blog/2016/12/13/lightweight-docker-images-in-5-steps.html)
+  as our primary software delivery mechanism. This infrastructure has ever since
+  supported our rapid microservice growth without any bottleneck. In the process
+  we created [Alpine Release](https://github.com/renderedtext/alpine-release),
+  our standard Elixir packaging tool.
 
-- Any unix is based system is fine. I don't really have a preference. However, I
-    have been running [Arch Linux](https://www.archlinux.org/) and
-    [Ubuntu](http://www.ubuntu.com/) on my personal machines for the last 10
-    years.
+- Introduced RabbitMQ as our official service communication channel. Creating
+  [Tackle](https://github.com/renderedtext/tackle) and
+  [ExTackle](https://github.com/renderedtext/ex-tackle) along the way.
 
+- Wrote 2 out of the [10 most popular technical articles](https://semaphoreci.com/community/tutorials/top-10-semaphore-community-tutorials-in-2016)
+  on Semaphore's community. Both articles tackle the issue of continuously
+  testing your JavaScript applications.
 
-### Total weaboo
+- Last year, I lead the team that completely rewrote our
+  [Build and Deploy scheduler](http://semaphoreci.com/docs/how-semaphore-scheduler-works.html),
+  a piece of software that is responsible creating, scheduling,
+  assigning build machines, and collecting results of every CI job that is
+  created on Semaphore. A rewrite that allowed us support for 10x higher job
+  throughput, and single builds that could be parallelized across more than 100
+  build machines.
 
-Besides software development, I am for some unknown reason very passionate for a
-lot a Japanese things.
+## Personal Life
 
-I have grown up watching Dragon Ball, Yu Yu Hakusho, Trigun and similar classics,
-and I haven't left my hobby of watching cartoons till this day.
+I was raised in a small town in Serbia, but I didn't know Serbian until I
+turned eight years old. Until then I only spoke my mother thong &mdash;
+Hungarian. Raised in dual language environment sparked my love for languages,
+and currently I speak four: English, Hungarian, Serbian and Japanese.
 
-I also enjoy origami. I have even completed several
-[senbazurus](https://en.wikipedia.org/wiki/One_thousand_origami_cranes) when I
-was younger and had a bit more time to waste. This was my first one:
+Japanese is probably the most outstanding on the list, a language which I
+started learning while watching anime and reading manga, but continued with
+dedicated Japanese classes at the first year of university.
 
-![Senzaburu](images/about/senzaburu.png)
+I always enjoyed doing martial arts. It is the best way to learn discipline and
+to gain the necessary mental toughness to handle hard kicks that life can
+sometimes serve you. I was involved with some kind of martial arts from when I
+was only five years old, but I only took martial arts more seriously when I
+turned twenty.
 
-It took me around 3 years to make it. Life well spent!
+I started with karate, but I slowly transitioned to
+[Ninjutsu](https://en.wikipedia.org/wiki/Bujinkan), and tried out various others
+like [Kendo](https://en.wikipedia.org/wiki/Kendo) and
+[Aikido](https://en.wikipedia.org/wiki/Aikido).
+
+Besides martial arts, I also enjoy hiking, jogging and swimming.
+
+## How can you contact me?
+
+I enjoy dark, locally brewed beer. If you are from Novi Sad feel free to invite
+me to one of local places for a pint or two.
+
+You can also find me on:
+
+- [GitHub](https://github.com/shiroyasha) as @shiroyasha
+- [Twitter](https://twitter.com/igor_sarcevic) as @igor_sarcevic
+- [LinkedIn](https://rs.linkedin.com/in/igorsarcevic)
+- [Facebook](https://www.facebook.com/igor.sarcevic)
