@@ -87,7 +87,7 @@ Besides martial arts, I also enjoy hiking, jogging and swimming.
 ## How can you contact me?
 
 I enjoy dark, locally brewed beer. If you are from Novi Sad feel free to invite
-me to one of local places for a pint or two.
+me to one of our local places for a pint or two.
 
 You can also find me on:
 
