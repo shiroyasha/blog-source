@@ -1,40 +1,25 @@
 ---
-pageable: true
-per_page: 5
 blog: blog
 ---
 
-<div class="top-baner planets"></div>
+<div class="lander">
+  <ul>
+    <% page_articles.each_with_index do |article, index| %>
+      <li>
+        <div class="counter">
+          <%= page_articles.count - index %>
+        </div>
 
-<%= partial "partials/navigation", :locals => {:section => :articles} %>
+        <div class="header">
+          <time><%= article.date.strftime("%B %e, %Y") %></time>
 
-<div class="container lander">
-  <% page_articles.each_with_index do |article, i| %>
-    <%= partial "partials/article_showcase", :locals => { :article => article } %>
-  <% end %>
-
-  <% if paginate %>
-    <ul class="pagination">
-      <% if prev_page %>
-        <li>
-          <%= link_to "<", prev_page %>
-        </li>
-      <% end %>
-
-      <% num_pages.times do |index| %>
-        <% page_link = index == 0 ? "/" : "/page/#{index + 1}" %>
-        <% page_class = page_number == index + 1 ? "active" : "" %>
-
-        <li class="<%= page_class %>">
-          <%= link_to "#{index + 1}", page_link %>
-        </li>
-      <% end %>
-
-      <% if next_page %>
-        <li>
-          <%= link_to ">", next_page %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+          <% if article.data[:external] == true %>
+            <%= link_to article.title, article.data[:link] %>
+          <% else %>
+            <%= link_to article.title, article %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ol>
 </div>

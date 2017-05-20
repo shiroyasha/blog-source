@@ -41,11 +41,16 @@
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Sofia" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Berkshire+Swash" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Condensed&amp;subset=latin-ext" rel="stylesheet">
     <%= stylesheet_link_tag "style" %>
   </head>
   <body>
 
     <div id="main" role="main">
+      <%= partial "partials/navigation" %>
+
       <%= yield %>
     </div>
 

@@ -1,0 +1,49 @@
+.lander {
+  max-width: 700px;
+  margin: auto;
+  font-size: 18px;
+  text-align: center;
+
+  ul {
+    display: inline-block;
+    text-align: left;
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-top: 40px;
+
+      .counter {
+        width: 60px;
+        display: inline-block;
+        text-align: right;
+        color: red;
+        font-size: 1.5em;
+        padding: 10px 10px;
+      }
+
+      .header {
+        display: inline-block;
+
+        time {
+          display: block;
+          color: #999;
+          font-size: 0.8em;
+        }
+
+        a {
+          color: black;
+          display: inline-block;
+          font-size: 1em;
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .lander .header {
+    max-width: 70%;
+  }
+}

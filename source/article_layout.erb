@@ -1,29 +1,20 @@
 <% wrap_layout :layout do %>
-  <div class="top-baner stars"></div>
-
-  <%= partial "partials/navigation", :locals => {:section => :articles} %>
-
-  <article>
-    <% if current_article.data.image %>
-      <img class="top-image" src="/images/<%= current_article.data.image %>">
-    <% end %>
-
+  <article class="article">
     <div class="header">
+      <h1><%= current_article.title %></h1>
+
       <div class="subtitle">
         <span>Igor Šarčević</span>
-        &mdash;
+        &#183;
         <time><%= current_article.date.strftime("%B %e, %Y") %></time>
       </div>
-
-      <h1><%= current_article.title %></h1>
     </div>
 
     <%= yield %>
 
     <%= partial "partials/share", :locals => { :current_article => current_article } %>
+    <%= partial "partials/follow_on_twitter" %>
+
+    <%= partial "partials/comments", :locals => { :url => current_article.url, :id => current_article.data[:id] } %>
   </article>
-
-  <%= partial "partials/follow_on_twitter" %>
-
-  <%= partial "partials/comments", :locals => { :url => current_article.url, :id => current_article.data[:id] } %>
 <% end %>

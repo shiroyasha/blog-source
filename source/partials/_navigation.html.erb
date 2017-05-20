@@ -1,20 +1,7 @@
-<div class="navigation cf">
-  <h1>
-    <a href="/">
-      <img width="25px" class="logo" src="/favicon.ico">
-      <span>shiroyasha.io</span>
-    </a>
-  </h1>
-
-  <div class="navigation-toggle">
-    <label for="navigation-toggle-checkbox">
-      <i class="fa fa-bars" aria-hidden="true"></i>
-    </a>
-  </div>
-
-  <input type="checkbox" id="navigation-toggle-checkbox"/>
+<div class="navigation">
   <ul>
-    <li><%= link_to "Articles", "/", :class => (section == :articles ? "active" : "") %></li>
-    <li><%= link_to "About", "/about.html", :class => (section == :about ? "active" : "")%></li>
+    <li><%= link_to "home", "/" %></li>
+    &#183;
+    <li><%= link_to "about", "/about.html" %></li>
   </ul>
 </div>

@@ -4,11 +4,6 @@ tags: programming
 image: igor.png
 ---
 
-Hi there!
-
-Welcome to my personal blog, a space where I like to share updates, tips,
-tricks, and events I take place in.
-
 My name is Igor, but many people know me by my handle @shiroyasha. I'm a
 software engineer, working at [Rendered Text](http://renderedtext.com),
 the company that creates [SemaphoreCI](https://semaphoreci.com), the leading

@@ -1,24 +1,9 @@
 <% wrap_layout :layout do %>
-  <div class="top-baner planets"></div>
-
-  <%= partial "partials/navigation", :locals => { :section => :about } %>
-
-  <div class="container lander about">
-
-    <div class="profile-card">
-      <img class="image" src="https://pbs.twimg.com/profile_images/759442517439971328/lfq1USSn.jpg">
-
-      <div class="info">
-        <h1>Igor Šarčević &mdash; @shiroyasha</h1>
-        <p>Software engineer at Rendered Text / SemaphoreCI.</p>
-      </div>
+  <article class="article">
+    <div class="header">
+      <h1>Igor Šarčević &mdash; @shiroyasha</h1>
     </div>
 
-    <article>
-      <%= yield %>
-    </article>
-
-    <%= partial "partials/follow_on_twitter" %>
-
-  </div>
+    <%= yield %>
+  </article>
 <% end %>
