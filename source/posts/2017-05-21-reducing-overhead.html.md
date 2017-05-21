@@ -17,6 +17,8 @@ several review cycles in a hope that I will reduce the number of grammar errors.
 Then, I've added additional background images to the site which required color
 matching between them and the header images on the articles.
 
+![Old shiroyasha.io design](images/old_design.jpg)
+
 I enjoyed tweaking the colors on the page, drawing images, and fixing issues
 with the responsive css layout, but unfortunately all of this took quite a bit
 of time. I need at least two hours to write an article, and at least three hours
