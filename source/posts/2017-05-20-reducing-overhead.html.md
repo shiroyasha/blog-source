@@ -1,7 +1,7 @@
 ---
 id: 4ee3e805-8bdc-4923-93b2-37ee90fa55b6
 title: Reducing overhead
-date: 2017-05-21
+date: 2017-05-20
 tags: blogging
 image: 2017-05-21-reducing-overhead.png
 ---
@@ -15,7 +15,7 @@ My hacker nature wanted to push harder and farther. I've introduced the need to
 publish every article with a hand drawn image. Following this, I've introduced
 several review cycles in a hope that I will reduce the number of grammar errors.
 Then, I've added additional background images to the site which required color
-matching between them and the header images on the articles.
+matching between them and the header image on the articles.
 
 ![Old shiroyasha.io design](images/old_design.jpg)
 

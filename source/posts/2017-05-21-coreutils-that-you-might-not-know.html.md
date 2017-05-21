@@ -11,14 +11,14 @@ still stumble upon things that are completely unknown to me. For example,
 several days ago, I wanted to display a formated table in my terminal.
 
 ``` txt
-# I had a long list of values resembling the following:
+# I had a long comma separated list
 
 id,name,count
 31232,test-1,21
 31,window,2
 2121,update-attributes,432
 
-# and I wanted to produce a table for easy scanning:
+# and I wanted to display it as a table
 
 id     name               count
 31232  test-1             21
@@ -30,8 +30,8 @@ I know that in Ruby, I have an excellent library
 [Terminal Table](https://github.com/tj/terminal-table) for generating nice
 terminal tables, however, parsing the input, mapping the values and writing a
 Ruby script just for this task seemed like a huge overhead. After googling
-around for a quick and easy solution, I've learned that there is already a
-readily available tool in my Linux environment &mdash; column.
+around for a quick and easy solution, I've learned that there is a tool in my
+Linux environment &mdash; column &mdash; that does just that.
 
 ``` bash
 $ cat data.txt | column -t -s ','
@@ -83,7 +83,7 @@ $ factor $(date +%s) # factor current timestamp
 1495329393: 3 19 47 558167
 ```
 
-Or, that you can find out how many terabites are in `4123412312312` bytes:
+Or, that you can find out how many terabytes are in `4123412312312` bytes:
 
 ``` bash
 $ numfmt --to=iec 4123412312312
@@ -101,3 +101,5 @@ So many interesting things to learn! I encourage you to read through the
 [documentation](https://www.gnu.org/software/coreutils/manual/coreutils.html#toc-System-context-1)
 and update your knowledge on these wonderful tools that are installed
 out of box on our modern Linux distributions.
+
+Happy hacking!
