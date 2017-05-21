@@ -1,6 +1,6 @@
 ---
 id: ae4cc0c4-0e9d-4d23-a51b-59ee3681bfa8
-title: Coreutils that you might not know
+title: Linux utils that you might not know
 date: 2017-05-21
 tags: programming
 image: 2017-05-21-coreutils-that-you-might-not-know.png
@@ -43,9 +43,9 @@ id     name               count
 ```
 
 Whoa! That was super simple. I was baffled by the fact that this program was
-part of the standard coreutils package, and yet I've never used it. So I
-wondered what else is part of coreutils that I don't know about. I've found
-several interesting and usable tools.
+part of the standard utilities set on Linux, and yet I've never used it. So I
+wondered what else is part of coreutils or util-linux packages that I don't
+know about. I've found several interesting and usable tools.
 
 For example, did you know that you have a built in calendar?
 
