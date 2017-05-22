@@ -58,7 +58,7 @@ on Semaphore.
 ## Personal Life
 
 I was raised in a small town in Serbia, but I didn't know Serbian until I
-turned eight years old. Until then I only spoke my mother thong &mdash;
+turned eight years old. Until then I only spoke my mother tongue &mdash;
 Hungarian. Raised in dual language environment sparked my love for languages,
 and currently I speak four: English, Hungarian, Serbian and Japanese.
 
