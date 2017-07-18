@@ -37,7 +37,7 @@ Someone suggests that you should try to put all of your services in one reposito
 
 This is where it all begins. The rise of your monorepo.
 
-Everything looks great. You create a dedicates directory for each of your
+Everything looks great. You create a dedicated directory for each of your
 services, and commit them all at once. At the root of your repository, you
 create a `docker-compose.yml` file, and precisely lay out the structure of your
 infrastructure. You can't believe that it is so simple.
