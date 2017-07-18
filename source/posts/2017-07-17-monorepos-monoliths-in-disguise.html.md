@@ -76,7 +76,7 @@ one service he merges the changes into the master branch. If someone else
 changes another service, he need to wait for the previous build on the master
 branch to complete.
 
-Several month in with your new monorepo approach, you notice something strange.
+Several months in with your new monorepo approach, you notice something strange.
 Every service in your system is deployed at once. Changes in one service
 directly affect other services. You need to synchronize with every other
 developer when you want to introduce changes in one of your services. Everyone
