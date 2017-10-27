@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+bundle install
+
+bundle exec middleman -p 5000 --bind-address "0.0.0.0"

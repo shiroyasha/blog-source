@@ -1,0 +1,14 @@
+version: "2.0"
+
+volumes:
+  gems:
+    driver: local
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+      - gems:/gems
+    ports:
+      - 5000:5000
