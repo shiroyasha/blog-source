@@ -1,0 +1,12 @@
+---
+id: 454b324c-cf4b-4559-9e82-11e042be13da
+title: Understanding PostgreSQL locks
+date: 2017-11-08
+tags: programming
+image: 2017-11-08-understanding-postgresql-locks.png
+---
+
+Locking is an important topic in any kind of database. Without properly handling
+locks, an application might not only be slow, it might also be wrong and behave
+in some insane ways. Therefor, learning proper locking techniques is essential
+for good performance and correctness of our applications.
