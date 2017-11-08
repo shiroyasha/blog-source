@@ -22,10 +22,12 @@
   }
 
   pre {
-    background: #ffffee;
+    background: #ffffff;
     padding: 14px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
+    border-left: 1px solid red;
+    border-right: 1px solid red;
 
     code {
       background: none;
