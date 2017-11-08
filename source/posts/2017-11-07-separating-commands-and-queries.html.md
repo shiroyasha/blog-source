@@ -40,7 +40,7 @@ def books_for_discount(books)
 end
 
 def give_disscount(books)
-  books.each { |book| give_disscount(book) }
+  books.each { |book| book.price = book.price * 0.8 }
 end
 ```
 
