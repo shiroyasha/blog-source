@@ -109,7 +109,27 @@ test-db-001=# \set PROMPT1 '(alice) %/%R%# '
 (3 rows)
 ```
 
+``` sql
+(alice) test-db-001=# begin;
+BEGIN
+(alice) test-db-001=# ALTER TABLE users ADD type bool;
+ALTER TABLE
+(alice) test-db-001=#
+```
 
+``` sql
+(bob) test-db-001=# select locktype, relation::regclass, mode from pg_locks WHERE pid != pg_backend_pid();
+
+   locktype    | relation |        mode
+---------------+----------+---------------------
+ virtualxid    |          | ExclusiveLock
+ relation      | users    | AccessExclusiveLock
+ transactionid |          | ExclusiveLock
+
+(3 rows)
+
+(bob) test-db-001=#
+```
 
 ## Table level locks
 
