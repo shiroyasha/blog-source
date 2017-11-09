@@ -16,7 +16,7 @@ retail application, we want to lower the price of books that have sold less than
 100 copies this year. One approach to implement it would be the following:
 
 ``` ruby
-def disscount_poor_performing_books(books)
+def discount_poor_performing_books(books)
   books.each do |book|
     if book.copies_sold_this_year < 100
       book.price = book.price * 0.8
@@ -39,14 +39,14 @@ def books_for_discount(books)
   books.select { |book| book.copies_sold_this_year < 100 }
 end
 
-def give_disscount(books)
+def give_discount(books)
   books.each { |book| book.price = book.price * 0.8 }
 end
 ```
 
 Now, you can use the `books_for_discount` to display the list of books that will
 be affected when the button is clicked by our administrator. When the
-administrator decides to click on the button, we can execute `give_disscount` on
+administrator decides to click on the button, we can execute `give_discount` on
 that list of books.
 
 ## Generalizing the separation for a wide range of issues
@@ -54,11 +54,11 @@ that list of books.
 There is an underlying pattern in the above example that can be generalized to a
 wide range of problems.
 
-The first implementation `disscount_poor_performing_books` _combined_ the
+The first implementation `discount_poor_performing_books` _combined_ the
 selection of the books with the _update_ on the books.
 
 The second approach, separated the _query_ `books_for_discount` from the
-_execution_ `give_disscount`. This separation allowed us to gain more control
+_execution_ `give_discount`. This separation allowed us to gain more control
 over the process.
 
 As a rule of thumb, when I design background processes, I always make sure to
