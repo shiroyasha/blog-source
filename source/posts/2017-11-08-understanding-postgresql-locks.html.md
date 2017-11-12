@@ -264,6 +264,12 @@ that is created for operations that modify the whole table.
 
 There are several more lock modes in PostgreSQL.
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 ## Table level locks
 
 ## Row level locks

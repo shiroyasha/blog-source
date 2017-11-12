@@ -16,7 +16,11 @@ ignore "article_layout.erb"
 ignore "about_layout.erb"
 
 set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true
+set :markdown,
+    :tables => true,
+    :autolink => true,
+    :gh_blockcode => true,
+    :fenced_code_blocks => true
 
 activate :syntax
 
