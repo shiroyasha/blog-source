@@ -1,17 +1,17 @@
 ---
 id: 454b324c-cf4b-4559-9e82-11e042be13da
 title: Understanding PostgreSQL locks
-date: 2017-11-08
+date: 2017-11-12
 tags: programming
-image: 2017-11-08-understanding-postgresql-locks.png
+image: 2017-11-12-understanding-postgresql-locks.png
 ---
 
 Locking is an important topic in any kind of database. Without properly handling
 locks, an application might not only be slow, it might also be wrong and behave
-in some insane ways. Therefor, learning proper locking techniques is essential
+in some insane ways. Therefore, learning proper locking techniques is essential
 for good performance and correctness of our applications.
 
-![](https://upload.wikimedia.org/wikipedia/commons/4/45/Blind_monks_examining_an_elephant.jpg)
+![Blind Monks Examining an Elephant](images/2017-11-12-understanding-postgresql-locks.png)
 
 Let's explore the types of locks available in PostgreSQL, when they are used,
 and how to explore open locks in the system.
@@ -202,15 +202,15 @@ Alice now sweeps in and lists the locks:
 (2 rows)
 ```
 
-The `SELECT` statement creates a `AccessShareLock`. This is type of lock that is
-generally created by queries that _read_ a table but do not _modify_ it.
+The `SELECT` statement creates a *AccessShareLock*. This is type of lock that is
+generally created by queries that *read* a table but do not *modify* it.
 
-The `AccessShareLock` conflicts with the `AccessExclusiveLock`. That means that
-if another transactions puts a `AccessExclusiveLock` lock on the table, our
-`SELECT` statements will not work.
+The *AccessShareLock* conflicts with the *AccessExclusiveLock*. That means that
+if another transactions puts a *AccessExclusiveLock* lock on the table, select
+statements will not work.
 
 Bob will now end the open transaction, releasing the lock, and he will try to
-acquire a `AccessExclusiveLock` for the user table. Adding a new column to the
+acquire a *AccessExclusiveLock* for the user table. Adding a new column to the
 table does just that, it locks up the table with exclusive access.
 
 ``` sql
@@ -241,8 +241,8 @@ moment?
 (alice) # SELECT * FROM users;
 ```
 
-The command never finishes. It waits for Bob's `AccessExclusiveLock` to be
-released. We can hit `CTRL+C` to cancel the `select` statement:
+The command never finishes. It waits for Bob's *AccessExclusiveLock* to be
+released. We can hit `CTRL+C` to cancel the select statement:
 
 ``` sql
 (alice) # SELECT * FROM users;
@@ -256,22 +256,78 @@ Let's also stop Bob's `ALTER TABLE` statement:
 (bob) # ROLLBACK;
 ```
 
-## Lock Modes and Conflicts
+## Lock Modes in PostgreSQL
 
-We have learned about two types of locks so far. The `AccessShareLock` that is
+We have learned about two locks modes so far. The `AccessShareLock` that is
 created for read queries like the `select` statements, and `AccessExclusiveLock`
 that is created for operations that modify the whole table.
 
 There are several more lock modes in PostgreSQL.
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+**ACCESS SHARE** — Acquired by queries that only read from a table but do not
+modify it. Typically, this is a *select* query.
 
-## Table level locks
+**ROW SHARE** — Acquired by the *SELECT FOR UPDATE* and *SELECT FOR SHARE* queries.
 
-## Row level locks
+**ROW EXCLUSIVE** — Acquired by queries that modify the data in a table.
+Typically, *update*, *delete*, and *insert* queries.
 
-## Advisory Locks
+**SHARE UPDATE EXCLUSIVE** — Acquired by *vacuum*, concurrent indexes, statistics,
+and some variants of the *alter table* commands.  This mode protects a table
+against concurrent schema changes and *vacuum* runs.
+
+**SHARE** — Acquired by *create index* that is not executed in concurrent mode.
+This mode protects a table against concurrent data changes.
+
+**SHARE ROW EXCLUSIVE** — This mode protects a table against concurrent data
+changes, and is self-exclusive so that only one session can hold it at a time.
+Acquired by *create collation*, *create trigger*, and many forms of *alter table*.
+
+**EXCLUSIVE** — This mode allows only concurrent ACCESS SHARE locks, i.e., only
+reads from the table can proceed in parallel with a transaction holding this
+lock mode.
+
+**ACCESS EXCLUSIVE** — This mode guarantees that the holder is the only
+transaction accessing the table in any way. Acquired by *DROP TABLE*, *ALTER
+TABLE*, *VACUUM FULl* commands.
+
+## Explicit locking
+
+In the previous sections, we have learned that all of the typical SQL commands
+acquire some sort of lock implicitly. We can also acquire locks explicitly with
+the `WITH LOCK` statement.
+
+Let's observe Bob as he acquires an explicit lock.
+
+``` sql
+(bob) # begin;
+(bob) # LOCK TABLE users;
+```
+
+When Alice lists open locks we will see that an *AccessExclusiveLock* lock was
+acquired for the users table. This is the default for the `LOCK TABLE`
+statement.
+
+``` sql
+(alice) # SELECT locktype, relation::regclass, mode, pid
+(alice) # FROM pg_locks WHERE pid != pg_backend_pid();
+
+   locktype    | relation |        mode         |  pid
+---------------+----------+---------------------+-------
+ virtualxid    |          | ExclusiveLock       | 22546
+ relation      | users    | AccessExclusiveLock | 22546
+ transactionid |          | ExclusiveLock       | 22546
+(3 rows)
+```
+
+Bob can acquire any lock mode with the `WITH LOCK` statement. For example, to
+acquire with a *Share Update Exclusive* mode he would enter:
+
+``` sql
+(bob) # LOCK TABLE users IN SHARE UPDATE EXCLUSIVE MODE;
+```
+
+The locks are granted until the transaction ends.
+
+*Did you like this article? Or, do you maybe have a helpful hint to share?
+Please leave it in the comment section bellow.*
