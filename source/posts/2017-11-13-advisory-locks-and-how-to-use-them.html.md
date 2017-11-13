@@ -12,4 +12,4 @@ concurrency control where the standard MVCC (multiversion concurrency control)
 doesn't fit the bill. Advisory Locks can be the perfect tool in your arsenal
 when you need to control access to a shared resource in a distributed system.
 
-
+![Enjoying advisory locking](https://upload.wikimedia.org/wikipedia/commons/5/5c/Gentlemen_in_conversation%2C_Eastern_Han_Dynasty.jpg)
