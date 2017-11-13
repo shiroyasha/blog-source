@@ -6,3 +6,10 @@
 @import "follow_on_twitter";
 @import "comments";
 @import "code_highlight";
+
+.job-ad {
+  width: 100%;
+  border-bottom: 1px solid red;
+  text-align: center;
+  padding: 10px;
+}
