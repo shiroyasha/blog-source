@@ -89,9 +89,6 @@ transaction rollbacks. Transaction level advisory locks act like regular locks
 and honor transaction semantics. A transactional advisory lock acquired in a
 transaction will be released when the transaction ends.
 
-Both session and transaction level advisory locks can be acquired multiple times
-by the owning process.
-
 In the previous section, we have acquired session level locks. To acquire a
 transaction level advisory lock, an alternative transaction specific lock needs
 to be acquired.
@@ -123,4 +120,24 @@ SELECT mode, classid, objid FROM pg_locks WHERE locktype = 'advisory';
 ---------------+---------+-------
  ExclusiveLock |       0 |    23
 (1 row)
+```
+
+Both session and transaction level advisory locks can be acquired multiple times
+by the owning process. Multiple lock requests stack, so that if the same resource
+is locked three times it must then be unlocked three times to be released for
+other sessions' use.
+
+## Blocking and non-Blocking Acquiring Functions
+
+There are two ways to acquire an advisory lock. With a blocking function that will
+block and wait until the lock is available, or with a non-blocking function that will
+return a boolean value signifying if the lock was acquired or not. In the previous
+sections, we have used the non-blocking versions of the function.
+
+``` sql
+-- non blocking version, returns true of false
+SELECT pg_try_advisory_lock(123);
+
+-- blocking version, wait for the lock to be available
+SELECT pg_advisory_lock(123);
 ```
