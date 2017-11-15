@@ -44,9 +44,11 @@ In the above session, we have created an advisory lock for the number `10`. To
 acquire an advisory lock, you can pass any 64bit number to the function. This
 is the essence of advisory locking. You are basically locking up a number in
 the database, and your application needs to provide a meaning to that number.
-
 Alternatively, instead of passing one 64bit to the function, you can pass two
 32bit numbers to the function.
+
+Like all locks in PostgreSQL, a complete list of advisory locks currently held
+by any session can be found in the pg_locks system view.
 
 Let's create two advisory locks, and observe their presence in the pg_locks
 system view:
@@ -75,4 +77,50 @@ SELECT mode, classid, objid FROM pg_locks WHERE locktype = 'advisory';
  mode | classid | objid
 ------+---------+-------
 (0 rows)
+```
+
+## Session and Transaction locks
+
+There are two ways to acquire advisory locks in PostgreSQL, at session level or
+at transaction level. Session level locks are held until the session ends or
+until the lock is released manually. Transaction semantics are not honored for
+session locks. A lock acquired in a transaction will hold even if the
+transaction rollbacks. Transaction level advisory locks act like regular locks
+and honor transaction semantics. A transactional advisory lock acquired in a
+transaction will be released when the transaction ends.
+
+Both session and transaction level advisory locks can be acquired multiple times
+by the owning process.
+
+In the previous section, we have acquired session level locks. To acquire a
+transaction level advisory lock, an alternative transaction specific lock needs
+to be acquired.
+
+``` sql
+begin;
+
+-- session level advisory lock
+SELECT pg_try_advisory_lock(23);
+
+-- transaction level advisory lock
+SELECT pg_try_advisory_xact_lock(17);
+
+SELECT mode, classid, objid FROM pg_locks WHERE locktype = 'advisory';
+
+     mode      | classid | objid
+---------------+---------+-------
+ ExclusiveLock |       0 |    17
+ ExclusiveLock |       0 |    23
+(2 rows)
+
+end;
+
+-- after the transaction ends, only session level locks are held
+
+SELECT mode, classid, objid FROM pg_locks WHERE locktype = 'advisory';
+
+     mode      | classid | objid
+---------------+---------+-------
+ ExclusiveLock |       0 |    23
+(1 row)
 ```
