@@ -36,13 +36,43 @@ $ psql -d advisory-locks-db
 Now, when we have a test database, and an open connection to it, we are ready to
 create our first advisory lock.
 
-``` shell
-advisory-locks-db=# SELECT pg_advisory_lock(10);
-
-pg_try_advisory_lock
-----------------------
-t
-(1 row)
+``` sql
+SELECT pg_try_advisory_lock(10);
 ```
 
+In the above session, we have created an advisory lock for the number `10`. To
+acquire an advisory lock, you can pass any 64bit number to the function. This
+is the essence of advisory locking. You are basically locking up a number in
+the database, and your application needs to provide a meaning to that number.
 
+Alternatively, instead of passing one 64bit to the function, you can pass two
+32bit numbers to the function.
+
+Let's create two advisory locks, and observe their presence in the pg_locks
+system view:
+
+``` sql
+SELECT pg_try_advisory_lock(23);
+SELECT pg_try_advisory_lock(112, 345);
+
+SELECT mode, classid, objid FROM pg_locks WHERE locktype = 'advisory';
+
+     mode      | classid | objid
+---------------+---------+-------
+ ExclusiveLock |     112 |   345
+ ExclusiveLock |       0 |    23
+(2 rows)
+```
+
+Finally, let's release the acquired locks:
+
+``` sql
+SELECT pg_advisory_unlock(23);
+SELECT pg_advisory_unlock(112, 345);
+
+SELECT mode, classid, objid FROM pg_locks WHERE locktype = 'advisory';
+
+ mode | classid | objid
+------+---------+-------
+(0 rows)
+```
