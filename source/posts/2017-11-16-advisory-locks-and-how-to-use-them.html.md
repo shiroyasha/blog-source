@@ -1,7 +1,7 @@
 ---
 id: 388a832c-4b33-46c1-8429-e106235df900
 title: Advisory Locks and How to Use Them
-date: 2017-11-13
+date: 2017-11-16
 tags: programming
 image: advisory-locks-and-how-to-use-them.jpg
 ---
@@ -93,8 +93,8 @@ and honor transaction semantics. A transactional advisory lock acquired in a
 transaction will be released when the transaction ends.
 
 In the previous section, we have acquired session level locks. To acquire a
-transaction level advisory lock, an alternative transaction specific lock needs
-to be acquired.
+transaction level advisory lock, an alternative transaction specific function
+needs to be invoked.
 
 ``` sql
 begin;
@@ -135,7 +135,7 @@ other sessions' use.
 There are two ways to acquire an advisory lock. With a blocking function that will
 block and wait until the lock is available, or with a non-blocking function that will
 return a boolean value signifying if the lock was acquired or not. In the previous
-sections, we have used the non-blocking versions of the function.
+sections we have used the non-blocking versions of the function.
 
 ``` sql
 -- non blocking version, returns true of false
@@ -173,20 +173,20 @@ First, let's define a Ruby module responsible for creating locks.
 ``` ruby
 module LockManager
   def self.with_lock(number)
-		lock = conn.select_value('select pg_try_advisory_lock(1);')
+    lock = conn.select_value('select pg_try_advisory_lock(1);')
 
     return unless lock == 't'
 
-		begin
+    begin
       yield
-		ensure
-	    conn.execute 'select pg_advisory_unlock(1);'
-		end
-	end
+    ensure
+      conn.execute 'select pg_advisory_unlock(1);'
+    end
+  end
 
-	def conn
-		ActiveRecord::Base.connection
-	end
+  def conn
+    ActiveRecord::Base.connection
+  end
 end
 ```
 
@@ -197,17 +197,17 @@ background processor.
 loop do
   users = User.with_unprocessed_files.limit(100)
 
-	users.each do |user|
-		LockManager.with_lock(user.id) do
-			content = fetch_file_from_s3(user.file)
+  users.each do |user|
+    LockManager.with_lock(user.id) do
+      content = fetch_file_from_s3(user.file)
 
       processed = process(content)
 
       upload_file_to_s3(user.file, processed)
-		end
-	end
+    end
+  end
 
-	sleep 1
+  sleep 1
 end
 ```
 
@@ -216,7 +216,9 @@ our bidding.
 
 An advisory note for the end. The above example is good entry point for constructing
 such a system, but it is not bulletproof. For production use case, several other
-concerns need to be addressed like connectivity issues to the database.
+concerns need to be addressed like connectivity issues to the database, handling
+process and node crashes, resource starvation, and of course a good set of
+metrics.
 
 _Did you like this article? Or, do you maybe have a helpful hint to share? Please
 leave it in the comment section bellow._
