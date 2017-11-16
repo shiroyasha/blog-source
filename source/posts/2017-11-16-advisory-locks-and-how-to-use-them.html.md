@@ -173,14 +173,14 @@ First, let's define a Ruby module responsible for creating locks.
 ``` ruby
 module LockManager
   def self.with_lock(number)
-    lock = conn.select_value('select pg_try_advisory_lock(1);')
+    lock = conn.select_value("select pg_try_advisory_lock(#{number});")
 
     return unless lock == 't'
 
     begin
       yield
     ensure
-      conn.execute 'select pg_advisory_unlock(1);'
+      conn.execute "select pg_advisory_unlock(#{number});"
     end
   end
 
