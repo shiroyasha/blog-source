@@ -79,6 +79,9 @@ SELECT mode, classid, objid FROM pg_locks WHERE locktype = 'advisory';
 (0 rows)
 ```
 
+Calling `SELECT pg_advisory_unlock_all()` will unlock all advisory locks
+currently held by your session.
+
 ## Session and Transaction locks
 
 There are two ways to acquire advisory locks in PostgreSQL, at session level or
@@ -141,3 +144,79 @@ SELECT pg_try_advisory_lock(123);
 -- blocking version, wait for the lock to be available
 SELECT pg_advisory_lock(123);
 ```
+
+## Use Case for Advisory Locks in a System
+
+Advisory locks are suitable for implementing various application-level
+concurrency control mechanisms. For instance, advisory locks can be usable
+for the following scenarios:
+
+- we need to coordinate access to some shared resource or a 3rd party services
+and we need to guarantee that only one node can access it at a time
+
+- we want to calculate and send a report to some of our users, but we must
+guarantee that background workers don't start the calculation concurrently
+
+- a multi-node task scheduler can use advisory locks to coordinate task
+distribution to workers
+
+The benefit of using advisory locks for background processing for a given user
+is that the tables are never actually locked for writing, so the main application
+that executes the regular CRUD operations on the record can behave normally
+and users will never notice anything is happening in the background.
+
+As an example of using advisory locks, we will create a background looper task
+in Ruby that processes our user's files on stored on S3.
+
+First, let's define a Ruby module responsible for creating locks.
+
+``` ruby
+module LockManager
+  def self.with_lock(number)
+		lock = conn.select_value('select pg_try_advisory_lock(1);')
+
+    return unless lock == 't'
+
+		begin
+      yield
+		ensure
+	    conn.execute 'select pg_advisory_unlock(1);'
+		end
+	end
+
+	def conn
+		ActiveRecord::Base.connection
+	end
+end
+```
+
+When we have a lock manager, we can implement a safe, concurrent friendly,
+background processor.
+
+``` ruby
+loop do
+  users = User.with_unprocessed_files.limit(100)
+
+	users.each do |user|
+		LockManager.with_lock(user.id) do
+			content = fetch_file_from_s3(user.file)
+
+      processed = process(content)
+
+      upload_file_to_s3(user.file, processed)
+		end
+	end
+
+	sleep 1
+end
+```
+
+Finally, we can safely start several file processors on several nodes to do
+our bidding.
+
+An advisory note for the end. The above example is good entry point for constructing
+such a system, but it is not bulletproof. For production use case, several other
+concerns need to be addressed like connectivity issues to the database.
+
+_Did you like this article? Or, do you maybe have a helpful hint to share? Please
+leave it in the comment section bellow._
