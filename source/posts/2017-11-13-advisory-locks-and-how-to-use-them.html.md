@@ -3,7 +3,7 @@ id: 388a832c-4b33-46c1-8429-e106235df900
 title: Advisory Locks and How to Use Them
 date: 2017-11-13
 tags: programming
-image: 2017-11-13-advisory-locks-and-how-to-use-them.png
+image: advisory-locks-and-how-to-use-them.jpg
 ---
 
 PostgreSQL provides the means for creating locks with application defined
@@ -12,7 +12,7 @@ concurrency control where the standard MVCC (multiversion concurrency control)
 doesn't fit the bill. Advisory Locks can be the perfect tool in your arsenal
 when you need to control access to a shared resource in a distributed system.
 
-![Enjoying advisory locking](https://upload.wikimedia.org/wikipedia/commons/5/5c/Gentlemen_in_conversation%2C_Eastern_Han_Dynasty.jpg)
+![Enjoying advisory locking](/images/advisory-locks-and-how-to-use-them.jpg)
 
 Let's explore advisory locks, their use case, and how to use them from your
 applications.
