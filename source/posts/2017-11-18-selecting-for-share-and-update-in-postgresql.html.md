@@ -99,3 +99,32 @@ process B: ERROR could not obtain lock on row in relation "purchases"
 
 process A: UPDATE purchases SET ...;
 ```
+
+## Processing Non-Locked Database Rows
+
+Select for update can be rigid lock on your table. Concurrent processes can be
+blocked and starved out. Waiting is the slowest for of concurrent processing.
+If only one CPU can be active at a time, it is pointless to vertically scale
+your servers. For this purpose, in PostgreSQL there is a mechanism for selecting
+only rows that are not locked.
+
+The `select ... for update skip locked` is a statement that allows you to query
+rows that have no locks. Let's observe the following scenario to grasp its use
+case:
+
+``` sql
+process A: SELECT * FROM purchases
+process A:   WHERE processed = false FOR UPDATE SKIP LOCKED;
+
+process B: SELECT * FROM purchases
+process B:   WHERE created_at < now()::date - interval '1w';
+process B:   FOR UPDATE SKIP LOCKED;
+
+-- process A selects and locks all unprocess rows
+-- process B selects all non locked purchases older than a week
+
+process A: UPDATE purchases SET ...;
+process B: UPDATE purchases SET ...;
+```
+
+Both Process A and Process B can process data concurrently.
