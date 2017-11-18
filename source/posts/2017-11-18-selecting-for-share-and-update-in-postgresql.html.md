@@ -43,7 +43,7 @@ finishes.
 Here is an example scenario in which the data suffers from an intrusive race
 condition.
 
-``` text
+``` sql
 process A: SELECT * FROM purchases WHERE processed = false;
 
 --- process B updates the data while process A is processing it
@@ -66,6 +66,36 @@ UPDATE purchases SET ...;
 COMMIT;
 ```
 
-The `SELECT ... FOR UPDATE` locks the rows just as a `FOR UPDATE` statement
-would, and prevent any changes that could happen concurrently. The locks will be
-released when the transaction ends.
+The `select ... for update` acquires a `ROW SHARE LOCK` on the table. This lock
+conflicts with the `EXCLUSIVE` lock needed for an `update` statement, and
+prevents any changes that could happen concurrently. The locks will be released
+when the transaction ends.
+
+``` sql
+process A: SELECT * FROM purchases WHERE processed = false FOR UPDATE;
+process B: SELECT * FROM purchases FOR UDPATE;
+--- process B blocks blocks and waits process A to finish
+
+process A: UPDATE purchases SET ...;
+process B: UPDATE purchases SET ...;
+```
+
+## Non-blocking Select for Update Statements
+
+When the applications selects some rows for update, other processes are forced
+to wait for the transaction to end before they can get a hold of that lock. By
+default this waiting is a blocking call.
+
+If the processing takes too long to complete, for whatever reason, we can use
+the `select ... for update nowait` statement to prevent blocking calls to our
+database. This query will error out if the rows are not available for selection.
+
+``` sql
+process A: SELECT * FROM purchases WHERE processed = false;
+
+--- process B tries to select the data, but fails
+process B: SELECT * FROM purchases FOR UPDATE NOWAIT;
+process B: ERROR could not obtain lock on row in relation "purchases"
+
+process A: UPDATE purchases SET ...;
+```
