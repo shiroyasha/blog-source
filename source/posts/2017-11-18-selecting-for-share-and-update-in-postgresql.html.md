@@ -178,3 +178,59 @@ process B: UPDATE users SET name = 'Peter' WHERE id = 1;
 -- process B is completed without blocking because it does not change
 -- the id field
 ```
+
+## Safely Creating Related Records With Select for Share
+
+A weaker form of `select for update` is the `select for share` query. It is
+ideal for ensuring referential integrity when creating child records for a
+parent.
+
+Let's use the users and purchases tables to demonstrate a use case for the
+select for share query. Suppose that we want to create a new purchase for a
+user. First, we would select the user from the database and then insert a new
+record in the purchases database. Can we safely insert a new purchase into the
+database? With a regular select statement we can't. Other processes could delete
+the user in the moments between selecting the user and inserting the purchase.
+
+One way to avoid potential issues is to query for the user and setting the `FOR
+SHARE` lock mode.
+
+``` sql
+process A: BEGIN;
+process A: SELECT * FROM users WHERE id = 1 FOR SHARE;
+
+process B: DELETE FROM users WHERE id = 1;
+-- process B blocks and must wait for process A to finish
+
+process A: INSERT INTO purchases (id, user_id) VALUES (1, 1);
+process A: COMMIT;
+
+-- process B now unblocks and deletes the user
+```
+
+Select for share prevented other processes from deleting the user, but did not
+prevent concurrent processes from selecting the users. This is the major
+difference between `select for share` and `select for update`.
+
+The `select for share` prevents updates and deletes of the rows, but does not
+prevent other processes from acquiring a `select for share`. On the other hand,
+`select for update` also blocks updates and deletes, but it also prevents other
+processes from acquiring a `select for update` lock.
+
+## The Select For No Key Updates and Select For Key Share
+
+There are two more locking clauses in PostgreSQL introduces from version 9.3.
+The `select for no key updates` and `select for key share`.
+
+The `select for no key updates` behaves similarly to the `select for update`
+locking clause but it does not block the `select for share`. It is ideal if you
+are performing processing on the rows but don't want to block the creation of
+child records.
+
+The `select key share` is the weakest form of the with lock clause, and behaves
+similarly to the `select for share` locking clause. It prevents the deletion of
+the rows, but unlike `select for share` it does not prevent updates to the rows
+that do not modify key values.
+
+_Did you like this article? Or, do you maybe have a helpful hint to share? Please
+leave it in the comment section bellow._
