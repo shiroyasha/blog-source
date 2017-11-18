@@ -6,6 +6,7 @@ tags: programming
 image: 2017-11-18-selecting-for-share-and-update-in-postgresql.png
 ---
 
+
 A regular select statement does not give you enough protection if you want to
 query data and make a change in the database related to it. Other transactions
 can update or delete the data you just queried. PostgreSQL offers additional
@@ -128,3 +129,52 @@ process B: UPDATE purchases SET ...;
 ```
 
 Both Process A and Process B can process data concurrently.
+
+## The Effect of Select For Update on Foreign Keys
+
+One thing that we need to keep in mind while working with select for update
+statements is its effect on foreign keys. More specifically, we can not forget
+that the referenced rows are also locked.
+
+Let's look at an example with two tables — users and purchases — with the notion
+that users have many purchases.
+
+``` sql
+\d purchases
+
+              Table "public.purchases"
+ Column  |  Type   | Collation | Nullable | Default
+---------+---------+-----------+----------+---------
+ id      | integer |           |          |
+ payload | jsonb   |           |          |
+ user_id | integer |           |          |
+
+Foreign-key constraints:
+    "purchases_user_id_fkey" FOREIGN KEY (user_id) REFERENCES
+    users(id) ON UPDATE CASCADE ON DELETE CASCADE
+```
+
+When selecting data from the purchases table with `select for update`, users
+will be locked as well. This is necessary because otherwise there is a chance of
+breaking the foreign-key constraint.
+
+``` sql
+process A: SELECT * FROM purchases FOR UPDATE;
+process B: UPDATE users SET id = 3 WHERE id = 1;
+
+-- process B is blocked and is waiting for process A to finish
+-- its transaction
+```
+
+In bigger systems, a `select for share` can have huge negative consequences if
+it locks a widely used table. Keep in mind that the other process will only need
+to wait if it wants to update the referenced field. If the other process wants
+to update some unrelated data, no blocking will occur.
+
+``` sql
+process A: SELECT * FROM purchases FOR UPDATE;
+process B: UPDATE users SET name = 'Peter' WHERE id = 1;
+
+-- process B is completed without blocking because it does not change
+-- the id field
+```
