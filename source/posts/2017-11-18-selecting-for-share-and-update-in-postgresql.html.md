@@ -12,3 +12,7 @@ can update or delete the data you just queried. PostgreSQL offers two additional
 select statements that lock on read and provide an extra layer of safety.
 
 ![Selecting for Share and Update](http://maxpixel.freegreatpicture.com/static/photo/640/Namibia-Elephant-African-Bush-Elephant-Africa-84186.jpg)
+
+This article explores the `select for share` and `select for update` statements,
+the locks that are created with these statements, and the use cases for using
+these two select statements.
