@@ -15,13 +15,13 @@ select statements that lock on read and provide an extra layer of safety.
 ![Selecting for Share and Update](http://maxpixel.freegreatpicture.com/static/photo/640/Namibia-Elephant-African-Bush-Elephant-Africa-84186.jpg)
 
 This article explores the `select for share` and `select for update` statements,
-the locks that are created with these statements, and the use cases for using
+locks that are created with these statements, and provide examples for using
 these two select statements.
 
 ## Safely Updating Data
 
-Sometimes, applications read some data from the database, process the data, and
-save the result back in the database. This is a classic example where the
+Sometimes, applications read data from the database, process the data, and save
+the result back in the database. This is a classic example where the
 `select for update` can provide additional safety.
 
 Let's consider the following example:
@@ -36,10 +36,9 @@ UPDATE purchases SET ...;
 COMMIT;
 ```
 
-The above code snippet can be victim of a nasty race condition. The problem is
-that some other part of the application can update some of the unprocessed data.
-Changes to those rows will be then overwritten when the data processing
-finishes.
+The above code snippet can be a victim of a nasty race condition. The problem is
+that some other part of the application can update the unprocessed data. Changes
+to those rows will be then overwritten when the data processing finishes.
 
 Here is an example scenario in which the data suffers from an intrusive race
 condition.
@@ -67,10 +66,9 @@ UPDATE purchases SET ...;
 COMMIT;
 ```
 
-The `select ... for update` acquires a `ROW SHARE LOCK` on the table. This lock
+The `select ... for update` acquires a `ROW SHARE LOCK` on a table. This lock
 conflicts with the `EXCLUSIVE` lock needed for an `update` statement, and
-prevents any changes that could happen concurrently. The locks will be released
-when the transaction ends.
+prevents any changes that could happen concurrently.
 
 ``` sql
 process A: SELECT * FROM purchases WHERE processed = false FOR UPDATE;
@@ -81,14 +79,16 @@ process A: UPDATE purchases SET ...;
 process B: UPDATE purchases SET ...;
 ```
 
+All the locks will be released when the transaction ends.
+
 ## Non-blocking Select for Update Statements
 
 When the applications selects some rows for update, other processes are forced
-to wait for the transaction to end before they can get a hold of that lock. By
-default this waiting is a blocking call.
+to wait for the transaction to end before they can get a hold of that lock.
 
-If the processing takes too long to complete, for whatever reason, we can use
-the `select ... for update nowait` statement to prevent blocking calls to our
+If the processing takes too long to complete, for whatever reason, other parts
+of the system might be blocked. This can be undesirable. We can use the
+`select ... for update nowait` statement to prevent blocking calls to our
 database. This query will error out if the rows are not available for selection.
 
 ``` sql
@@ -103,11 +103,11 @@ process A: UPDATE purchases SET ...;
 
 ## Processing Non-Locked Database Rows
 
-Select for update can be rigid lock on your table. Concurrent processes can be
-blocked and starved out. Waiting is the slowest for of concurrent processing.
-If only one CPU can be active at a time, it is pointless to vertically scale
-your servers. For this purpose, in PostgreSQL there is a mechanism for selecting
-only rows that are not locked.
+Select for update can be a rigid lock on your table. Concurrent processes can be
+blocked and starved out. Waiting is the slowest form of concurrent processing.
+If only one CPU can be active at a time, it is pointless to scale your servers.
+For this purpose, in PostgreSQL there is a mechanism for selecting only rows
+that are not locked.
 
 The `select ... for update skip locked` is a statement that allows you to query
 rows that have no locks. Let's observe the following scenario to grasp its use
@@ -133,8 +133,8 @@ Both Process A and Process B can process data concurrently.
 ## The Effect of Select For Update on Foreign Keys
 
 One thing that we need to keep in mind while working with select for update
-statements is its effect on foreign keys. More specifically, we can not forget
-that the referenced rows are also locked.
+statements is its effect on foreign keys. More specifically, we can't forget
+that the referenced rows from other tables are also locked.
 
 Let's look at an example with two tables — users and purchases — with the notion
 that users have many purchases.
@@ -167,8 +167,8 @@ process B: UPDATE users SET id = 3 WHERE id = 1;
 ```
 
 In bigger systems, a `select for share` can have huge negative consequences if
-it locks a widely used table. Keep in mind that the other process will only need
-to wait if it wants to update the referenced field. If the other process wants
+it locks a widely used table. Keep in mind that other processes will only need
+to wait if they want to update the referenced field. If the other process wants
 to update some unrelated data, no blocking will occur.
 
 ``` sql
@@ -182,7 +182,7 @@ process B: UPDATE users SET name = 'Peter' WHERE id = 1;
 ## Safely Creating Related Records With Select for Share
 
 A weaker form of `select for update` is the `select for share` query. It is
-ideal for ensuring referential integrity when creating child records for a
+an ideal for ensuring referential integrity when creating child records for a
 parent.
 
 Let's use the users and purchases tables to demonstrate a use case for the
@@ -192,8 +192,8 @@ record in the purchases database. Can we safely insert a new purchase into the
 database? With a regular select statement we can't. Other processes could delete
 the user in the moments between selecting the user and inserting the purchase.
 
-One way to avoid potential issues is to query for the user and setting the `FOR
-SHARE` lock mode.
+One way to avoid potential issues is to query for the user with the `FOR SHARE`
+locking clause.
 
 ``` sql
 process A: BEGIN;
@@ -208,12 +208,12 @@ process A: COMMIT;
 -- process B now unblocks and deletes the user
 ```
 
-Select for share prevented other processes from deleting the user, but did not
-prevent concurrent processes from selecting the users. This is the major
-difference between `select for share` and `select for update`.
+Select for share prevented other processes from deleting the user, but does not
+prevent concurrent processes from selecting users. This is the major difference
+between `select for share` and `select for update`.
 
-The `select for share` prevents updates and deletes of the rows, but does not
-prevent other processes from acquiring a `select for share`. On the other hand,
+The `select for share` prevents updates and deletes of rows, but doesn't prevent
+other processes from acquiring a `select for share`. On the other hand,
 `select for update` also blocks updates and deletes, but it also prevents other
 processes from acquiring a `select for update` lock.
 
