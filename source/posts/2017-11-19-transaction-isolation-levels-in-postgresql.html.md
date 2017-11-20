@@ -51,4 +51,8 @@ Most developers would actually expect the two select queries to return the same
 value in a single transaction. This is not true, and can lead to bizarre bugs if
 the developers don't expect changes during transactions.
 
-## The Four Isolation Levels in PostgreSQL
+## The Four Isolation Levels in the SQL standard
+
+## Reputable Reads in a Transaction
+
+## Serializable transaction
