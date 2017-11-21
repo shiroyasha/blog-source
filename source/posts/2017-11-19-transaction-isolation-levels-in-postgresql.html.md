@@ -69,7 +69,7 @@ or removes rows from the table we are querying.
 
 - Even weaker is the `Read Commited` isolation level. Two consecutive select
 statements in a transaction can return different data. Contrary to the *Read
-Repetable* level, this level allows not only the set of rows to change, but also
+Repeatable* level, this level allows not only the set of rows to change, but also
 the data that those rows contain. This can happen if another transaction
 modifies the rows.
 
@@ -80,6 +80,80 @@ transaction.
 The last isolation level `Read Uncommited` is not supported in PostgreSQL. If
 you request this isolation model, PostgreSQL will use `Read Commited` instead.
 
-## Reputable Reads in a Transaction
+## Comparing Read Committed and Read Repeatable Isolation Levels
+
+I strongly believe in learning by doing. A real world example will help us to
+truly grasp the differences in these isolation levels. Let's explore the
+transaction levels and observe the side effects.
+
+First, we will repeat the example from the first section, with the default read
+committed isolation level.
+
+``` sql
+process A: BEGIN; -- the default is READ COMMITED
+
+process A: SELECT sum(value) from purchases;
+--- process A sees that the sum is 1600
+
+process B: INSERT INTO purchases (value) VALUES (400)
+--- process B inserts a new row into the table while
+--- process A's transaction is in progress
+
+process A: SELECT sum(value) from purchases;
+--- process A sees that the sum is 2000
+
+process A: COMMIT;
+```
+
+If we want to avoid the changing sum value in process A during the lifespan of
+the transaction, we can use the reputable read transaction mode.
+
+``` sql
+process A: BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+process A: SELECT sum(value) from purchases;
+--- process A sees that the sum is 1600
+
+process B: INSERT INTO purchases (value) VALUES (400)
+--- process B inserts a new row into the table while
+--- process A's transaction is in progress
+
+process A: SELECT sum(value) from purchases;
+--- process A still sees that the sum is 1600
+
+process A: COMMIT;
+```
+
+The transaction in process A fill freeze its snapshot of the data and offer
+consistent values during the life of the transaction.
+
+Reputable reads are not more expensive than the default read commit transaction.
+There is no need to worry about performance penalties. However, applications
+must be prepared to retry transactions due to serialization failures.
+
+Let's observe an issue that can occur while using the repeatable read isolation
+level — the `could not serialize access due to concurrent update` error.
+
+``` sql
+process A: BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+process B: BEGIN;
+process B: UPDATE purchases SET value = 500 WHERE id = 1;
+
+process A: UPDATE purchases SET value = 600 WHERE id = 1;
+-- process A wants to update the value while process B is changing it
+-- process A is blocked until process B commits
+
+process B: COMMIT;
+process A: ERROR:  could not serialize access due to concurrent update
+
+-- process A immidiatly errors out when process B commits
+```
+
+If process B would rolls back, then its changes are negated and repeatable read
+can proceed without issues. However, if process B commits the changes then the
+repeatable read transaction will be rolled back with the error message because
+it can not modify or lock the rows changed by other processes after the
+repeatable read transaction has began.
 
 ## Serializable transaction
