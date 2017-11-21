@@ -29,14 +29,14 @@ transactions totally isolated from each other?
 ``` sql
 process A: begin;
 
-process A: SELECT sum(value) from purchases;
+process A: SELECT sum(value) FROM purchases;
 --- process A sees that the sum is 1600
 
 process B: INSERT INTO purchases (value) VALUES (400)
 --- process B inserts a new row into the table while
 --- process A's transaction is in progress
 
-process A: SELECT sum(value) from purchases;
+process A: SELECT sum(value) FROM purchases;
 --- process A sees that the sum is 2000
 
 process A: COMMIT;
@@ -80,7 +80,7 @@ transaction.
 The last isolation level `Read Uncommited` is not supported in PostgreSQL. If
 you request this isolation model, PostgreSQL will use `Read Commited` instead.
 
-## Comparing Read Committed and Read Repeatable Isolation Levels
+## Comparing Read Committed with Read Repeatable Isolation
 
 I strongly believe in learning by doing. A real world example will help us to
 truly grasp the differences in these isolation levels. Let's explore the
@@ -92,14 +92,14 @@ committed isolation level.
 ``` sql
 process A: BEGIN; -- the default is READ COMMITED
 
-process A: SELECT sum(value) from purchases;
+process A: SELECT sum(value) FROM purchases;
 --- process A sees that the sum is 1600
 
 process B: INSERT INTO purchases (value) VALUES (400)
 --- process B inserts a new row into the table while
 --- process A's transaction is in progress
 
-process A: SELECT sum(value) from purchases;
+process A: SELECT sum(value) FROM purchases;
 --- process A sees that the sum is 2000
 
 process A: COMMIT;
@@ -111,14 +111,14 @@ the transaction, we can use the reputable read transaction mode.
 ``` sql
 process A: BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
-process A: SELECT sum(value) from purchases;
+process A: SELECT sum(value) FROM purchases;
 --- process A sees that the sum is 1600
 
 process B: INSERT INTO purchases (value) VALUES (400)
 --- process B inserts a new row into the table while
 --- process A's transaction is in progress
 
-process A: SELECT sum(value) from purchases;
+process A: SELECT sum(value) FROM purchases;
 --- process A still sees that the sum is 1600
 
 process A: COMMIT;
@@ -156,4 +156,68 @@ repeatable read transaction will be rolled back with the error message because
 it can not modify or lock the rows changed by other processes after the
 repeatable read transaction has began.
 
-## Serializable transaction
+## Read Repeatable vs. Serializable Isolation Level
+
+The Serializable isolation level offers the strictest isolation. The idea behind
+Serializable transaction is simple. If a transaction is known to be working
+correctly when there is only one process in the system, then it should work
+correctly when there are many processes in the system.
+
+This guarantee comes with a price. Serializable transaction error out with
+Serializable issues frequently, and there is an additional performance cost to
+be paid. I would advise using Serializable transaction only if you have a deep
+understanding of the PostgreSQL engine.
+
+The SQL standard allows Phantom Reads — concurrent processes can affect the
+number of rows returned by a select statement — but in PostgreSQL this is not
+true. PostgreSQL protects even from phantom reads in the Read Reputable
+isolation mode.
+
+You might be wondering what is the difference between Serializable and Reputable
+Reads in PostgreSQL. Let's compare a two examples that demonstrate the
+differences between the two isolation modes.
+
+``` sql
+process A: BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+process A: SELECT sum(value) FROM purchases;
+process A: INSERT INTO purchases (value) VALUES (100);
+
+process B: BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+process B: SELECT sum(value) FROM purchases;
+process B: INSERT INTO purchases (id, value);
+process B: COMMIT;
+
+process A: COMMIT;
+```
+
+With Repeatable Reads everything works, but if we run the same thing with a
+Serializable isolation mode, process A will error out.
+
+``` sql
+process A: BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+process A: SELECT sum(value) FROM purchases;
+process A: INSERT INTO purchases (value) VALUES (100);
+
+process B: BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+process B: SELECT sum(value) FROM purchases;
+process B: INSERT INTO purchases (id, value);
+process B: COMMIT;
+
+process A: COMMIT;
+
+ERROR: could not serialize access due to read/write
+dependencies among transactions
+
+DETAIL: Reason code: Canceled on identification as
+a pivot, during commit attempt.
+
+HINT: The transaction might succeed if retried.
+```
+
+Both transactions have modified what the other transaction would have read in
+the select statements. If both would allow to commit this would violate the
+Serializable behaviour, because if they were run one at a time, one of the
+transactions would have seen the new record inserted by the other transaction.
+
+Did you like this article? Or, do you maybe have a helpful hint to share? Please
+leave it in the comment section bellow.
