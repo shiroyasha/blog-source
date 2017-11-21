@@ -53,6 +53,33 @@ the developers don't expect changes during transactions.
 
 ## The Four Isolation Levels in the SQL standard
 
+The SQL standard defines four different isolation levels for transactions. The
+most strict isolation level is Serializable, while the three other isolation
+levels are defined in terms of effects that are allowed to happen when running
+transactions concurrently.
+
+- The `Serializable` isolation level guarantees that concurrent transactions run
+as they would if you would run sequentially one by one in order.
+
+- One step weaker is the `Read Reputable` isolation level that allows _Phantom
+Reads_ to happen in the transaction. Contrary to transactions running in the
+Serializable mode, the set of rows that is returned by two consecutive select
+queries in a transaction can differ. This can happen if another transaction adds
+or removes rows from the table we are querying.
+
+- Even weaker is the `Read Commited` isolation level. Two consecutive select
+statements in a transaction can return different data. Contrary to the *Read
+Repetable* level, this level allows not only the set of rows to change, but also
+the data that those rows contain. This can happen if another transaction
+modifies the rows.
+
+- The weakest isolation level is `Read Uncommitted` where dirty reads can occur.
+That means that non-committed changes from other transactions can affect a
+transaction.
+
+The last isolation level `Read Uncommited` is not supported in PostgreSQL. If
+you request this isolation model, PostgreSQL will use `Read Commited` instead.
+
 ## Reputable Reads in a Transaction
 
 ## Serializable transaction
