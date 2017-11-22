@@ -61,7 +61,7 @@ transactions concurrently.
 - The `Serializable` isolation level guarantees that concurrent transactions run
 as they would if you would run sequentially one by one in order.
 
-- One step weaker is the `Read Reputable` isolation level that allows _Phantom
+- One step weaker is the `Read Repeatable` isolation level that allows _Phantom
 Reads_ to happen in the transaction. Contrary to transactions running in the
 Serializable mode, the set of rows that is returned by two consecutive select
 queries in a transaction can differ. This can happen if another transaction adds
@@ -106,7 +106,7 @@ process A: COMMIT;
 ```
 
 If we want to avoid the changing sum value in process A during the lifespan of
-the transaction, we can use the reputable read transaction mode.
+the transaction, we can use the repeatable read transaction mode.
 
 ``` sql
 process A: BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
@@ -127,7 +127,7 @@ process A: COMMIT;
 The transaction in process A fill freeze its snapshot of the data and offer
 consistent values during the life of the transaction.
 
-Reputable reads are not more expensive than the default read commit transaction.
+Repeatable reads are not more expensive than the default read commit transaction.
 There is no need to worry about performance penalties. However, applications
 must be prepared to retry transactions due to serialization failures.
 
@@ -170,10 +170,10 @@ understanding of the PostgreSQL engine.
 
 The SQL standard allows Phantom Reads — concurrent processes can affect the
 number of rows returned by a select statement — but in PostgreSQL this is not
-true. PostgreSQL protects even from phantom reads in the Read Reputable
+true. PostgreSQL protects even from phantom reads in the Read Repeatable
 isolation mode.
 
-You might be wondering what is the difference between Serializable and Reputable
+You might be wondering what is the difference between Serializable and Repeatable
 Reads in PostgreSQL. Let's compare a two examples that demonstrate the
 differences between the two isolation modes.
 
