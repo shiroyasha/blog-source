@@ -194,11 +194,11 @@ With Repeatable Reads everything works, but if we run the same thing with a
 Serializable isolation mode, process A will error out.
 
 ``` sql
-process A: BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+process A: BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 process A: SELECT sum(value) FROM purchases;
 process A: INSERT INTO purchases (value) VALUES (100);
 
-process B: BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+process B: BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 process B: SELECT sum(value) FROM purchases;
 process B: INSERT INTO purchases (id, value);
 process B: COMMIT;
