@@ -19,3 +19,29 @@ This article explores how PostgreSQL handles concurrency with the Multi Version
 Concurrency Control mechanism. We will discover the hidden system columns in
 your database tables, the meaning of transaction ids, and the importance of
 vacuuming your database.
+
+## Reader and Writer Locks in the Database
+
+A concurrency control model firstly need to operate correctly and to maintain
+each transaction's integrity rules while transactions are running concurrently.
+Correctness needs to be achieved with as good performance as possible.
+
+In the beginning the most common concurrency control model in databases was
+the two phase locking mechanism, that requires a shared lock while reading data
+from a database table, and an exclusive lock when modifying data in the table.
+
+For a quick recap, here is the boiled down purpose of the shared and exclusive
+locks:
+
+- A `shared lock` blocks _writers_, but allows other _readers_ to acquire the same lock
+- An `exclusive lock` blocks both data _writers_ and _readers_
+
+Waiting is the slowest form of concurrency control. If only one process can
+access the data, it is pointless to buy ever bigger servers. For this reasons,
+database systems are continuously improved to require as little locking as
+possible, while maintaining correctness. Ideally, readers would not block
+writers, and writers would not block readers.
+
+One way to achieve a non-blocking behaviour for readers and writers, is to keep
+track of _multiple versions of the same record_ and to limit their visibility
+between transactions.
