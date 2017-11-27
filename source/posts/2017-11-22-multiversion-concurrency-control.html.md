@@ -34,7 +34,7 @@ For a quick recap, here is the boiled down purpose of the shared and exclusive
 locks:
 
 - A `shared lock` blocks _writers_, but allows other _readers_ to acquire the same lock
-- An `exclusive lock` blocks both data _writers_ and _readers_
+- An `exclusive lock` blocks both _writers_ and _readers_
 
 Waiting is the slowest form of concurrency control. If only one process can
 access the data, it is pointless to buy ever bigger servers. For this reasons,
@@ -45,3 +45,5 @@ writers, and writers would not block readers.
 One way to achieve a non-blocking behaviour for readers and writers, is to keep
 track of _multiple versions of the same record_ and to limit their visibility
 between transactions.
+
+## How PostgreSQL Keeps Track of Multiple Versions of the Same Record
