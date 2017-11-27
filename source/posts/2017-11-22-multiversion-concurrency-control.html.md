@@ -47,3 +47,36 @@ track of _multiple versions of the same record_ and to limit their visibility
 between transactions.
 
 ## How PostgreSQL Keeps Track of Multiple Versions of the Same Record
+
+PostgreSQL uses the Multi Version Concurrency Control to allow fast reads and
+writes in the database. It stores multiple rows in the table's data structure
+itself and limits their visibility with the use `xmin` and `xmax` system
+columns.
+
+If you have never seen system columns in PostgreSQL, this is the perfect time to
+test them. Choose any table in your database, and select the two columns.
+
+``` sql
+SELECT *, xmin, xmax FROM users;
+
+ id | name  | xmin | xmax
+----+-------+------+------
+  1 | Peter | 1291 |    0
+  2 | John  | 1292 | 1294
+
+(2 rows)
+```
+
+To interpret the value in this column, you must know three things about
+PostgreSQL:
+
+- The `xmin` column stores the number of the transaction that inserted the value
+- The `xmax` value storer the number of the transaction that deleted the record
+- Transaction numbers are sequentially increased
+
+A transaction in PostgreSQL can only see the record, if the `xmin` is less than
+the number of the current transaction, and if `xmax` is greater then the current
+transaction.
+
+## Multi Version Concurrency Control and Data Modification in PostgreSQL
+
