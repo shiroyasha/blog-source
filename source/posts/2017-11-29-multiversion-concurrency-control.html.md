@@ -13,7 +13,7 @@ a very hard problem. If you want to design highly concurrent applications, you
 should really invest the time to understand the bits and bolts of this
 mechanism.
 
-![Multi Version Concurrency Control](images/2017-11-22-multiversion-concurrency-control.png)
+![Multi Version Concurrency Control](images/2017-11-29-multiversion-concurrency-control.png)
 
 This article explores how PostgreSQL handles concurrency with the Multi Version
 Concurrency Control mechanism. We will discover the hidden system columns in
