@@ -6,7 +6,7 @@ tags: programming
 image: 2017-11-30-deadlocks-in-postgresql.png
 ---
 
-In concurrent systems where resources are locked, two or more processes can and
+In concurrent systems where resources are locked, two or more processes can end
 up in a state in which each process is waiting for the other one. This state is
 called a deadlock. Deadlocks are an important issues that can happen in any
 database and can be scary when you encounter them for the first time.
@@ -49,9 +49,14 @@ At this point process A is waiting for process B, and process B is waiting for
 process A. In other words, a deadlock has occurred. Neither of the two processes
 can continue, and they will wait for each other indefinitely.
 
-To resolve this situation PostgreSQL has a deadlock timeout that raises an error
-if a deadlock occurs. Here is output one of the process would see after the
-deadlock timeout passes:
+## The Deadlock Timeout
+
+To resolve the situation from the previous example, PostgreSQL raises a deadlock
+error if it detects that two processes are waiting for each other. PostgreSQL
+will wait for a given interval before it raises the error. This interval is
+defined with `deadlock_timeout` configuration value.
+
+Here is output one of the process would see after the deadlock timeout passes:
 
 ``` sql
 -- After a second, the deadlock timeout kicks in and raises an error
@@ -66,5 +71,34 @@ HINT:  See server log for query details.
 CONTEXT:  while updating tuple (0,31) in relation "users"
 ```
 
-## Debugging the Deadlock Error Message
+Rollbacks are of course not ideal, but they are a better solution than waiting
+forever. If possible you should strive to design your application in a way that
+prevents deadlocks in the first place. For example, if you are locking tables in
+your application, you want to make sure that you always invoke the locking in
+the same order.
 
+In general, applications must be ready to handle deadlocks issue and retry the
+transaction in case of a failure.
+
+The best defense against deadlocks is generally to avoid them by being certain
+that all applications using a database acquire locks on multiple objects in a
+consistent order.
+
+## Adjusting the Deadlock Timeout
+
+The deadlock timeout is the amount of time that PostgreSQL waits on a lock
+before it checks for a deadlock. The deadlock check is an expensive operation so
+it is not run every time a lock needs to wait. Deadlocks should not be common in
+production environments and PostgreSQL will wait for a while before running the
+expensive deadlock check.
+
+The default timeout value in PostgreSQL is 1 second, and this is probably the
+smallest time interval you would want to set in practice. If your database is
+heavily loaded, you might want to raise this value to reduce the overhead on
+your database servers.
+
+Ideally, the deadlock_timeout should be a bit longer than your typical
+transaction duration.
+
+_Did you like this article? Or, do you maybe have a helpful hint to share? Please
+leave it in the comment section bellow._
