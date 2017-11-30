@@ -6,11 +6,15 @@ tags: programming
 image: 2017-11-30-deadlocks-in-postgresql.png
 ---
 
-The most prominent feature of PostgreSQL is how it handles concurrency. Reads
-never block writes, and writes never block reads. To achieve this, PostgreSQL
-uses the Multi Version Concurrency Control (MVCC) model, an elegant solution for
-a very hard problem. If you want to design highly concurrent applications, you
-should really invest the time to understand the bits and bolts of this
-mechanism.
+In concurrent systems where resources are locked, two or more processes can and
+up in a state in which each process is waiting for the other one. This state is
+called a deadlock. Deadlocks are an important issues that can happen in any
+database and can be scary when you encounter them for the first time.
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Pasive_but_Alert_-_Elephant_Seals_-_panoramio.jpg/640px-Pasive_but_Alert_-_Elephant_Seals_-_panoramio.jpg)
+![Deadlocks in PostgreSQL](images/2017-11-30-deadlocks-in-postgresql.png)
+
+In this article we will explore how deadlocks occur in PostgreSQL, what is the
+deadlock timeout, and how to interpret the error raised by PostgreSQL in case of
+a deadlock timeout.
+
+##
