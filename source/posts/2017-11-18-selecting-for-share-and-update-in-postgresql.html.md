@@ -6,11 +6,12 @@ tags: programming
 image: 2017-11-18-selecting-for-share-and-update-in-postgresql.png
 ---
 
-
 A regular select statement does not give you enough protection if you want to
 query data and make a change in the database related to it. Other transactions
 can update or delete the data you just queried. PostgreSQL offers additional
 select statements that lock on read and provide an extra layer of safety.
+
+READMORE
 
 ![Selecting for Share and Update](images/2017-11-18-selecting-for-share-and-update-in-postgresql.png)
 

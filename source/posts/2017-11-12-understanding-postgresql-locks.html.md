@@ -11,6 +11,8 @@ locks, an application might not only be slow, it might also be wrong and behave
 in some insane ways. Therefore, learning proper locking techniques is essential
 for good performance and correctness of our applications.
 
+READMORE
+
 ![Blind Monks Examining an Elephant](images/2017-11-12-understanding-postgresql-locks.png)
 
 Let's explore the types of locks available in PostgreSQL, when they are used,

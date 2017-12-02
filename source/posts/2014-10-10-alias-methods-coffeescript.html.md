@@ -7,6 +7,8 @@ image: alias-methods-coffeescript.png
 
 In programming we like to reuse stuff. Data, variables, classes and even whole systems. We have a rule of thumb to only write code if it can not be found somewhere else. But sometimes the same thing can have a different meaning in a different context. So in order to reuse code but have a meaningful name in various contexts, we use aliases.
 
+READMORE
+
 In CoffeeScript we don't have an explicit alias method like in Ruby or Bash Script, but we have something better &mdash; **functions as data**.
 
 Let's start with the basics. To create an alias for a function we can just assign one value to the other

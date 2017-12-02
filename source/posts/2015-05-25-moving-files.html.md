@@ -7,6 +7,8 @@ image: moving_files.png
 
 Did you ever had to rename a part of a relly long filename?
 
+READMORE
+
 ``` sh
 mv really-fake-and-really-long-file-name.html not-fake-and-really-long-file-name.html
 ```
@@ -27,7 +29,7 @@ mv {really,not}-fake-and-really-long-file-name.html
 mv tips/source/posts/latest/images/{dog,cat}.html
 ```
 
-It can even help you to add a suffix to your commands, and instead of 
+It can even help you to add a suffix to your commands, and instead of
 creating backups with:
 
 ``` sh
@@ -50,5 +52,5 @@ It seems like a trivial thing, but if you spend as much time in the terminal
 as I do, you will start to value these simple tips and tricks that can make
 you job at least a little bit faster.
 
-To learn more about this tehnique called Brace Expansion visit the 
+To learn more about this tehnique called Brace Expansion visit the
 [bash docs](http://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html).

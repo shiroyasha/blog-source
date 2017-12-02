@@ -7,6 +7,8 @@ image: escape-sequences-a-quick-guide.png
 
 Two years ago I thought I knew a lot about the Linux command line. Then I started digging deeper. Replaced Bash with Zsh, learned about jobs, started writing shell scripts, and even ditched Sublime text in favor of editing with command line Vim. Again I thought I know a lot about the Linux command line. Then I started digging deeper again...
 
+READMORE
+
 A few weeks ago I wrote a blog post that described [how to create progress bars for command line application](http://shiroyasha.svbtle.com/processbar-for-console-applications). There I have described how to stay on the same line, and thus simulate a filling progress bar. That blog post made me wonder if there is a way to change multiple lines of text at once. I started looking for a solution, but what I found was more amazing than I ever thought it would be.
 
 The thing I have found was a way to insert escape characters in the output of your commands that would tell the terminal to do all sorts of crazy things, like move your cursor up several lines, blink the output, change the color, etc...
@@ -37,7 +39,7 @@ puts "\e[1D" # backward - moves 1 character backward
 Moving to the beginning of lines:
 
 ``` ruby
-puts "\e[2E" # move to the beginning of 2 lines down 
+puts "\e[2E" # move to the beginning of 2 lines down
 puts "\e[4F" # move to the beginning of 4 lines up
 ```
 

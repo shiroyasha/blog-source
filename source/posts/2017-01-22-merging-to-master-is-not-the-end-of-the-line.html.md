@@ -13,6 +13,8 @@ on GitHub, open your CI service and watch how master turns green.
 Automatically, deployment to production is triggered, and after several minutes
 your new feature goes live.
 
+READMORE
+
 Woohoo! You have done a great job. Time to open your a bottle of the finest
 whiskey in the office and celebrate with your team. You are now ready to tackle
 new challenges!

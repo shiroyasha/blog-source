@@ -12,6 +12,8 @@ achieve, and to find out what is really important to me. This three month
 schedule is ideal, as it is not too long so that I lose focus, nor is it too
 short for it to feel daunting and boring.
 
+READMORE
+
 I started this practice 2 years ago, and it helped me immensely so far. From
 getting better at my job, to losing weight and returning to practice martial
 arts.

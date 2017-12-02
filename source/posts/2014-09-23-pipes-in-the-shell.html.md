@@ -5,7 +5,9 @@ tags: shell
 image: pipes-in-the-shell.png
 ---
 
-Here is a story of my typical work session in the shell. It starts by a wish to make the computer execute some of my commands. For example, I want to list all the files in the current directory. From prior knowledge I know that the `ls` command does exactly that, so I use it, and get the desired output. But I am out of luck, the current directory contains too many entries and I just can't scroll so much up in the history. 
+Here is a story of my typical work session in the shell. It starts by a wish to make the computer execute some of my commands. For example, I want to list all the files in the current directory. From prior knowledge I know that the `ls` command does exactly that, so I use it, and get the desired output. But I am out of luck, the current directory contains too many entries and I just can't scroll so much up in the history.
+
+READMORE
 
 I also know that there is this nifty little command called `more` that paginates any text that it receives on the input. If only I could just somehow connect the two.
 
@@ -55,7 +57,7 @@ The `ps aux` command lists all the active processes on the machine. So to list a
 
 ``` sh
 ps aux | grep "chrome"
-``` 
+```
 
 To count them we can use `wc -l`
 
@@ -65,5 +67,5 @@ ps aux | grep "chrome" | wc -l
 
 ## Summary
 
-The pipe is one of the easiest and most versatile operators that you have in the shell. If this is the first time you read about them, you can prepare for a wide range of interesting command combinations and the joy you get from creating them. 
+The pipe is one of the easiest and most versatile operators that you have in the shell. If this is the first time you read about them, you can prepare for a wide range of interesting command combinations and the joy you get from creating them.
 Also you can start to appreciate the simplicity end elegance that the shell gives you by combining little building blocks to solve complex problems.

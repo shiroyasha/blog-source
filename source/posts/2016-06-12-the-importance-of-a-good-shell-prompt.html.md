@@ -11,6 +11,8 @@ is inferior to the experience you get from a full blown IDE. However, the
 beauty of the command line is just that. It is fast, simple, and by default
 it comes with very small set of pre-installed features.
 
+READMORE
+
 To make the best use of the command line, you will have to invest your time to
 learn and configure the various parts of the system. At first, this time
 investment will slow you down, but with time, your investment will reward you

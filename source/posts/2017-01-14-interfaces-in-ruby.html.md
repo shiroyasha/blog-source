@@ -12,6 +12,8 @@ who enjoys programming maybe a bit too much, a language that puts little or no
 limitations on the things I can tweak feels very natural and an obvious choice
 when it comes to solving complex issues.
 
+READMORE
+
 While I really do love the Ruby language, sometimes I find myself missing
 features that are available elsewhere. For example, lightweight threads like in
 Go, or easy access to memory like in C.

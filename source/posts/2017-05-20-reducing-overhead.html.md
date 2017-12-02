@@ -11,6 +11,8 @@ editor, write something interesting and publish it. This in itself was already
 hard enough. Expressing your own thoughts and feelings to the world is
 frightening, yet the practice is very rewarding and eyeopening at the same time.
 
+READMORE
+
 My hacker nature wanted to push harder and farther. I've introduced the need to
 publish every article with a hand drawn image. Following this, I've introduced
 several review cycles in a hope that I will reduce the number of grammar errors.

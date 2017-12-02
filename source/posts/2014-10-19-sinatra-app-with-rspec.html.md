@@ -7,6 +7,8 @@ image: sinatra-app-with-rspec.png
 
 There are times when the only thing I want to create is a simple API. In the Ruby ecosystem the standard for creating something simple is Sinatra. But, there are a lot of things you miss in Sinatra that you have predefined in Rails. Sinatra let's you define and include only the things you actually need. Maybe this is a good thing, maybe it is not.
 
+READMORE
+
 However, the things you need for a complete Sinatra application are sometimes hard to include. This tutorial aims to help you in that process, by showing you how to create a simple Sinatra web application that uses RSpec for testing.
 
 We will create a simple Todo application with only two actions. One for listing all the existing Todos and another one for adding a new one. It will use Sinatra for creating the API, RSpec for testing, and it will also include Active Support for adding a couple of nice functionality to the Ruby language.
@@ -40,7 +42,7 @@ Then we can initialize RSpec in for project. The following command should create
 bundle exec rspec --init
 ```
 
-As an old Rails habit, I like to have two folders in my project. 
+As an old Rails habit, I like to have two folders in my project.
 - `app` for containing all the application specific files.
 - `config` for the project's configuration
 
@@ -74,7 +76,7 @@ $db = []                                    # a fake database
 
 Now we should make the spec_helper load this file before the tests are run. To do that we need to prepend that file with a require statement.
 
-While we are here it would also be a good idea to set the environment to test when running RSpec, include some rake test helpers, and clear the fake database before each test. 
+While we are here it would also be a good idea to set the environment to test when running RSpec, include some rake test helpers, and clear the fake database before each test.
 
 Your `spec/spec_helper.rb` file should look similar to this.
 
@@ -88,15 +90,15 @@ RSpec.configure do |config|
 
   config.before(:each) do
     $db = []
-  end 
+  end
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-  end 
+  end
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
-  end 
+  end
 
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
@@ -107,7 +109,7 @@ RSpec.configure do |config|
 
   if config.files_to_run.one?
     config.default_formatter = 'doc'
-  end 
+  end
 
   config.profile_examples = 10
 
@@ -119,7 +121,7 @@ end
 
 ## The API
 
-As a good TDD abiding citizen we should write some test for our Todo application before actually implementing the code. 
+As a good TDD abiding citizen we should write some test for our Todo application before actually implementing the code.
 
 Create an `app/todo_api.rb` and `spec/app/todo_api_spec.rb` file
 
@@ -151,8 +153,8 @@ end
 Then we should create a get action for listing all the todos in the system. Such a get request should return nothing if the database is empty and a list of todos if the contains several todos
 
 ``` ruby
-describe "GET todos" do      
-  context "no todos" do      
+describe "GET todos" do
+  context "no todos" do
     it "returns no todo" do
       get "/"
 
@@ -167,7 +169,7 @@ describe "GET todos" do
       $db = @todos
     end
 
-    it "returns all the todos" do   
+    it "returns all the todos" do
       get "/"
 
       expect(last_response.body).to eq @todos.join("\n")
@@ -182,7 +184,7 @@ A matching implementation would be
 ``` ruby
 get "/" do
   $db.join("\n")
-end 
+end
 ```
 
 Creating a new todo is also simple. The todo message should be passed as an argument to the POST action.
@@ -195,8 +197,8 @@ describe "POST todo" do
     expect(last_response.status).to eq 200
   end
 
-  context "todo param missing" do 
-    it "returns status 400" do      
+  context "todo param missing" do
+    it "returns status 400" do
       post "/"
 
       expect(last_response.status).to eq 400
@@ -212,8 +214,8 @@ post "/" do
   return 400 unless params["todo"].present?
 
   $db << params["todo"]
-  200 
-end 
+  200
+end
 ```
 
 ## Making rack happy and running the App

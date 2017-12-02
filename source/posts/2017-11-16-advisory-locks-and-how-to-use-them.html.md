@@ -12,6 +12,8 @@ concurrency control where the standard MVCC (multiversion concurrency control)
 doesn't fit the bill. Advisory Locks can be the perfect tool in your arsenal
 when you need to control access to a shared resource in a distributed system.
 
+READMORE
+
 ![Enjoying advisory locking](/images/advisory-locks-and-how-to-use-them.jpg)
 
 Let's explore advisory locks, their use case, and how to use them from your

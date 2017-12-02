@@ -11,6 +11,8 @@ click around to get things done. But gradually I got
 used to it, and after a while it became my primary way
 to interact with my computer.
 
+READMORE
+
 It didn't pass much time till I figured out that the
 commands that I am typing in are actually part of a
 programming language named Bash. That of course changed
@@ -26,7 +28,7 @@ precisely about that &mdash; calculations in the shell.
 ## Expr
 This task is actually really simple, but there are as always
 in Unix, several ways to do it. The oldest method is to use
-`expr` to evaluate expressions. For example to add 2 and 4 
+`expr` to evaluate expressions. For example to add 2 and 4
 we can write the following:
 
 ``` sh
@@ -78,7 +80,7 @@ There exists a better alternative for `expr` but is unfortunately
 not available in the original Bourne Shell only in the POSIX
 compliant one &mdash; arithmetic expansion.
 
-It can also, like `expr`, take an arithmetic expression, but 
+It can also, like `expr`, take an arithmetic expression, but
 instead of printing out the result, it will substitute itself with the
 resulting value.  To print out the result we must use `echo` or `print`. For
 example to multiply 2 and 4 we can write the following:
@@ -104,7 +106,7 @@ following less verbose form `$[ 1 + 4 ]` but is now deprecated.
 ## Euclid's Algorithm in the Shell
 
 Now let's do something more challenging and try to implement Euclid's
-greatest common divisor algorithm in a shell script. 
+greatest common divisor algorithm in a shell script.
 
 Note: This part will be a little bit advanced and will require you to
 be familiar with other common things in Bash like loops and variables.
@@ -153,7 +155,7 @@ done
 echo $a
 ```
 
-Note: Shame on you if you don't recognize the following algorithm, 
+Note: Shame on you if you don't recognize the following algorithm,
 go and Google it. This is probably the most basic algorithm out there.
 Also, sorry for the harsh words :3
 
@@ -164,5 +166,5 @@ something new and exciting.
 
 Stay awesome!
 
-By the way, I started using drawing tablet instead of the old 
+By the way, I started using drawing tablet instead of the old
 paper + photo + gimp approach. I hope you like this new art style.

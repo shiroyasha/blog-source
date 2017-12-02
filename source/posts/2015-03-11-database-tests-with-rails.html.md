@@ -8,6 +8,8 @@ image: database.png
 We, software developers, like to call ourselves computer scientist,
 software engineers or data scientists. Hah, what a load of bulls*it!
 
+READMORE
+
 To do real science, we would need to be able to measure, reproduce and
 prove our code and methodologies. But I will leave this discussion for
 an another day...
@@ -73,7 +75,7 @@ end
 ```
 
 This is of course pretty basic if you have used Rails for more
-than a week or two, but it is a necessary boilerplate. Let's 
+than a week or two, but it is a necessary boilerplate. Let's
 start with the measurement.
 
 ## Adding New Columns
@@ -146,7 +148,7 @@ rails generate migration AddIndexToMoviesGenre
 
 ``` ruby
 def change
-  add_index :movies, :genre 
+  add_index :movies, :genre
 end
 ```
 
@@ -154,7 +156,7 @@ Execute it with the following:
 
 ```
 $ rake db:migrate
-== 20150311212758 AddIndexToMoviesGenre: migrating 
+== 20150311212758 AddIndexToMoviesGenre: migrating
 -- add_index(:movies, :genre)
    -> 31.1195s
 == 20150311212758 AddIndexToMoviesGenre: migrated (31.1196s)

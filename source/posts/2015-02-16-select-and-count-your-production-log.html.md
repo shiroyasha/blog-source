@@ -6,11 +6,13 @@ image: select-and-count-your-production-log.png
 ---
 
 Last time, I have demonstrated how we can put together simple filters
-to show only the lines we are interested in. This time I will show 
+to show only the lines we are interested in. This time I will show
 you how you can manipulate these lines and select only the parts you
 really need.
 
-_This post is the continuation to the 
+READMORE
+
+_This post is the continuation to the
 [What can you learn from production.log?](/what-can-you-learn-from-production-log.html)
 , and will continue where the last one stopped. Please read that post,
 before continuing to this one._
@@ -19,15 +21,15 @@ before continuing to this one._
 
 You have finally managed to put together the right combination of
 `grep` filters to only get the lines you want. But what can you do
-with it? 
+with it?
 
 What I like to start with is a simple line count. For example, I can
 easily count the number of `POST` requests my server has received for
 this day, by executing the following filter:
 
 ``` sh
-cat log/production.log | grep 'method=POST' 
-                       | grep 'time=2015-02-16' 
+cat log/production.log | grep 'method=POST'
+                       | grep 'time=2015-02-16'
                        | wc -l
 ```
 
@@ -40,18 +42,18 @@ Similarly to the above example we can enumerate the lines by using
 the `nl` command:
 
 ``` sh
-cat log/production.log | grep 'method=POST' 
-                       | grep 'time=2015-02-16' 
+cat log/production.log | grep 'method=POST'
+                       | grep 'time=2015-02-16'
                        | nl
 ```
 
 This command doesn't look so useful as the above, but it can come handy
-for orientation when you share the output with a friend or when you 
+for orientation when you share the output with a friend or when you
 combine it with some other interesting commands.
 
 ## Manipulating the lines
 
-Now let's do something more interesting. You have probably noticed 
+Now let's do something more interesting. You have probably noticed
 that while we do remove the unnecessary lines, we do not remove
 the unnecessary noise from within the lines. For example let's say
 that a query for today's requests returned the following output:
@@ -120,15 +122,15 @@ Enough with the examples! Let's get back to our original objective
 
 
 ``` sh
-cat log/production.log | grep 'method=POST' 
-                       | grep 'time=2015-02-16' 
+cat log/production.log | grep 'method=POST'
+                       | grep 'time=2015-02-16'
                        | awk '{ print $1 " " $2 }'
 ```
 
 Hooray, this just what we needed!
 
 ``` sh
-method=POST path=/user 
+method=POST path=/user
 method=GET path=/user
 method=POST path=/user
 ```

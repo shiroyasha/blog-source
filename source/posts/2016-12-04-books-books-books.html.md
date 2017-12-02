@@ -11,6 +11,8 @@ started to exercise regularly, improved my diet drastically, started to write a
 journal, and to retrospect my life and goals on a regular basis. One of changes
 that I am most proud of is my changed attitude toward books.
 
+READMORE
+
 ## I learned to love books when I started university
 
 When I was younger, I didn't like books that much. I did read a lot, but

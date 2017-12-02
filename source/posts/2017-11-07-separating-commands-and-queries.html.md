@@ -9,6 +9,8 @@ image: separating-commands-and-queries.jpg
 I have learned an important lesson this year. A clear separation between queries
 and commands can bring a lot of long term benefits to your code.
 
+READMORE
+
 ![Separating Commands and Queries](images/separating-commands-and-queries.jpg)
 
 Let me start with an example to showcase the essence of this approach. In a book
