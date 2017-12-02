@@ -1,43 +1,63 @@
 .lander {
-  max-width: 700px;
   margin: auto;
-  font-size: 18px;
-  text-align: center;
+  width: 900px;
 
-  ul {
-    display: inline-block;
-    text-align: left;
-    list-style: none;
-    padding: 0;
+  .lander-header {
+    border-bottom: 1px solid #eee;
+  }
 
-    li {
-      margin-top: 40px;
+  .lander-about {
+    width: 600px;
+    margin: 50px auto;
 
-      .counter {
-        width: 60px;
-        display: inline-block;
-        text-align: right;
-        color: red;
-        font-size: 1.5em;
-        padding: 10px 10px;
+    // margin: 50px 0;
+
+    img {
+      width: 115px;
+      height: 115px;
+      border: 1px solid black;
+      float: left;
+      margin: 10px 10px 0 0;
+    }
+  }
+
+  .lander-row {
+    margin: 25px 0px;
+    text-align: center;
+
+    .lander-article {
+      text-align: left;
+
+      time {
+        font-size: 12px;
       }
 
-      .header {
-        display: inline-block;
-
-        time {
-          display: block;
-          color: #999;
-          font-size: 0.8em;
+      .lander-title {
+        .lander-number {
+          color: red;
         }
 
+        padding: 0;
+        margin: 0;
+        font-size: 20px;
         a {
           color: black;
-          display: inline-block;
-          font-size: 1em;
-          padding: 5px 0;
         }
       }
+
+      p {
+        padding: 0;
+        margin: 0;
+      }
+
+      font-size: 14px;
+
+      width: 49%;
+      display: inline-block;
+      vertical-align: top;
+      // margin: 10px;
+      padding: 10px;
+      // border: 1px dashed #eee;
     }
   }
 }
