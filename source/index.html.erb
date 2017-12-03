@@ -4,21 +4,24 @@ blog: blog
 
 <div class="lander">
   <div class="lander-about">
-    <p>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4c-wNBw8NRCCZ6PxrbIhp00RQ0HwRHZtfbp1x4LBypy7wW_3a">
-      Hi, and welcome! My name is Igor Sarcevic. I'm a software engineer.
-      This is my personal site where I write about tehnology,
-      share my insights and opinions about software development, and
-      describe the daily challenges of being a developer.
-      I work for <a href="http://renderedtext.com">RenderedText</a> where
-      I develop <a href="https://semaphoreci.com">SemaphoreCI</a>, a hosted
-      continious delivery platform focused on speed and simplicity.
-    </p>
-    <p>
-      Find on me on <a href="https://twitter.com/igor_sarcevic">Twitter</a>,
-      <a href="https://www.linkedin.com/in/igorsarcevic">LinkedIn</a> or
-      <a href="https://github.com/shiroyasha">GitHub</a>.
-    </p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4c-wNBw8NRCCZ6PxrbIhp00RQ0HwRHZtfbp1x4LBypy7wW_3a">
+
+    <div>
+      <p>
+        Hi, and welcome! My name is Igor Sarcevic. I'm a software engineer.
+        This is my personal site where I write about tehnology,
+        share my insights and opinions about software development, and
+        describe the daily challenges of being a developer.
+        I work for <a href="http://renderedtext.com">RenderedText</a> where
+        I develop <a href="https://semaphoreci.com">SemaphoreCI</a>, a hosted
+        continious delivery platform focused on speed and simplicity.
+      </p>
+      <p>
+        Find on me on <a href="https://twitter.com/igor_sarcevic">Twitter</a>,
+        <a href="https://www.linkedin.com/in/igorsarcevic">LinkedIn</a> or
+        <a href="https://github.com/shiroyasha">GitHub</a>.
+      </p>
+    </div>
   </div>
 
   <h2 class="lander-header">Articles</h2>
@@ -52,6 +55,12 @@ blog: blog
           <%# </div> %>
 
         </div>
+      <% end %>
+
+      <% if group.count == 1 %>
+        <div class="lander-article">
+          <!-- empty space to even out the space on the bottom -->
+        <div>
       <% end %>
 
     </div>

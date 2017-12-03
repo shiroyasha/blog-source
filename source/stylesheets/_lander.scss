@@ -1,28 +1,35 @@
 .lander {
   margin: auto;
-  width: 900px;
+  max-width: 900px;
+  padding: 0 10px;
 
   .lander-header {
     border-bottom: 1px solid #eee;
   }
 
   .lander-about {
-    width: 600px;
-    margin: 50px auto;
+    text-align: center;
+
+    div {
+      text-align: left;
+      width: 70%;
+      padding: 0 10px;
+      display: inline-block;
+    }
 
     // margin: 50px 0;
 
     img {
-      width: 115px;
-      height: 115px;
-      border: 1px solid black;
-      float: left;
-      margin: 10px 10px 0 0;
+      border-radius: 50%;
+      width: 130px;
+      vertical-align: top;
+      margin: 20px 0;
+      // border: 1px solid black;
+      // margin: 5px 10px 0 0;
     }
   }
 
   .lander-row {
-    margin: 25px 0px;
     text-align: center;
 
     .lander-article {
@@ -53,6 +60,7 @@
       font-size: 14px;
 
       width: 49%;
+      min-width: 300px;
       display: inline-block;
       vertical-align: top;
       // margin: 10px;
@@ -62,8 +70,24 @@
   }
 }
 
-@media (max-width: 500px) {
-  .lander .header {
-    max-width: 70%;
+@media (max-width: 900px) {
+  .lander {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .lander-article {
+    width: 100% !important;
+  }
+
+  .lander-about {
+    div {
+      width: 100% !important;
+    }
+
+    img {
+      display: none !important;
+    }
   }
 }
