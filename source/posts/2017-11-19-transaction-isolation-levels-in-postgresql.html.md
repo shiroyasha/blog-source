@@ -12,6 +12,8 @@ SQL standard defines four levels of transaction isolation. Each of these
 isolation levels defines what happens if two concurrent processes try to read
 data updated by other processes.
 
+READMORE
+
 ![Transaction Isolation Level in PostgreSQL](2017-11-19-transaction-isolation-levels-in-postgresql.jpg)
 
 This article explores how PostgreSQL isolates your transactions by default, and

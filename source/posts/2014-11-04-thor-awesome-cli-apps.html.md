@@ -7,6 +7,8 @@ image: thor-awesome-cli-apps.png
 
 Have you ever wanted to create an awesome command line application but was lost in the sea of options parsing? Well, if you did, and even if you didn't, Thor is here to help you.
 
+READMORE
+
 But what is Thor exactly? It is a powerful toolkit for writing command line applications in ruby that is used in various well known projects such as Rails, Vagrant, Bundler, and similar. It can even be used as a replacement for rake for creating task like methods and functions.
 
 ## Baby steps with Thor

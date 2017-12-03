@@ -10,6 +10,8 @@ file `config.xml` that should be present on each server. Due to some human error
 the files got different and your servers started to act weird. It would be nice
 to compare them and find out what part of them is different.
 
+READMORE
+
 Luckily, you have `ssh` access to both servers. A simple solution is to `scp` both
 file to a local temp file and compare them with `diff`.
 
@@ -37,7 +39,7 @@ we have the same configuration file on every one of them?
 
 A good server naming scheme combined with a `for` loop can help us a lot. A good naming
 scheme can be to replace special names like `gandalf` and `charizard` with a baring yet
-wastly more handy form like the following: 
+wastly more handy form like the following:
 
 ```
 s1, s2, ... s100

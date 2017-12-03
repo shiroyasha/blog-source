@@ -12,6 +12,8 @@ the most fragile parts of his craft. For a good craftsman both a hammer and
 a duct tape are vital elements of his toolbox. He has a good eye, and the
 intuition to choose the most appropriate tool for every situation he faces.
 
+READMORE
+
 A master craftsman goes even further. He knows that often there is no good
 enough tool, and that he needs to invest his time to create tools in advance,
 tools that will make him ready to tackle even grander projects in the future. He

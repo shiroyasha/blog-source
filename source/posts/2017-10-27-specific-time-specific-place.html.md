@@ -9,6 +9,8 @@ image: specific-time-specific-place.png
 Being more productive was always a topic that interested me.
 Small life hacks here and there can definitely add up.
 
+READMORE
+
 As a strong believer in the scientific method, I like to tests out
 various new ideas regularly, measure their impact on my productivity,
 and to reflect on the results to make the process even smoother in

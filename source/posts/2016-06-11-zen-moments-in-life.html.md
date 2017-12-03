@@ -11,6 +11,8 @@ simple, happy life, is suddenly hit by a streak of miss fortunate events. His
 wife leaves him, while he is forced out of his own house. He is blackmailed
 at work.
 
+READMORE
+
 He is a good man, and he considers himself a serious, but kind person. Every
 issue he faces is not a life-or-death situation, but rather, a calm storm that
 eats away his soul. The kind of issue, when you can't just pick up a weapon and

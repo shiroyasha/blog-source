@@ -10,6 +10,8 @@ contains all the files that we expect it to contain. We started by writing a
 bash command that would list and compare the available files. It had
 the following structure:
 
+READMORE
+
 ``` sh
 cd somewhere && untar archive && diff <(ls -lah directory) <(ls -lah other_directory)
 ```
@@ -21,7 +23,7 @@ In other words we did something along these lines:
 ssh cacher@cache-server "cd somewhere && untar archive && diff <(ls -lah directory) <(ls -lah other_directory)"
 ```
 
-As you can see the above command is pretty long even in this form. But it wasn't 
+As you can see the above command is pretty long even in this form. But it wasn't
 sufficient. We added a couple of `sed`, `grep`, `awk`, `tail`, `while` commands just to make
 the output more human friendly. The result was a 4 lines long beast command that we
 tried to keep in a one long readline session. Imagine something like this:
@@ -43,7 +45,7 @@ and right arrow... It was the time to put the command into a shell script!
 
 ## The script
 
-When you put the above command in a shell script, it becomes nice and tidy: 
+When you put the above command in a shell script, it becomes nice and tidy:
 
 ``` sh
 cd somewhere
@@ -55,7 +57,7 @@ ls directory | while read directory; do
   original_list=$(ls -lah $directory | grep "*.*\1" | sed "s/\.spec//g" | tail)
 
   new_list=$(ls -lah other_directory | grep "*.*\1" | sed "s/\.spec//g" | tail)
-  
+
   if diff <(echo original_list) <(echo new_list); then
     echo "No errors"
   else

@@ -10,15 +10,17 @@ on any server, you can find and collect valuable data from your logs. Often the
 data you need can be found without using any external services, including but
 not limited to service measurements.
 
+READMORE
+
 _This is the continuation of the series where I show how to collect
-valuable data from your production.log. Please read the 
+valuable data from your production.log. Please read the
 [previous posts](/select-and-count-your-production-log.html)
 if you haven't already_
 
 ## Basic Unix sorting
 
 In this article I want to show you how to sort your data using
-the `sort` Unix command. With that you can order the routes by 
+the `sort` Unix command. With that you can order the routes by
 response time, or to count them and show a list of most frequently
 visited. But first let's see how the `sort` command works.
 
@@ -97,7 +99,7 @@ a=abf b=517
 a=abc b=999
 ```
 
-But, the `-k` option doesn't stop there. We can also select the 
+But, the `-k` option doesn't stop there. We can also select the
 character from which we want to start sorting. For example to cut
 of the first `3` characters in the `b=462` and get `62` we would
 write `-k 2.4` option, and thus sort only using the last two digits:
@@ -131,7 +133,7 @@ The other option we want to use is the `-n` option to sort the lines
 numerically.
 
 ``` sh
-$ cat production.log | sort -n -k 7.10 
+$ cat production.log | sort -n -k 7.10
 method=POST path=/user format=*/* controller=users action=create status=200 duration=2.4 view=0.00 db=3.91 time=2016-02-16 16:48:37 +0000
 method=GET path=/user format=*/* controller=users action=create status=200 duration=4.2 view=0.00 db=3.91 time=2016-02-16 16:50:37 +0000
 method=POST path=/user format=*/* controller=users action=create status=200 duration=56.4 view=0.00 db=3.91 time=2016-02-16 16:52:12 +0000

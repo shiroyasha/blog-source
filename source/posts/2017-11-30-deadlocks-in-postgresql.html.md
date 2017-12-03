@@ -11,6 +11,8 @@ up in a state in which each process is waiting for the other one. This state is
 called a deadlock. Deadlocks are an important issues that can happen in any
 database and can be scary when you encounter them for the first time.
 
+READMORE
+
 ![Deadlocks in PostgreSQL](images/2017-11-30-deadlocks-in-postgresql.png)
 
 In this article we will explore how deadlocks occur in PostgreSQL, what is the

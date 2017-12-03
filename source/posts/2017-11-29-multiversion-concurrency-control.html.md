@@ -13,6 +13,8 @@ a very hard problem. If you want to design highly concurrent applications, you
 should really invest the time to understand the bits and bolts of this
 mechanism.
 
+READMORE
+
 ![Multi Version Concurrency Control](images/2017-11-29-multiversion-concurrency-control.png)
 
 This article explores how PostgreSQL handles concurrency with the Multi Version

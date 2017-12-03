@@ -11,5 +11,7 @@ My talk from
 &mdash; a short tale about our transition from Ruby to Elixir as our main language
 for developing [SemaphoreCI](https://semaphoreci.com).
 
+READMORE
+
 - [video](https://ftp.lugons.org/BalCCon2k16/BalCCon2k16_Igor_Sarcevic_-_From_Ruby_to_Elixir.mp4)
 - [presentation](http://shiroyasha.io/ruby_to_elixir)

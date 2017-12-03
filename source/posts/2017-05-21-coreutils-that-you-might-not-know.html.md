@@ -10,6 +10,8 @@ I've used Linux as my primary operating system for well over ten years, yet I
 still stumble upon things that are completely unknown to me. For example,
 several days ago, I wanted to display a formated table in my terminal.
 
+READMORE
+
 ``` txt
 # I had a long comma separated list
 

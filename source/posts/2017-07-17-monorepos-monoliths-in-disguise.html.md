@@ -12,6 +12,8 @@ question. You are stuck with the same language and platform from 5 years ago.
 Microservices are here to save the day! You decide to expose an internal API,
 and limit development of new features exclusively as microservices.
 
+READMORE
+
 Your first attempt to write a microservice is good. Not great, simply good
 enough. You didn't figure out how to write good end-to-end tests that
 include both your monolith and the new service, but you are certain that you

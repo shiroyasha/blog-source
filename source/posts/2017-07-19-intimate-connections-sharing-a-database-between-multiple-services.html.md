@@ -11,6 +11,8 @@ invest in a multiple service based approach. There were lot of new things to
 learn, but finally, you are free to experiment with new technologies. Your
 services can be developed & deployed independently. Life is good.
 
+READMORE
+
 However, your monolith is still here. It still manages the majority of your
 data. You quickly notice that it is hard to extend your system without gaining
 access to your main database. Without solving this issue, you can't develop any

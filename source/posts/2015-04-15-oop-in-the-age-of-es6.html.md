@@ -5,28 +5,30 @@ tags: javascript
 image: es6-ninja.png
 ---
 
-Recently, I have become more of a "Ruby/Bash/Haskell" guy, but 
+Recently, I have become more of a "Ruby/Bash/Haskell" guy, but
 JavaScript will always remain one of my favorite languages, and I
 couldn't be happier when I saw the new new upcoming ES6 standard.
+
+READMORE
 
 ES6 is the new sexy ECMAScript standard that brings a lot of goodies
 to the JavaScript world. One of the new features I am really looking
 forward to is the new classical OOP system.
 
-If you are familiar with JavaScript, you probably know that that it 
-uses an alternative version of Object Orientation that relies on 
+If you are familiar with JavaScript, you probably know that that it
+uses an alternative version of Object Orientation that relies on
 object prototypes. While in theory the prototypical nature of JavaScript
 is superior to the classical version, in the sense that it can simulate
 the later, in practice it is often confusing and a common source of bugs.
 
-The new OOP system on the other hand is intuitive and comparable to 
+The new OOP system on the other hand is intuitive and comparable to
 the system implemented in Ruby, Python or Scala. This article will
 demonstrate some of the awesome things that you can soon use in your
 daily JavaScript development.
 
 ## Constructing classes
 
-Finally the useless reserved word `class` can shine. The 
+Finally the useless reserved word `class` can shine. The
 new OOP system uses it to define new classes. Here is an example:
 
 ``` javascript
@@ -45,11 +47,11 @@ leo.bark();
 ```
 
 At the first glance, we can instantly recognize the intuitiveness of
-the above construct. It defines a `Dog` class with a _constructor_ 
+the above construct. It defines a `Dog` class with a _constructor_
 that takes it name, and an instance method that let's our dogs to bark.
 
 Notice also that the methods don't have a `function` keyword and that
-there is no `prototype` word anywhere in the source file. Just as a 
+there is no `prototype` word anywhere in the source file. Just as a
 reminder of the old days, I will rewrite the above class to the current
 ES5 format:
 
@@ -66,14 +68,14 @@ var leo = new Dog("Leo");
 leo.bark();
 ```
 
-You can argue that this version is shorter, but it is definitely 
+You can argue that this version is shorter, but it is definitely
 weirder no matter how you look at it.
 
 ## Inheritance
 
 If you were amazed with the new system, prepare yourself for even
 more. Inheritance was always one of the most confusing parts of
-prototypical OOP. 
+prototypical OOP.
 
   - How do I define my parent class?
   - How do I redefine methods in the inherited class?
@@ -89,7 +91,7 @@ Labradors:
 ``` javascript
 class Labrador extends Dog {
   constructor(name) {
-    super(name); 
+    super(name);
   }
 
   playWithKids() {
@@ -109,7 +111,7 @@ we can do it:
 ``` javascript
 class Labrador extends Dog {
   constructor(name) {
-    super(name); 
+    super(name);
   }
 
   bark() {
@@ -132,7 +134,7 @@ by doing the following:
 ``` javascript
 class Labrador extends Dog {
   constructor(name) {
-    super(name); 
+    super(name);
   }
 
   bark() {
@@ -197,7 +199,7 @@ console.log(user.fullName());
 Note: I used the sexy new string template syntax, go look it up, you won't regret it. :D
 
 The `fullName` method is simple but it can bother you that you must
-append the function invoking brackets `user.fullName()` every time you need to know 
+append the function invoking brackets `user.fullName()` every time you need to know
 the full name of the user. Luckily, we can use getters:
 
 ``` javascript

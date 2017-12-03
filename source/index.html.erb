@@ -3,23 +3,67 @@ blog: blog
 ---
 
 <div class="lander">
-  <ul>
-    <% page_articles.each_with_index do |article, index| %>
-      <li>
-        <div class="counter">
-          <%= page_articles.count - index %>
-        </div>
+  <div class="lander-about">
+    <img src="images/about/me.png">
 
-        <div class="header">
+    <div>
+      <p>
+        Hi, and welcome! My name is Igor Sarcevic. I'm a software engineer.
+        This is my personal site where I write about tehnology,
+        share my insights and opinions about software development, and
+        describe the daily challenges of being a developer.
+        I work for <a href="http://renderedtext.com">RenderedText</a> where
+        I develop <a href="https://semaphoreci.com">SemaphoreCI</a>, a hosted
+        continious delivery platform focused on speed and simplicity.
+      </p>
+      <p>
+        Find on me on <a href="https://twitter.com/igor_sarcevic">Twitter</a>,
+        <a href="https://www.linkedin.com/in/igorsarcevic">LinkedIn</a> or
+        <a href="https://github.com/shiroyasha">GitHub</a>.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="lander-header">Articles</h2>
+
+  <% page_articles.each_slice(2).with_index do |group, g_index| %>
+    <div class="lander-row">
+
+      <% group.each_with_index do |article, index| %>
+        <div class="lander-article">
+          <%# <div class="image"> %>
+          <%#   <img src="images/<%= article.data.image %1>"/> %>
+          <%# </div> %>
+
+          <h3 class="lander-title">
+            <span class="lander-number"><%= page_articles.count - (g_index * 2 + index) %></span>
+            <%= link_to article.title, article %></h3>
+
+          <p><%= article.summary(240) %></p>
           <time><%= article.date.strftime("%B %e, %Y") %></time>
 
-          <% if article.data[:external] == true %>
-            <%= link_to article.title, article.data[:link] %>
-          <% else %>
-            <%= link_to article.title, article %>
-          <% end %>
+          <div class="counter">
+          </div>
+
+          <%# <div class="header"> %>
+
+
+          <%#   <% if article.data[:external] == true %1> %>
+          <%#     <%= link_to article.title, article.data[:link] %1> %>
+          <%#   <% else %1> %>
+          <%#   <% end %1> %>
+          <%# </div> %>
+
         </div>
-      </li>
-    <% end %>
-  </ol>
+      <% end %>
+
+      <% if group.count == 1 %>
+        <div class="lander-article">
+          <!-- empty space to even out the space on the bottom -->
+        <div>
+      <% end %>
+
+    </div>
+  <% end %>
 </div>
+

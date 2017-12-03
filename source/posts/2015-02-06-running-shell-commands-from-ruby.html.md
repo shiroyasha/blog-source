@@ -7,7 +7,9 @@ image: running-shell-commands-from-ruby.png
 
 Ruby is an excellent language offering us a simple and human friendly
 interface, however for system administration or simple task automation the
-shell is a much better alternative. Luckily, combining them is easy. 
+shell is a much better alternative. Luckily, combining them is easy.
+
+READMORE
 
 There are many ways to interact with the shell (back-ticks, system, exec,
 open3, ...), but I am not going to list and explain every one of them (go read
@@ -45,13 +47,13 @@ message to the user:
 system "sudo apt-get -y install vim"
 
 if $?.exitstatus > 0
-  puts "I failed to install Vim, I am very sorry :'(" 
+  puts "I failed to install Vim, I am very sorry :'("
 end
 ```
 
 With the above knowledge you can do *a lot*. But sooner or later you will
-stumble on one little detail &mdash; the system and the back-ticks execute 
-`sh` commands, and *not* Bash commands. And there are a 
+stumble on one little detail &mdash; the system and the back-ticks execute
+`sh` commands, and *not* Bash commands. And there are a
 [lot of differences](http://www.gnu.org/software/bash/manual/html_node/Major-Differences-From-The-Bourne-Shell.html)
 between the two of them.
 
