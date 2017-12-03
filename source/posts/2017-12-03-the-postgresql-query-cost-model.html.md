@@ -14,7 +14,7 @@ for your data layer.
 
 READMORE
 
-
+![The PostgreSQL Query Cost Model](images/2017-12-03-the-postgresql-query-cost-model.png)
 
 In this article we will explore the cost model of PostgreSQL, how to understand
 the output of the `explain` command, and most importantly, how to use the data
