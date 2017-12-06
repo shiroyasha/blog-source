@@ -62,7 +62,7 @@ code we want to estimate the cost of that operation. Let's run an explain cause
 with our desired query:
 
 ``` sql
-db # explain select * from users where id = 870123;
+db # EXPLAIN SELECT * FROM users WHERE id = 870123;
 
                                QUERY PLAN
 ------------------------------------------------------------------------
@@ -88,7 +88,7 @@ number of parallel workers to 0.
 ``` sql
 db # SET max_parallel_workers_per_gather = 0;
 
-db # explain select * from users where id = 870123;
+db # EXPLAIN SELECT * FROM users WHERE id = 870123;
 
                        QUERY PLAN
 ---------------------------------------------------------
@@ -175,8 +175,8 @@ relation_size = 44285952
 blocks = relation_size / block_size # => 5406
 
 seq_page_cost   = 1
-cpu_tuple_cost  = 1
-cpu_filter_cost = 1
+cpu_tuple_cost  = 0.01
+cpu_filter_cost = 0.0025;
 
 cost = blocks * seq_page_cost +
        number_of_records * cpu_tuple_cost +
@@ -191,6 +191,69 @@ Indexing is and will most probably remain the most important topic in a life of
 a database engineer. Does adding an index reduces the cost of our select
 statements? Let's find out.
 
+First, we'll add an index to the users table:
+
 ``` sql
-db #
+db # CREATE INDEX idx_users_id ON users (id);
 ```
+
+Let's observe the query plan with the new index in place.
+
+``` sql
+db # EXPLAIN SELECT * FROM users WHERE id = 870123;
+
+                                QUERY PLAN
+--------------------------------------------------------------------------
+ Index Scan using idx_users_id on users  (cost=0.42..8.44 rows=1 width=9)
+   Index Cond: (id = 870123)
+(2 rows)
+```
+
+The cost function dropped significantly. The calculation for the index scan is
+a bit more involved than the calculation for sequential scans. It consists of
+two phases.
+
+PostgreSQL will consider the `random_page_cost` and `cpu_index_tuple_cost`
+variables, and return a value based on the height of the index tree.
+
+``` sql
+db # SHOW random_page_cost;
+
+ random_page_cost
+------------------
+  4
+
+db # SHOW cpu_index_tuple_cost;
+ cpu_index_tuple_cost
+----------------------
+  0.005
+```
+
+For the actual calculation, please consider reading through the source code of
+the [cost index](https://github.com/postgres/postgres/blob/ab72716778128fb63d54ac256adf7fe6820a1185/src/backend/optimizer/path/costsize.c#L466) calculator.
+
+## The Cost Of Workers
+
+PostgreSQL can start parallel workers to execute the query. However, starting a
+new worker has a performance penalty.
+
+To calculate the cost of utilizing parallel queries, PostgreSQL uses the
+`parallel_tuple_cost` that defines the cost of transferring tuples from one worker to another,
+and `parallel_setup_cost` that signifies the cost of starting up a new worker.
+
+``` sql
+db # SHOW parallel_tuple_cost;
+
+ parallel_tuple_cost
+---------------------
+  0.1
+
+db # SHOW parallel_setup_cost;
+
+ parallel_setup_cost
+---------------------
+ 1000
+```
+
+_Did you like this article? Or, do you maybe have a helpful hint to share? Please
+leave it in the comment section bellow._
