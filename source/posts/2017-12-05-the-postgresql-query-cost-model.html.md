@@ -1,9 +1,9 @@
 ---
 id: f7c883cc-e3db-4238-8a44-c3d68ff1e291
 title: The PostgreSQL Query Cost Model
-date: 2017-12-03
+date: 2017-12-05
 tags: programming
-image: 2017-12-03-the-postgresql-query-cost-model.png
+image: 2017-12-05-the-postgresql-query-cost-model.png
 ---
 
 Slow database queries harm your organization in many ways. They can damage the
@@ -14,7 +14,7 @@ for your data layer.
 
 READMORE
 
-![The PostgreSQL Query Cost Model](images/2017-12-03-the-postgresql-query-cost-model.png)
+![The PostgreSQL Query Cost Model](images/2017-12-05-the-postgresql-query-cost-model.png)
 
 In this article we will explore the cost model of PostgreSQL, how to understand
 the output of the `explain` command, and most importantly, how to use the data
