@@ -22,6 +22,9 @@ with my current position than even before.
 
 ## Initial fears and the preparation process
 
+I started the preparation about a year prior before I started working remotely.
+Initially, I started with working one day every two weeks from home. This
+
 - You need to prepare
 - Remote book
 - Home office setup
