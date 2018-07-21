@@ -19,3 +19,27 @@ It was tough in the first several weeks, but with the great support from my
 managers and teammates, it soon turned out to be one of the best decisions I've
 made last year. I consider myself more effective, more happy, and more satisfied
 with my current position than even before.
+
+## Initial fears and the preparation process
+
+- You need to prepare
+- Remote book
+- Home office setup
+
+## Communication and technical decisions
+
+- Live meetings are easier, remote meetings are more concrete
+- Experiments and PR based approach
+
+## Am I lonely at home?
+
+- Everyone asks me about this
+- Spending time with people all day drains my batteries
+
+## Work/Life balance
+
+- Struggle, and plans for improvement
+
+## Future plans and experiments
+
+- Working from remote locations
