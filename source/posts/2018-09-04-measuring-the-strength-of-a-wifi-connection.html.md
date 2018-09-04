@@ -73,10 +73,7 @@ strenght of my WiFi signal.
 
 ``` bash
 #!/usr/bin/env bash
-
 # file: w.sh
-
-#!/usr/bin/env bash
 
 while true; do
   out="$(/System/Library/PrivateFrameworks/Apple*.framework/Versions/Current/Resources/airport -I)"

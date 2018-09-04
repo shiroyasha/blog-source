@@ -1,6 +1,10 @@
 .highlight {
   color: #573d25;
   font-size: 14px;
+
+  pre {
+    overflow: scroll;
+  }
 }
 
 .highlight + .highlight {
@@ -15,7 +19,7 @@
 .highlight .l { color: #ae81ff } /* Literal */
 
 .highlight .n  { color: #573d25; } /* Name */
-.highlight .c  { color: #dfdab7; } /* Comment */
+.highlight .c  { color: gray; } /* Comment */
 
 .highlight .cm { color: #dfdab7; } /* Comment.Multiline */
 .highlight .cp { color: #999; } /* Comment.Preproc */
