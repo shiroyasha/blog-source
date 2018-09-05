@@ -138,7 +138,7 @@ RSSI:  -66, Noise:  -89, Quality: 23
 RSSI:  -65, Noise:  -96, Quality: 31
 ```
 
-I've use the following rules of thumb for my WiFi connection:
+I use the following rules of thumb for my WiFi connection:
 
 - RSSI => -90dB: Unusable connection.
 - RSSI (-90dB..-80db): Connection is bad, but I can maybe open my email.
