@@ -6,13 +6,12 @@ tags: programming
 image: 2018-09-13-stable-pagination.png
 ---
 
-Stable Pagination
------------------
-
 Last week we've investigated a way to achieve stable pagination
 for our new API. I've learned some new techniques for handling
 pagination, and dig deep into the downsides of standard &mdash;
 offset based &mdash; pagination.
+
+## Offset Based Pagination
 
 Before I share our new approach, let's start with the exploring
 the issues we wanted to solve. The most common pagination method
@@ -71,7 +70,7 @@ high insertion frequency could cause you unwanted issues down the line.
 To mitigate some of the previous issues we decided to use cursor based
 pagination in our new API.
 
-### Cursor Based Pagination
+## Cursor Based Pagination
 
 Cursor based pagination works by returning a pointer to specific record
 in the database which will be used for subsequent requests. Let's see an
@@ -121,7 +120,7 @@ our use case this is acceptable.
 Another trade-off is that if you want to have stable pagination windows
 you need to order your records by strictly increasing/decreasing value.
 
-### Cursor based pagination with UUIDs for primary keys
+## Cursor based pagination with UUIDs for primary keys
 
 The previous examples are simple, but they rely on the fact that ids
 are incremental numbers. This wasn't the case for our use case as we
