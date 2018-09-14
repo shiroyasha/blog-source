@@ -98,7 +98,7 @@ SELECT id, name FROM posts LIMIT 4 ORDER BY created_at DESC;
 # Second request from the client (page_size=3, next_page_token=98)
 
 SELECT id, name FROM posts
-WHERE id < next_page_token
+WHERE id =< next_page_token
 LIMIT 4
 ORDER BY created_at DESC;
 
@@ -148,7 +148,7 @@ page_token = Base64("aff9e8dc-b9bb-4c91-8ad8-e9055ffb7891, 1536872448")
 # Second request from the client (page_size=3)
 
 SELECT id, name FROM posts
-WHERE (uuid, created_at) < (page_token.id, page_token.created_at)
+WHERE (uuid, created_at) =< (page_token.id, page_token.created_at)
 LIMIT 4
 ORDER BY created_at DESC;
 
