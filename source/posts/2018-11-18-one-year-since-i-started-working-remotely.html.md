@@ -98,7 +98,7 @@ Avoiding the common traps, like going full hermit mode without social
 interactions, reducing your personal hygiene, and not learning how to
 communicate, is only one part of becoming a successful remote employee.
 
-To get the full benefits of remote work seek out and implement opportunities
+To get the full benefits of remote work, seek out and implement opportunities
 that are not available to you while working in an office. Here are some
 examples:
 
