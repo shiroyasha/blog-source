@@ -37,31 +37,31 @@ morning, I would spend 30 minutes more in bed. Compared to a healthy and
 relaxing activity like walking, sleeping in had only negative effects on my life.
 
 Putting on nice clothes in the morning is also optional. Until you start a
-video call you can spend your day in your pyjamas. Turns out, this is also a bed
+video call you can spend your day in your pyjamas. Turns out, this is also a bad
 pattern to follow. Without putting on formal clothes, I had much less focus
-during the day. It also encouraged me to go into a hermit mode and not leave my
-apartment for the whole day. Its hard to convince yourself to change and go out
-when you've spent the whole day in your sweatpants.
+during the day. It also encouraged me to go into hermit mode, and not leave my
+apartment for the whole day. It is hard to convince yourself to change clothes
+and go out when you've spent the whole day in your sweatpants.
 
 When you catch a cold, or don't feel the best, remote work offers you the
-ability to sleep in a bit more and to spend your days in pyjamas, sipping tea
-and trying to get better. However, doing this every day will only worsen your
-well being.
+ability to sleep in a bit more, and to spend your days in pyjamas sipping tea
+trying to get better. However, doing this every day will only worsen your well
+being.
 
 With more free time, you have to take concious effort to invest that free time
-in something productive. Always put on your pants in the morning, and never
+into something productive. Always put on your pants in the morning, and never
 forget to get out of your apartment.
 
 ## The line between work and life
 
 You have more flexibility. You can wash your clothes during the day. You can
-order books to your home during work hours. You can cook your own meals during
-the day. However, you can also try to fix bugs in 8pm, then watch a movie, and
-then continue the upload process before you go to sleep.
+order books to your home address during work hours. You can cook your own meals
+during the day. However, you can also try to fix bugs in 8pm, then watch a movie,
+and then continue the upload process before you go to sleep.
 
 Remote work blurs the line between life and work. You need to take precautions
-and make sure to not follow your instincts. Its hard to stop developing when you
-are on the blink of completing it all. When tracing the root cause of a bug,
+and make sure to not follow your instincts. It's hard to stop coding when you
+are on the blink of completing the feature. When tracing the root cause of a bug
 you can easily waste an extra 3 hours in the evening.
 
 This is not in the best interest of you personally, nor your company. Overworked
@@ -75,15 +75,15 @@ When working from home, you can no longer smalltalk with a colleague next to the
 water cooler and share that you are stuck on your project. Things that happened
 organically in the office, now need to be shared in a more official setting.
 
-Proponents of on-site, office development, always take this argument to point
+Proponents of on-site, office development, always take this argument and point
 out that remote work reduces collaboration. However, in practice, this is far
 away from the truth. Look at any major open source software that is developed
 totally asynchronously with great success.
 
 I strongly believe that this is one of the great benefits of working remote.
-Verbal only communication is hard to scale without proper documentation. A
-remote setting pushes teams to become more asynchronous, and less dependant on
-the physical presence of each other. This in general is a very positive thing.
+Verbal only communication is hard to scale. A remote setting pushes teams to
+become more asynchronous, and less dependant on the physical presence of each
+other. This in general is a very positive thing.
 
 When you write things down, you are more precise and you reduce the possibility
 of misunderstandings. On top of that, we can always find historical reasons for
@@ -111,12 +111,12 @@ of your product.
 use this opportunity to visit the gym in the morning.
 
 - Eat healthy and cook for yourself. If you enjoy cooking like I do, you can
-go to the local farmers market during your lunch break, pick up some fresh
+go to the local farmer's market during your lunch break, pick up some fresh
 ingredients and prepare a healthy lunch for yourself.
 
 - Travel. When you learn all the intricacies of remote work and become
 comfortable with not being surrounded with colleagues, travel to some nice place
-for a month or two. I don't suggest going full digital nomad because that
+for a month or two. I don't suggest going full digital nomad mode, because that
 requires another level of skills, but a longer term visit to some country with
 good internet access. Make sure to invest in high quality equipment like a good
 microphone and a powerful computer, and you are ready to go.
@@ -125,11 +125,11 @@ microphone and a powerful computer, and you are ready to go.
 not necessarily the best course of action you can take. Spending 16 hours one
 day on a technical issue and taking it lighter the other days can be more
 efficient then artificially limiting it to 8 hours everyday. Some issues demand
-long uninterrupted sessions, other issues don't. Spread your time intelligently.
+long uninterrupted sessions, other issues don't. Spread your time wisely.
 
 - Work from outside or from a coffee shop. These settings can increase your
 focus for writing oriented tasks such as writing documentation or a blog
-article. This advice needs to come with a warning &mdash; engineering,
+post. This advice needs to come with a warning &mdash; engineering,
 operations, and videoconferencing are generally ill suited for working from a
 crowd.
 
