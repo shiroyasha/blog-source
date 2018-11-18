@@ -6,7 +6,7 @@ tags: programming
 image: 2018-11-18-one-year-since-i-started-working-remotely.png
 ---
 
-A year ago, I made a big decision &mash; I decided to start working from home.
+A year ago, I made a big decision &mdash; I decided to start working from home.
 This decision had a significant impact on my personal and professional life. It
 changed the way I approach people. It changed the way how I plan out my day.
 Most importantly, it allowed me take full control over my schedule.
