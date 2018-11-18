@@ -11,9 +11,9 @@ This decision had a significant impact on my personal and professional life. It
 changed the way I approach people. It changed the way how I plan out my day.
 Most importantly, it allowed me take full control over my schedule.
 
-The big question I had one year ago was:
+The big question I had one year ago:
 
-> Can I be trusted to work as efficiently from my home as from an office?
+Can I be trusted to work as efficiently from my home as from an office?
 
 The answer is a big yes. With great support from my team and company, the
 transition to a remote role was much less stressful than I anticipated. In fact,
