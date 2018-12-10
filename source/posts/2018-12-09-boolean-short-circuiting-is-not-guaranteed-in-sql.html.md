@@ -43,7 +43,8 @@ We encoded this information in the following SQL tables:
 
 ``` sql
 table repository (
-  na
+  id   integer
+  name string
 )
 
 table rules (
@@ -70,7 +71,7 @@ WHERE rules.repo_id = ($1) AND EXISTS (
 
 ## The bug
 
-As stated in the intro, the SQL error was `repetition-operator operand invalid`
+As stated in the intro, the SQL error was `invalid regular expression: quantifier operand invalid`
 which happens if you have an invalid regular expression in a SQL select
 statement. In our case, the poisonous regular expression was `*`, which is
 invalid, and should be `.*`.
