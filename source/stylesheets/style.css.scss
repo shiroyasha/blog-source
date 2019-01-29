@@ -13,3 +13,84 @@
   text-align: center;
   padding: 10px;
 }
+
+.footer {
+  width: 100%;
+  text-align: center;
+
+  img {
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+
+.books {
+  padding: 1em;
+  max-width: 850px;
+  margin: auto;
+
+  .book {
+    display: flex;
+
+    .book-image {
+      width: 250px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .book-description {
+      padding: 0 20px;
+      width: 550px;
+    }
+  }
+
+  .header {
+    margin-bottom: 60px;
+
+    h1 {
+      text-align: center;
+      color: black;
+      font-size: 2em;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #999;
+
+      span, time {
+        padding: 5px;
+      }
+    }
+  }
+}
+
+.photos {
+  padding: 1em;
+  margin: auto;
+  max-width: 850px;
+  min-height: 600px;
+}
+
+@media (max-width: 600px) {
+  .books {
+    .book {
+      flex-wrap: wrap;
+    }
+
+    .book .book-image {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .book .book-description {
+      width: 100%;
+    }
+  }
+}

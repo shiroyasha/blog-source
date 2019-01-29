@@ -1,5 +1,5 @@
 ---
-title: Igor Šarčević
+title: About | Igor Šarčević
 tags: programming
 image: igor.png
 ---
