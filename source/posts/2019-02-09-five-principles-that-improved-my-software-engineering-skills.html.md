@@ -78,11 +78,11 @@ it with just a bit of extra effort?".
 
 I are not less or more capable than anyone else. We are all humans.
 
-There is no hard programming languages, each of them can be learned in a matter
+There are no hard programming languages, each of them can be learned in a matter
 of weeks. Human interaction issues are also just a type of issue. Everything
 can be learned quite easily. Whining about an issue won't really help anyone.
 
-Many times, even a 20 percent of the full knowledge from some other area can
+Many times, even 20 percent of the full knowledge from some other area can
 allow me to do things 10x faster, just because I don't need to hand over the
 problem.
 
@@ -100,3 +100,12 @@ condition. If I have struggled with `awk` last week, for example, I make sure to
 read up a bit of from the manual page by the end of the week.
 
 ### 5. Read a shit-ton of code
+
+Finally, the thing that improved my skills the most was reading other people's
+work. Reading the source code Kubernetes taught me how to write proper Go code.
+Reading Rails' source code, thought me Ruby. Reading my colleagues work got me
+up to speed in any area of our product.
+
+The most beautiful thing about open source isn't that it is free. It isn't even
+the community. It's the ability the download the source code, take a deep dive,
+and simply enjoy a relaxing Sunday evening.
