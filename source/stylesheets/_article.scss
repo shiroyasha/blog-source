@@ -3,6 +3,12 @@
   max-width: 650px;
   margin: auto;
 
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+    font-family: helvetica;
+  }
+
   h2, h3, h4, h5, h6 {
     margin-top: 2em;
   }
