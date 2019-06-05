@@ -4,13 +4,18 @@
   margin: auto;
 
   p {
-    text-align: justify;
-    text-justify: inter-word;
     font-family: helvetica;
   }
 
   h2, h3, h4, h5, h6 {
     margin-top: 2em;
+    font-size: 1em;
+    color: black;
+    font-weight: bold;
+  }
+
+  ul {
+    padding-left: 1em;
   }
 
   img {

@@ -37,7 +37,7 @@ the new question is how I can make this software independent.
 Like any other cultural shift in our industry, to reach the state of software
 autonomy, we first need to adjust our vocabulary.
 
-# Codify Goals instead of Tasks
+## Codify Goals instead of Tasks
 
 A good example of aiming for software autonomy is how you approach routine
 maintenance tasks in your system. You can either codify and automate the steps
@@ -57,7 +57,7 @@ Chef/Puppet/Ansible approach. This new system needs to monitor and react to some
 meaningful numbers in the system and take a series of steps to satisfy that
 goal. For this task, our classical automation tools might just not cut it. 
 
-# Don't just observe the system, let the system react to problems
+## Don't just observe the system, let the system react to problems
 
 Any good production ready system should come with a set of metrics that
 communicates its health to the operators. Prometheus, InfluxDB, Grafana, StatsD,
@@ -81,7 +81,7 @@ offered up. The system monitors itself for a given amount of time. If everything
 is right the system evolves to a new green state. There is no human that needs
 to trigger a rollback if something goes wrong.
 
-# Talk about your system as a part of your team
+## Talk about your system as a part of your team
 
 Your system should not be something that you maintain. Your system should evolve
 and start making decisions on its own. This should be reflected in your everyday
