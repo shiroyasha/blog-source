@@ -32,12 +32,8 @@
   }
 
   pre {
-    background: #ffffff;
     padding: 14px;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    border-left: 1px solid red;
-    border-right: 1px solid red;
+    color: white;
 
     code {
       background: none;
@@ -49,20 +45,16 @@
     margin-bottom: 60px;
 
     h1 {
-      text-align: center;
       color: black;
-      font-size: 2em;
+      font-size: 3em;
       margin-bottom: 0;
+      font-weight: bold;
+      line-height: 1.2;
     }
 
     .subtitle {
-      text-align: center;
       font-size: 16px;
       color: #999;
-
-      span, time {
-        padding: 5px;
-      }
     }
   }
 }

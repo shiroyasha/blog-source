@@ -9,28 +9,26 @@ image: 2019-08-02-killing-a-process-and-all-of-its-descendants.png
 Killing processes in a Unix-like system can be trickier than expected. Last
 week I was debugging an odd issue related to job stopping on Semaphore.
 More specifically, an issue related to the killing of a running process in a
-job. READMORE Here are the highlights of what I learned:
+job. READMORE
+
+Here are the highlights of what I learned:
 
 - Unix-like operating systems have sophisticated process relationships.
-  Parent-child, process groups, sessions, and session leaders. However, the
-  details are not uniform across operating systems like Linux and macOS.
-  POSIX compliant operating systems support sending signals to process groups
-  with a negative PID number.
-
 - Sending signals to all processes in a session is not trivial with syscalls.
+- Processes started with exec inherit their parent signal configuration.
+- There are many challenges with handling orphaned process groups.
 
-- Child processes started with exec inherit their parent signal configuration.
-  If the parent process is ignoring the SIGHUP signal, for example, this
-  configuration is propagated to the children.
-
-- The answer to the "What happens with orphaned process groups" question is not
-  trivial.
+There are multiple types of relationships between processes. Parent-child,
+process groups, sessions, and session leaders. However, the details are not
+uniform across operating systems like Linux and macOS. POSIX compliant
+operating systems support sending signals to process groups with a negative
+PID number.
 
 ## Killing a parent doesn't kill the child processes
 
 Every process has a parent. We can observe this with `pstree` or the `ps` utility.
 
-``` bash
+``` shell
 # start two dummy processes
 $ sleep 100 &
 $ sleep 101 &
