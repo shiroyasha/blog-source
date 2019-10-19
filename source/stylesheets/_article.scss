@@ -3,11 +3,14 @@
   max-width: 650px;
   margin: auto;
 
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    font-family: helvetica, sans-serif;
+  }
+
   h2, h3, h4, h5, h6 {
     margin-top: 2em;
     font-size: 1.5em;
-    color: black;
-    font-weight: bold;
   }
 
   ul {
@@ -41,10 +44,8 @@
     margin-bottom: 60px;
 
     h1 {
-      color: black;
       font-size: 3em;
       margin-bottom: 0;
-      font-weight: bold;
       line-height: 1.2;
     }
 
