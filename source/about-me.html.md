@@ -1,10 +1,10 @@
 ---
-title: Igor Šarčević
+title: About Igor Šarčević
 tags: programming
 image: igor.png
 ---
 
-My name is Igor Sarcevic. I'm a software engineer,
+My name is Igor Šarčević. I'm a software engineer,
 amateur adventurer, math enthusiasts. This is my personal blog where
 I write about technology, philosophy, and share my insights about the
 human condition.
