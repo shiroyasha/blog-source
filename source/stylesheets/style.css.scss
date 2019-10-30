@@ -95,3 +95,30 @@
     }
   }
 }
+
+.best-articles {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  h3 {
+    margin-bottom: 0em;
+    margin-top: 0.5em;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1em;
+  }
+
+  > div {
+    width: 45%;
+
+    border-radius: 4px;
+    margin-bottom: 1em;
+    display: border-box;
+  }
+}
+    // a {
+    //   color: #3a90ef;
+    // }
