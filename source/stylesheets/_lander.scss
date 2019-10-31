@@ -3,12 +3,40 @@
   max-width: 900px;
   padding: 0 10px;
 
+  h2, h3, h4 {
+    color: #333;
+  }
+
   .lander-header {
-    border-bottom: 1px solid #eee;
+    margin-top: 3em;
+    font-size: 2em;
+    // text-align: center;
+    // text-decoration: underline wavy tomato 2px;
+  }
+
+  h4 {
+    font-size: 1em;
+    margin-top: 2em;
+    margin-bottom: 0;
+  }
+
+  h4 + p {
+    margin-top: 0.5em;
+  }
+
+  .abc {
+    margin: -4em auto;
+    display: block;
   }
 
   .lander-about {
+    h1 {
+      font-size: 3em;
+      color: tomato;
+    }
+
     text-align: center;
+    margin: 3em 0 ;
 
     div {
       text-align: left;
@@ -20,7 +48,6 @@
     img {
       width: 150px;
       vertical-align: top;
-      margin: 20px;
       // border: 1px solid black;
       // margin: 5px 10px 0 0;
     }

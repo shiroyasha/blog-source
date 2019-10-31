@@ -4,69 +4,94 @@ blog: blog
 
 <div class="lander">
   <div class="lander-about">
-    <img src="images/c1.png">
-
     <div>
+      <h1>Welcome!</h1>
       <p>
-        Hi, and welcome! My name is Igor Sarcevic. I'm a software engineer,
-        amateur adventurer, math enthusiasts. This is my personal blog where
-        I write about technology, philosophy, and share my insights about the
-        human condition.
+        I'm Igor Sarcevic. A software engineer with a passion for math. Here I
+        share my thoughts on life, business, and the art of writting (good) software.
+      </p>
+
+      <p>I'm part of the <a href="http://renderedtext.com">RenderedText</a>
+        crew, serving as a Chief Architect for
+        <a href="https://semaphoreci.com">SemaphoreCI</a>.
       </p>
       <p>
-        I'm a part of the
-        <a href="http://renderedtext.com">RenderedText</a> crew &mdash; the team
-        that brings you <a href="https://semaphoreci.com">SemaphoreCI</a>.
       </p>
-      <p>
-        Find on me on <a href="https://twitter.com/igor_sarcevic">Twitter</a>,
-        <a href="https://www.linkedin.com/in/igorsarcevic">LinkedIn</a>,
-        <a href="https://github.com/shiroyasha">GitHub</a> or
-        <a href="https://instagram.com/igor.sarcevic">Instagram</a>.
-      </p>
+      <%# <p> %>
+      <%#   Find on me on <a href="https://twitter.com/igor_sarcevic">Twitter</a>, %>
+      <%#   <a href="https://www.linkedin.com/in/igorsarcevic">LinkedIn</a>, %>
+      <%#   <a href="https://github.com/shiroyasha">GitHub</a> or %>
+      <%#   <a href="https://instagram.com/igor.sarcevic">Instagram</a>. %>
+      <%# </p> %>
     </div>
   </div>
 
-  <h2 class="lander-header">Articles</h2>
+  <img class="abc" src="https://static.thenounproject.com/png/1790165-200.png">
 
-  <% page_articles.each_slice(2).with_index do |group, g_index| %>
-    <div class="lander-row">
+  <div class="hits">
 
-      <% group.each_with_index do |article, index| %>
-        <div class="lander-article">
-          <%# <div class="image"> %>
-          <%#   <img src="images/<%= article.data.image %1>"/> %>
-          <%# </div> %>
+    <h2 class="lander-header">Read some of my Greatest Hits</h2>
 
-          <h3 class="lander-title">
-            <span class="lander-number"><%= page_articles.count - (g_index * 2 + index) %></span>
-            <%= link_to article.title, article %></h3>
+    <div class="a">
+      <div>
+        <h4>Killing a process and all of its descendants</h4>
 
-          <p><%= article.summary(240) %></p>
-          <time><%= article.date.strftime("%B %e, %Y") %></time>
+        <p>
+        Killing processes in a Unix-like system can be trickier than expected.
+        Last week I was debugging an odd issue related to job stopping on Semaphore. More specifically, an issue related to the killing of a running process in a job.
+        <a href=#>→</a>
+        </p>
+      </div>
 
-          <div class="counter">
-          </div>
+      <div>
+        <h4>Five principles that improved my software engineering skills</h4>
 
-          <%# <div class="header"> %>
-
-
-          <%#   <% if article.data[:external] == true %1> %>
-          <%#     <%= link_to article.title, article.data[:link] %1> %>
-          <%#   <% else %1> %>
-          <%#   <% end %1> %>
-          <%# </div> %>
-
-        </div>
-      <% end %>
-
-      <% if group.count == 1 %>
-        <div class="lander-article">
-          <!-- empty space to even out the space on the bottom -->
-        <div>
-      <% end %>
-
+        <p>
+        Killing processes in a Unix-like system can be trickier than expected.
+        Last week I was debugging an odd issue related to job stopping on Semaphore. More specifically, an issue related to the killing of a running process in a job.
+        </p>
+      </div>
     </div>
-  <% end %>
+  </div>
+
+  <%# <1%# <% page_articles.each_slice(2).with_index do |group, g_index| %2> %1> %>
+  <%# <1%#   <div class="lander-row"> %1> %>
+
+  <%# <1%#     <% group.each_with_index do |article, index| %2> %1> %>
+  <%#       <div class="lander-article"> %>
+  <%#         <1%# <div class="image"> %1> %>
+  <%#         <1%#   <img src="images/<%= article.data.image %2>"/> %1> %>
+  <%#         <1%# </div> %1> %>
+
+  <%#         <h3 class="lander-title"> %>
+  <%#           <1%# <span class="lander-number"><%= page_articles.count - (g_index * 2 + index) %2></span> %1> %>
+  <%#           <1%# <%= link_to article.title, article %2></h3> %1> %>
+
+  <%#         <1%# <p><%= article.summary(240) %2></p> %1> %>
+  <%#         <1%# <time><%= article.date.strftime("%B %e, %Y") %2></time> %1> %>
+
+  <%#         <div class="counter"> %>
+  <%#         </div> %>
+
+  <%#         <1%# <div class="header"> %1> %>
+
+
+  <%#         <1%#   <% if article.data[:external] == true %2> %1> %>
+  <%#         <1%#     <%= link_to article.title, article.data[:link] %2> %1> %>
+  <%#         <1%#   <% else %2> %1> %>
+  <%#         <1%#   <% end %2> %1> %>
+  <%#         <1%# </div> %1> %>
+
+  <%#       </div> %>
+  <%#     <% end %1> %>
+
+<%# <1%#       <% if group.count == 1 %2> %1> %>
+<%# <1%#         <div class="lander-article"> %1> %>
+<%# <1%#           <!-- empty space to even out the space on the bottom --> %1> %>
+<%# <1%#         <div> %1> %>
+<%# <1%#       <% end %2> %1> %>
+
+<%# <1%#     </div> %1> %>
+<%# <1%#   <% end %2> %1> %>
 </div>
 

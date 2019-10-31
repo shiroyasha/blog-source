@@ -39,20 +39,20 @@
       <meta property="article:published_time" content="<%= current_article.date %>" />
     <% end %>
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Condensed&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway:900&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "style" %>
   </head>
   <body>
 
     <div id="main" role="main">
-      <%= partial "partials/career_cta" %>
+      <%# <%= partial "partials/career_cta" %1> %>
       <%= partial "partials/navigation" %>
 
       <%= yield %>
 
-      <div class="footer">
-        <img src="images/footer.png" />
-      </div>
+      <%# <div class="footer"> %>
+      <%#   <img src="images/footer.png" /> %>
+      <%# </div> %>
     </div>
 
     <script>
