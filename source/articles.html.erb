@@ -2,35 +2,24 @@
 blog: blog
 ---
 
-<div class="lander">
-  <ol>
+<div class="articles">
+  <h1>All articles from latest to oldest</h1>
+
+  <ul>
     <% page_articles.each.with_index do |article| %>
       <li>
-        <div class="">
-          <%# <div class="image"> %>
-          <%#   <img src="images/<%= article.data.image %1>"/> %>
-          <%# </div> %>
-
-          <h3 class="lander-title">
-            <%# <span style="margin-left: -1em;" class="lander-number"><%= page_articles.count - (g_index * 2 + index) %1></span> %>
-            <%= link_to article.title, article %></h3>
-
-          <p><%= article.summary(240) %></p>
+          <h3><%= link_to article.title, article %></h3>
           <time><%= article.date.strftime("%B %e, %Y") %></time>
 
-          <div class="counter">
-          </div>
+          <p><%= article.summary(240) %></p>
 
           <div class="header">
-
-
             <% if article.data[:external] == true %>
               <%= link_to article.title, article.data[:link] %>
             <% else %>
             <% end %>
           </div>
 
-        </div>
       </li>
     <% end %>
   </ol>

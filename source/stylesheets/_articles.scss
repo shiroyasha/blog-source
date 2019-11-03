@@ -1,0 +1,34 @@
+.articles {
+  max-width: 1400px;
+  margin: auto;
+  padding: 1em;
+
+  .filter {
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    li {
+      width: 30%;
+      border-bottom: 1px solid #ccc;
+
+      h3 {
+        margin-bottom: 0;
+
+        a {
+          color: #333;
+        }
+      }
+
+      time {
+        font-size: 0.8em;
+        color: tomato;
+      }
+    }
+  }
+}
