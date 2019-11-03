@@ -1,13 +1,12 @@
 .follow_on_twitter {
-  display: block;
-  width: 620px;
   max-width: 100%;
   margin: 50px auto;
-  padding: 20px;
   text-align: center;
+  vertical-align: middle;
 
   img {
-    vertical-align: text-bottom;
     border: none;
+    height: 2em;
+    vertical-align: middle;
   }
 }
