@@ -8,18 +8,13 @@ blog: blog
   <ul>
     <% page_articles.each.with_index do |article| %>
       <li>
-          <h3><%= link_to article.title, article %></h3>
-          <time><%= article.date.strftime("%B %e, %Y") %></time>
+        <h3><%= link_to article.title, article %></h3>
+        <time><%= article.date.strftime("%B %e, %Y") %></time>
 
-          <p><%= article.summary(240) %></p>
-
-          <div class="header">
-            <% if article.data[:external] == true %>
-              <%= link_to article.title, article.data[:link] %>
-            <% else %>
-            <% end %>
-          </div>
-
+        <p>
+          <%= article.summary(240) %>
+          <%= link_to "Continue reading&hellip;", article.data[:link] %>
+        </p>
       </li>
     <% end %>
   </ol>

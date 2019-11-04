@@ -23,11 +23,14 @@
         a {
           color: #333;
         }
+
+        &:hover {
+          text-decoration: underline tomato solid 3px;
+        }
       }
 
       time {
         font-size: 0.8em;
-        color: tomato;
       }
     }
   }

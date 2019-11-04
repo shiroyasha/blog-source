@@ -44,6 +44,10 @@
         &:hover {
           text-decoration: underline tomato solid 3px;
         }
+
+        &.active {
+          text-decoration: underline tomato solid 3px;
+        }
       }
     }
   }
