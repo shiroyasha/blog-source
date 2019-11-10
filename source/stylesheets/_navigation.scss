@@ -6,26 +6,6 @@
   display: flex;
   justify-content: space-between;
 
-  .logo {
-    width: 2.5em;
-    color: tomato;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    border-radius: 50%;
-    height: 2.5em;
-    font-weight: 900;
-    font-family: 'Raleway', sans-serif;
-    margin: 1em;
-    border: 0.4em solid black;
-    font-size: 1.1em;
-    transition: 0.05s border;
-
-    &:hover {
-      border: 0.5em solid black;
-    }
-  }
-
   ul {
     padding: 0;
     margin: 1.5em;

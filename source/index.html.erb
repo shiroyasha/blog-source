@@ -2,96 +2,70 @@
 blog: blog
 ---
 
-<div class="lander">
-  <div class="lander-about">
-    <div>
-      <h1>Welcome!</h1>
-      <p>
-        I'm Igor Šarčević. A software engineer with a passion for math. Here I
-        share my thoughts on life, business, and the art of writting <i>good</i>
-        software.
-      </p>
+<div class="home">
+  <div class="home-about">
+    <h1>Welcome!</h1>
+    <p>
+      I'm Igor Šarčević. A software engineer with a passion for math. Here I
+      share my thoughts on life, business, and the art of writting <i>good</i>
+      software.
+    </p>
 
-      <p>I'm part of the <a href="http://renderedtext.com">RenderedText</a>
-        crew, serving as a Chief Architect for
-        <a href="https://semaphoreci.com">SemaphoreCI</a>.
-      </p>
-      <p>
-      </p>
-      <%# <p> %>
-      <%#   Find on me on <a href="https://twitter.com/igor_sarcevic">Twitter</a>, %>
-      <%#   <a href="https://www.linkedin.com/in/igorsarcevic">LinkedIn</a>, %>
-      <%#   <a href="https://github.com/shiroyasha">GitHub</a> or %>
-      <%#   <a href="https://instagram.com/igor.sarcevic">Instagram</a>. %>
-      <%# </p> %>
-    </div>
+    <p>I'm part of the <a href="http://renderedtext.com">RenderedText</a>
+      crew, serving as a Chief Architect for
+      <a href="https://semaphoreci.com">SemaphoreCI</a>.
+    </p>
   </div>
 
-  <img class="abc" src="https://static.thenounproject.com/png/1790165-200.png">
+  <main class="greatest-hits">
+    <header class="page-header">
+      <h2>
+        Greatest Hits
+        <span class="subheader">hand-picked list of best my articles</span>
+      </h1>
+    </header>
 
-  <div class="hits">
-
-    <h2 class="lander-header">Read some of my Greatest Hits</h2>
-
-    <div class="a">
-      <div>
-        <h4><a href="/killing-a-process-and-all-of-its-descendants.html">Killing a process and all of its descendants</a></h4>
-
-        <p>
-        Killing processes in a Unix-like system can be trickier than expected.
-        Last week I was debugging an odd issue related to job stopping on Semaphore. More specifically, an issue related to the killing of a running process in a job.
-        </p>
-      </div>
-
-      <div>
-        <h4><a href="/five-principles-that-improved-my-software-engineering-skills.html">Five principles that improved my software engineering skills</a></h4>
+    <section class="grid">
+      <article>
+        <h3><a href="/killing-a-process-and-all-of-its-descendants.html">Killing a process and all of its descendants</a></h3>
 
         <p>
-        Killing processes in a Unix-like system can be trickier than expected.
-        Last week I was debugging an odd issue related to job stopping on Semaphore. More specifically, an issue related to the killing of a running process in a job.
+          Killing processes in a Unix-like system can be trickier than expected. Last
+          week I was debugging an odd issue related to job stopping on Semaphore.
+          More specifically, an issue related to the killing of a running process in a
+          job.
         </p>
-      </div>
-    </div>
-  </div>
 
-  <%# <1%# <% page_articles.each_slice(2).with_index do |group, g_index| %2> %1> %>
-  <%# <1%#   <div class="lander-row"> %1> %>
+        <%= link_to "Keep reading &rarr;", "/killing-a-process-and-all-of-its-descendants.html" %>
+      </article>
 
-  <%# <1%#     <% group.each_with_index do |article, index| %2> %1> %>
-  <%#       <div class="lander-article"> %>
-  <%#         <1%# <div class="image"> %1> %>
-  <%#         <1%#   <img src="images/<%= article.data.image %2>"/> %1> %>
-  <%#         <1%# </div> %1> %>
+      <article>
+        <h3><a href="/running.html">Why I fell in love with running?</a></h3>
 
-  <%#         <h3 class="lander-title"> %>
-  <%#           <1%# <span class="lander-number"><%= page_articles.count - (g_index * 2 + index) %2></span> %1> %>
-  <%#           <1%# <%= link_to article.title, article %2></h3> %1> %>
+        <p>
+          If you are a bit like me, you are naturally quite neurotic and experience
+          feelings such as anxiety, worry, fear, anger and frustration more often
+          than you should. Deep down, your rational self knows that these feelings
+          should not control your life. However, detaching from the 'now', zooming
+          out and focusing on the big picture is easier said than done.
+        </p>
 
-  <%#         <1%# <p><%= article.summary(240) %2></p> %1> %>
-  <%#         <1%# <time><%= article.date.strftime("%B %e, %Y") %2></time> %1> %>
+        <%= link_to "Keep reading &rarr;", "/running.html" %>
+      </article>
 
-  <%#         <div class="counter"> %>
-  <%#         </div> %>
+      <article>
+        <h3><a href="/five-principles-that-improved-my-software-engineering-skills.html">Five principles that improved my software engineering skills</a></h3>
 
-  <%#         <1%# <div class="header"> %1> %>
+        <p>
+          Mentoring younger developers is a very rewarding experience. It challenges your
+          your pre-established ways of thinking, and it forces you to re-evaluate your
+          long held principles. For example, a simple question like "Why does it matter
+          to DRY out your code?" is remarkably hard to answer.
+        </p>
 
+        <%= link_to "Keep reading &rarr;", "/five-principles-that-improved-my-software-engineering-skills.html" %>
+      </article>
+    </section>
+  </main>
 
-  <%#         <1%#   <% if article.data[:external] == true %2> %1> %>
-  <%#         <1%#     <%= link_to article.title, article.data[:link] %2> %1> %>
-  <%#         <1%#   <% else %2> %1> %>
-  <%#         <1%#   <% end %2> %1> %>
-  <%#         <1%# </div> %1> %>
-
-  <%#       </div> %>
-  <%#     <% end %1> %>
-
-<%# <1%#       <% if group.count == 1 %2> %1> %>
-<%# <1%#         <div class="lander-article"> %1> %>
-<%# <1%#           <!-- empty space to even out the space on the bottom --> %1> %>
-<%# <1%#         <div> %1> %>
-<%# <1%#       <% end %2> %1> %>
-
-<%# <1%#     </div> %1> %>
-<%# <1%#   <% end %2> %1> %>
 </div>
-
