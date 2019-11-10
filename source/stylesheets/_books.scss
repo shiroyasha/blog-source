@@ -1,0 +1,51 @@
+.books {
+  padding: 1em;
+  max-width: 1200px;
+  margin: auto;
+
+  .book {
+    display: flex;
+
+    .book-image {
+      width: 35%;
+      img {
+        width: 100%;
+      }
+      padding: 1em;
+    }
+
+    .book-description {
+      width: 65%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      p {
+        margin: 0;
+        margin-bottom: 1em;
+      }
+    }
+  }
+
+  .header {
+    margin-bottom: 60px;
+
+    h1 {
+      text-align: center;
+      color: black;
+      font-size: 2em;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #999;
+
+      span, time {
+        padding: 5px;
+      }
+    }
+  }
+}
+

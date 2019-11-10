@@ -10,6 +10,8 @@ Recently I switched my ISP provider and with the change I've got
 a new WiFi router. The download speed is incredible, 10x the compared
 to my previous subscription, but the stability got worse.
 
+READMORE
+
 As a software engineer, I know my way around computers, but when it
 comes to network equipment I'm on the same level as the avarage Joe.
 This issue with an unstable WiFi connection was bugging me too much.

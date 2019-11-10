@@ -1,8 +1,10 @@
 @import "body";
 @import "navigation";
 @import "links";
-@import "lander";
+@import "home";
 @import "article";
+@import "articles";
+@import "books";
 @import "about";
 @import "follow_on_twitter";
 @import "comments";
@@ -10,62 +12,33 @@
 
 .job-ad {
   width: 100%;
-  border-bottom: 1px solid red;
+  border-bottom: 3px solid tomato;
   text-align: center;
   padding: 10px;
+  font-size: 0.8em;
 }
 
 .footer {
-  width: 100%;
+  .delim {
+    background: url('../images/triangle-128.png');
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-repeat: repeat;
+        background-size: auto;
+    height: 20px;
+    background-repeat: repeat-x;
+    background-position: -10px -2px;
+    background-size: 16px;
+  }
+
+  margin-top: 5em;
+  background: black;
+  color: white;
   text-align: center;
+  width: 100%;
 
-  img {
-    width: 100%;
-    max-width: 1200px;
-  }
-}
-
-.books {
-  padding: 1em;
-  max-width: 850px;
-  margin: auto;
-
-  .book {
-    display: flex;
-
-    .book-image {
-      width: 250px;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    .book-description {
-      padding: 0 20px;
-      width: 550px;
-    }
-  }
-
-  .header {
-    margin-bottom: 60px;
-
-    h1 {
-      text-align: center;
-      color: black;
-      font-size: 2em;
-      margin-bottom: 0;
-    }
-
-    .subtitle {
-      text-align: center;
-      font-size: 16px;
-      color: #999;
-
-      span, time {
-        padding: 5px;
-      }
-    }
+  .content {
+    padding: 5vw 0;
   }
 }
 

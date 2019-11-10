@@ -1,6 +1,6 @@
 .highlight {
   color: #573d25;
-  font-size: 14px;
+  font-size: 0.8em;
 
   pre {
     overflow: auto;
@@ -8,11 +8,11 @@
 }
 
 .highlight + .highlight {
-  margin-top: 10px;
+  margin-top: 1em;
 }
 
 /*! birds of paradise syntax highlighting */
-.highlight, .highlight pre, .highlight table { background: #333 !important; }
+.highlight, .highlight pre, .highlight table { background: black !important; }
 .highlight .hll { background: #ffffcc !important; }
 .highlight  { background: #372725 !important; color: #ffffff !important; }
 .highlight .c { color: #999    !important; } /* Comment */
