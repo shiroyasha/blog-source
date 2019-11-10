@@ -1,32 +1,123 @@
 .navigation {
-  max-width: 100%;
-  margin: auto;
-  text-align: center;
 
-  display: flex;
-  justify-content: space-between;
+  @media (min-width: 600px) {
+    .open {
+      display: none;
+    }
 
-  ul {
-    padding: 0;
-    margin: 1.5em;
+    .close {
+      display: none;
+    }
 
-    li {
-      display: inline-block;
-      padding: 0 10px;
-      font-family: 'Raleway', sans-serif;
-      font-weight: 900;
+    .nav-content {
+      max-width: 100%;
+      margin: auto;
+      text-align: center;
 
-      a {
-        display: block;
-        color: #333;
-        text-decoration: underline transparent solid 3px;
+      display: flex;
+      justify-content: space-between;
 
-        &:hover {
-          text-decoration: underline tomato solid 3px;
+      .close {
+        display: none;
+      }
+
+      ul {
+        padding: 0;
+        margin: 1.5em;
+
+        li {
+          display: inline-block;
+          padding: 0 10px;
+          font-family: 'Raleway', sans-serif;
+          font-weight: 900;
+
+          a {
+            display: block;
+            color: #333;
+            text-decoration: underline transparent solid 3px;
+
+            &:hover {
+              text-decoration: underline tomato solid 3px;
+            }
+
+            &.active {
+              text-decoration: underline tomato solid 3px;
+            }
+          }
         }
+      }
+    }
+  }
 
-        &.active {
-          text-decoration: underline tomato solid 3px;
+
+  @media (max-width: 600px) {
+    .open {
+      display: block;
+      text-align: right;
+      font-size: 2em;
+      padding: 0 0.5em;
+      color: black;
+    }
+
+    .close {
+      display: none;
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      border: 2px solid black;
+      width: 44px;
+      height: 44px;
+      font-size: 250%;
+      text-align: center;
+      line-height: 0.8;
+      color: black;
+      vertical-align: middle;
+      justify-content: center;
+      align-content: center;
+      z-index: 99;
+    }
+
+    .nav-content {
+      margin: auto;
+      text-align: center;
+      display: none;
+      flex-direction: column;
+      justify-content: start;
+      position: absolute;
+      background: white;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border-left: 5px solid;
+      text-align: left;
+      font-size: 2em;
+      padding: 0;
+
+
+      ul {
+        padding: 0;
+        margin: 2em 0.5em 0;
+
+        li {
+          display: block;
+          padding: 0 10px;
+          font-family: 'Raleway', sans-serif;
+          font-weight: 900;
+
+          a {
+            display: block;
+            color: #333;
+            text-decoration: underline transparent solid 3px;
+
+            &:hover {
+              text-decoration: underline tomato solid 3px;
+            }
+
+            &.active {
+              text-decoration: underline tomato solid 3px;
+            }
+          }
         }
       }
     }
