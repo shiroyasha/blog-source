@@ -4,19 +4,20 @@ blog: blog
 
 <main class="articles">
   <header class="page-header">
-    <h1>All articles from latest to oldest</h1>
+    <h1>
+      All articles
+      <span class="subheader">from latest to oldest</span>
+    </h1>
   </header>
 
   <section class="grid">
     <% page_articles.each.with_index do |article| %>
       <article>
         <h2><%= link_to article.title, article %></h2>
-        <time><%= article.date.strftime("%B %e, %Y") %></time>
+        <time>Published on <%= article.date.strftime("%B %e, %Y") %></time>
 
-        <p>
-          <%= article.summary(240) %>
-          <%= link_to "Continue reading&hellip;", article.data[:link] %>
-        </p>
+        <%= article.summary(240) %>
+        <%= link_to "Keep reading &rarr;", article.url %>
       </article>
     <% end %>
   </section>
