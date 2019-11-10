@@ -2,20 +2,22 @@
 blog: blog
 ---
 
-<div class="articles">
-  <h1>All articles from latest to oldest</h1>
+<main class="articles">
+  <header class="page-header">
+    <h1>All articles from latest to oldest</h1>
+  </header>
 
-  <ul>
+  <section class="grid">
     <% page_articles.each.with_index do |article| %>
-      <li>
-        <h3><%= link_to article.title, article %></h3>
+      <article>
+        <h2><%= link_to article.title, article %></h2>
         <time><%= article.date.strftime("%B %e, %Y") %></time>
 
         <p>
           <%= article.summary(240) %>
           <%= link_to "Continue reading&hellip;", article.data[:link] %>
         </p>
-      </li>
+      </article>
     <% end %>
-  </ol>
-</div>
+  </section>
+</main>

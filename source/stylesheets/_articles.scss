@@ -1,23 +1,21 @@
 .articles {
-  max-width: 1400px;
-  margin: auto;
-  padding: 1em;
-
-  .filter {
+  .page-header {
+    text-align: center;
   }
 
-  ul {
+  .grid {
     list-style: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: auto;
+    font-size: 0.75em;
 
-    li {
-      width: 30%;
+    article {
       border-bottom: 1px solid #ccc;
 
-      h3 {
+      h2 {
         margin-bottom: 0;
 
         a {
@@ -33,5 +31,29 @@
         font-size: 0.8em;
       }
     }
+  }
+
+  @media (min-width: 1200px) {
+    .grid {
+      max-width: 80%;
+
+      article {
+        width: 30%;
+      }
+    }
+  }
+
+  @media (min-width: 960px) and (max-width: 1200px) {
+    .grid {
+      max-width: 80%;
+
+      article {
+        width: 30%;
+      }
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 960px) {
+
   }
 }
