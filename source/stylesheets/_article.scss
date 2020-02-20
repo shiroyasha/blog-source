@@ -13,7 +13,16 @@
   }
 
   img {
-    max-width: 100%;
+    @media (min-width: 900px) {
+      max-width: 120%;
+      width: 120%;
+      margin-left: -10%;
+    }
+
+    @media (max-width: 900px) {
+      max-width: 100%;
+    }
+
     border: 1px solid #eee;
   }
 
