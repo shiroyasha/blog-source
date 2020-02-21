@@ -1,18 +1,39 @@
 <% wrap_layout :layout do %>
   <article class="article">
     <div class="header">
-      <h1><%= current_article.title %></h1>
+      <% if current_article.data.subtitle_top %>
+        <div class="subtitle-top"><%= current_article.data.subtitle_top %></div>
+      <% end %>
 
-      <div class="subtitle">
-        Written by <a href="https://twitter.com/igor_sarcevic">@igor_sarcevic</a>
+      <div class="big-header">
+        <div class="big-header-title">
+          <h1><%= current_article.title %></h1>
+
+          <% if current_article.data.subtitle_top %>
+            <div class="subtitle">
+               <%= current_article.data.subtitle_bottom %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="big-header-image">
+          <img src="https://s3.amazonaws.com/brt.org/bezos-final-0404web-3.jpg">
+        </div>
+      </div>
+
+
+      <div class="written-by">
+        Written by <a href="https://twitter.com/igor_sarcevic">Igor Šarčević</a>
         on <time><%= current_article.date.strftime("%B %e, %Y") %></time>
       </div>
     </div>
 
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
 
-    <%= partial "partials/share", :locals => { :current_article => current_article } %>
-    <%= partial "partials/follow_on_twitter" %>
+      <%= partial "partials/share", :locals => { :current_article => current_article } %>
+      <%= partial "partials/follow_on_twitter" %>
+    </div>
 
     <%# <%= partial "partials/comments", :locals => { :url => current_article.url, :id => current_article.data[:id] } %1> %>
   </article>
