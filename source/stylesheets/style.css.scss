@@ -110,20 +110,32 @@
 
     .debug--strategy--card {
       padding: 24px;
-      padding-top: 200px;
 
       border-radius: 5px;
       box-shadow: 0 .3rem .8rem rgba(0,0,0,.12);
       background: white;
-      opacity: 0.7;
+      opacity: 0.8;
       transition: 0.3s;
 
       &:hover {
         opacity: 1;
+				box-shadow: 0 .3rem .8rem rgba(0,0,0,.25);
+				cursor: pointer;
       }
 
       h2 {
         margin-bottom: 0px;
+      }
+
+      .debug--strategy-pic {
+        height: 200px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 100%;
+        }
       }
     }
   }
