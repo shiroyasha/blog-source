@@ -7,63 +7,172 @@
       Collection of strategies and frameworks to help you replicate,
       diagnose, and prevent bugs in your application.
     </p>
+  </div>
 
-    <%# <div class="debug--types"> %>
-    <%#   <div class="debug--types--reproduce">REPRODUCE</div> %>
-    <%#   <div class="debug--types--diagnose">DIAGNOSE</div> %>
-    <%#   <div class="debug--types--prevent">PREVENT</div> %>
-    <%# </div> %>
+  <%
+    @tactics = [
+      {
+        title: "Statistical Reproduction",
+        description: "Running the program many times to reproduce a bug",
+        type: "reproduce",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Variable control",
+        description: "Reduce the unknowns by tightly controlling the environment and system input",
+        type: "reproduce",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Fast Reproduction",
+        description: "Set up regression tests for fast issue reproduction",
+        type: "reproduce",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Stress the system",
+        description: "Some problem only occur when the system is under stress",
+        type: "reproduce",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Experiment checklist",
+        description: "Track and log every way you tried to reproduce the bug",
+        type: "reproduce",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Deliberate randomness",
+        description: "When an issue is hard to reproduce, running random input can identify the case",
+        type: "reproduce",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Establish a Timeline",
+        description: "List and correlate system changes with bug reports",
+        type: "diagnose",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Focus inversion",
+        description: "Eliminate parts that do no affect the problem",
+        type: "diagnose",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Divide&Conquer",
+        description: "Find the location of the issue by splitting the problem space in half",
+        type: "diagnose",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Print Debugging",
+        description: "Log every step during the program execution",
+        type: "diagnose",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Rubber Duck",
+        description: "Explain the source to an inanimate object to clarify the details",
+        type: "diagnose",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Assumption verification",
+        description: "Verify that the assumption you hold and correct",
+        type: "diagnose",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "One problem at a time",
+        description: "When faced with multiple reports, order them and attack one by one, simple to hard",
+        type: "diagnose",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Ocalms razor",
+        description: "All things ding equal, bet on the simplest explanation first",
+        type: "diagnose",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Compare positives and negatives",
+        description: "Find the difference between runs that cause the bug vs runs that donʼt trigger it",
+        type: "diagnose",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Dig out of a quality hole",
+        description: "Increase the quality of the system and the environment to avoid similar problems in the future",
+        type: "prevent",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Stop the rot",
+        description: "Avoid out of date code and dependencies",
+        type: "prevent",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Bug first",
+        description: "Focus development on eliminating bugs first",
+        type: "prevent",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Separate the clean from the dirty",
+        description: "Avoid spreading bad practices in the code base",
+        type: "prevent",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      },
+      {
+        title: "Refactor",
+        description: "Reduce the chance of improper usage",
+        type: "prevent",
+        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+      }
+    ]
+  %>
+
+  <div class="debug--strategies">
+    <% @tactics.select { |t| t[:type] == "reproduce" }.each do |tactic| %>
+      <div class="debug--strategy--card">
+        <div class="debug--strategy-pic">
+          <img src="<%= tactic[:image] %>">
+        </div>
+
+        <h2><%= tactic[:title] %></h2>
+        <span class="debug--types debug--types--<%= tactic[:type] %>"><%= tactic[:type].upcase %></span>
+        <p><%= tactic[:description] %></p>
+      </div>
+    <% end %>
   </div>
 
   <div class="debug--strategies">
-    <div class="debug--strategy--card">
-      <div class="debug--strategy-pic">
-        <img src="https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png">
+    <% @tactics.select { |t| t[:type] == "diagnose" }.each do |tactic| %>
+      <div class="debug--strategy--card">
+        <div class="debug--strategy-pic">
+          <img src="<%= tactic[:image] %>">
+        </div>
+
+        <h2><%= tactic[:title] %></h2>
+        <span class="debug--types debug--types--<%= tactic[:type] %>"><%= tactic[:type].upcase %></span>
+        <p><%= tactic[:description] %></p>
       </div>
+    <% end %>
+  </div>
 
-      <h2>Experiment Checklist</h2>
-      <span class="debug--types debug--types--reproduce">REPRODUCE</span>
-      <p>Systemitize your approach for checking possible causes of the bug</p>
-    </div>
+  <div class="debug--strategies">
+    <% @tactics.select { |t| t[:type] == "prevent" }.each do |tactic| %>
+      <div class="debug--strategy--card">
+        <div class="debug--strategy-pic">
+          <img src="<%= tactic[:image] %>">
+        </div>
 
-    <div class="debug--strategy--card">
-      <div class="debug--strategy-pic">
-        <img src="https://ouch-cdn.icons8.com/thumb/945/f36ba414-6504-4484-9cd4-d45ea869fd19.png">
+        <h2><%= tactic[:title] %></h2>
+        <span class="debug--types debug--types--<%= tactic[:type] %>"><%= tactic[:type].upcase %></span>
+        <p><%= tactic[:description] %></p>
       </div>
-
-      <h2>Varible Control</h2>
-      <span class="debug--types debug--types--diagnose">DIAGNOSE</span>
-      <p>Reduce the unkwnons by controlling the environment and the system inputs</p>
-    </div>
-
-    <div class="debug--strategy--card">
-      <div class="debug--strategy-pic">
-        <img src="https://ouch-cdn.icons8.com/thumb/119/f7243e71-62a6-448c-b240-d0d5984353ae.png">
-      </div>
-
-      <h2>Stress the System</h2>
-      <span class="debug--types debug--types--reproduce">REPRODUCE</span>
-      <p>Some problems only occur when the system is under heavy load</p>
-    </div>
-
-    <div class="debug--strategy--card">
-      <div class="debug--strategy-pic">
-        <img src="https://ouch-cdn.icons8.com/thumb/165/29a858e0-4cf3-487c-ae6e-ab194d1a6626.png">
-      </div>
-
-      <h2>Deliberate randomness</h2>
-      <span class="debug--types debug--types--reproduce">REPRODUCE</span>
-      <p>Provide random input to your system, to help you identify the possible causes</p>
-    </div>
-
-    <div class="debug--strategy--card">
-      <div class="debug--strategy-pic">
-        <img src="https://ouch-cdn.icons8.com/thumb/413/8f6a7c40-103f-4f03-b193-fd035d2fcb26.png">
-      </div>
-
-      <h2>Statistical Reproduction</h2>
-      <span class="debug--types debug--types--reproduce">REPRODUCE</span>
-      <p>Some problems only happen occasionaly, run a statistically significant number of tests to trigger them</p>
-    </div>
+    <% end %>
   </div>
 </div>
