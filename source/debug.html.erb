@@ -134,18 +134,29 @@
     ]
   %>
 
-  <div class="debug--strategies">
-    <% @tactics.select { |t| t[:type] == "reproduce" }.each do |tactic| %>
-      <div class="debug--strategy--card">
-        <div class="debug--strategy-pic">
-          <img src="<%= tactic[:image] %>">
-        </div>
+  <div style="max-width: 900px;margin: auto;padding-bottom: 40px;border-top: 2px solid #8338ec;margin-top: 50px;">
+    <h2 style="margin-bottom: 0;">
+      Start with reproduction</h2>
+    <small style="max-width: 600px;width: 600px;display: inline-block;/*! margin-left: 52px; */">When you get an issue report, make sure you are able to reproduce it. Be aware! Not all issues are easy to reproduce. Use these strategies when you get stuck.</small>
 
-        <h2><%= tactic[:title] %></h2>
-        <span class="debug--types debug--types--<%= tactic[:type] %>"><%= tactic[:type].upcase %></span>
-        <p><%= tactic[:description] %></p>
-      </div>
-    <% end %>
+    <div class="debug--strategies">
+      <% @tactics.select { |t| t[:type] == "reproduce" }.each do |tactic| %>
+        <div class="debug--strategy--card">
+          <div class="debug--strategy-pic">
+            <img src="<%= tactic[:image] %>">
+          </div>
+
+          <h2><%= tactic[:title] %></h2>
+          <span class="debug--types debug--types--<%= tactic[:type] %>"><%= tactic[:type].upcase %></span>
+          <p><%= tactic[:description] %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div style="max-width: 900px;margin: auto;padding-bottom: 40px;border-top: 2px solid #8338ec;margin-top: 50px;">
+    <h2 style="margin-bottom: 0;">When you can replicate, diagnose the problem</h2>
+    <small style="max-width: 600px;width: 600px;display: inline-block;/*! margin-left: 52px; */">When you get an issue report, make sure you are able to reproduce it. Be aware! Not all issues are easy to reproduce. Use these strategies when you get stuck.</small>
   </div>
 
   <div class="debug--strategies">
