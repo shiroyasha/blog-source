@@ -1,45 +1,34 @@
-<div class="debug">
-  <div class="debug--hero">
-    <h1>
-      Tactics for better debugging
-    </h1>
-    <p>
-      Collection of strategies and frameworks to help you replicate,
-      diagnose, and prevent bugs in your application.
-    </p>
-  </div>
-
   <%
     @tactics = [
       {
         title: "Statistical Reproduction",
         description: "Running the program many times to reproduce a bug",
         type: "reproduce",
-        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+        image: "https://ouch-cdn.icons8.com/preview/488/337c11e6-5a8f-430a-abe5-71143553c2ac.png"
       },
       {
         title: "Variable control",
         description: "Reduce the unknowns by tightly controlling the environment and system input",
         type: "reproduce",
-        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+        image: "https://ouch-cdn.icons8.com/thumb/945/f36ba414-6504-4484-9cd4-d45ea869fd19.png"
       },
       {
         title: "Fast Reproduction",
         description: "Set up regression tests for fast issue reproduction",
         type: "reproduce",
-        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+        image: "https://ouch-cdn.icons8.com/preview/500/04492b79-0864-4748-a814-1287229f705a.png"
       },
       {
         title: "Stress the system",
         description: "Some problem only occur when the system is under stress",
         type: "reproduce",
-        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+        image: "https://ouch-cdn.icons8.com/thumb/119/f7243e71-62a6-448c-b240-d0d5984353ae.png"
       },
       {
         title: "Experiment checklist",
         description: "Track and log every way you tried to reproduce the bug",
         type: "reproduce",
-        image: "https://ouch-cdn.icons8.com/thumb/486/0ac4dda0-5e40-444d-9d68-a6ddc4cd86c8.png"
+        image: "https://ouch-cdn.icons8.com/preview/646/aeb72d66-93f9-4645-99f8-394fd703f410.png"
       },
       {
         title: "Deliberate randomness",
@@ -134,10 +123,30 @@
     ]
   %>
 
-  <div style="max-width: 900px;margin: auto;padding-bottom: 40px;border-top: 2px solid #8338ec;margin-top: 50px;">
-    <h2 style="margin-bottom: 0;">
-      Start with reproduction</h2>
-    <small style="max-width: 600px;width: 600px;display: inline-block;/*! margin-left: 52px; */">When you get an issue report, make sure you are able to reproduce it. Be aware! Not all issues are easy to reproduce. Use these strategies when you get stuck.</small>
+<div class="debug">
+  <div class="debug--hero">
+    <h1>
+      Tactics for better debugging
+    </h1>
+    <p>
+      Collection of strategies and frameworks to help you replicate,
+      diagnose, and prevent bugs in your application.
+    </p>
+
+<%#     <div style="padding-top: 20px"> %>
+<%#       <small class="debug--types debug--types--reproduce">Reproduce</small> %>
+<%#       → %>
+<%#       <small class="debug--types debug--types--diagnose">Diagnose</small> %>
+<%#       → %>
+<%#       <small class="debug--types debug--types--prevent">Prevent</small> %>
+<%#     </div> %>
+  </div>
+
+  <div class="debug--phase" style="background: #ffca3a99">
+    <div class="debug--phase--header">
+      <h2>Start with reproduction</h2>
+      <small>When you get an issue report, make sure you are able to reproduce it. Be aware! Not all issues are easy to reproduce. Use these strategies when you get stuck.</small>
+    </div>
 
     <div class="debug--strategies">
       <% @tactics.select { |t| t[:type] == "reproduce" }.each do |tactic| %>
@@ -147,43 +156,50 @@
           </div>
 
           <h2><%= tactic[:title] %></h2>
-          <span class="debug--types debug--types--<%= tactic[:type] %>"><%= tactic[:type].upcase %></span>
+          <%# <span class="debug--types debug--types--<%= tactic[:type] %1>"><%= tactic[:type].upcase %1></span> %>
           <p><%= tactic[:description] %></p>
         </div>
       <% end %>
     </div>
   </div>
 
-  <div style="max-width: 900px;margin: auto;padding-bottom: 40px;border-top: 2px solid #8338ec;margin-top: 50px;">
-    <h2 style="margin-bottom: 0;">When you can replicate, diagnose the problem</h2>
-    <small style="max-width: 600px;width: 600px;display: inline-block;/*! margin-left: 52px; */">When you get an issue report, make sure you are able to reproduce it. Be aware! Not all issues are easy to reproduce. Use these strategies when you get stuck.</small>
+  <div class="debug--phase" style="background: #4cc9f077;">
+    <div class="debug--phase--header">
+      <h2>When you can replicate, diagnose the problem</h2>
+      <small>When you get an issue report, make sure you are able to reproduce it. Be aware! Not all issues are easy to reproduce. Use these strategies when you get stuck.</small>
+    </div>
+
+    <div class="debug--strategies">
+      <% @tactics.select { |t| t[:type] == "diagnose" }.each do |tactic| %>
+        <div class="debug--strategy--card">
+          <div class="debug--strategy-pic">
+            <img src="<%= tactic[:image] %>">
+          </div>
+
+          <h2><%= tactic[:title] %></h2>
+          <p><%= tactic[:description] %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <div class="debug--strategies">
-    <% @tactics.select { |t| t[:type] == "diagnose" }.each do |tactic| %>
-      <div class="debug--strategy--card">
-        <div class="debug--strategy-pic">
-          <img src="<%= tactic[:image] %>">
+  <div class="debug--phase" style="background: #8338ec33;">
+    <div class="debug--phase--header">
+      <h2>When you can replicate, diagnose the problem</h2>
+      <small>When you get an issue report, make sure you are able to reproduce it. Be aware! Not all issues are easy to reproduce. Use these strategies when you get stuck.</small>
+    </div>
+
+    <div class="debug--strategies">
+      <% @tactics.select { |t| t[:type] == "prevent" }.each do |tactic| %>
+        <div class="debug--strategy--card">
+          <div class="debug--strategy-pic">
+            <img src="<%= tactic[:image] %>">
+          </div>
+
+          <h2><%= tactic[:title] %></h2>
+          <p><%= tactic[:description] %></p>
         </div>
-
-        <h2><%= tactic[:title] %></h2>
-        <span class="debug--types debug--types--<%= tactic[:type] %>"><%= tactic[:type].upcase %></span>
-        <p><%= tactic[:description] %></p>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="debug--strategies">
-    <% @tactics.select { |t| t[:type] == "prevent" }.each do |tactic| %>
-      <div class="debug--strategy--card">
-        <div class="debug--strategy-pic">
-          <img src="<%= tactic[:image] %>">
-        </div>
-
-        <h2><%= tactic[:title] %></h2>
-        <span class="debug--types debug--types--<%= tactic[:type] %>"><%= tactic[:type].upcase %></span>
-        <p><%= tactic[:description] %></p>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
