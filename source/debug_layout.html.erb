@@ -1,0 +1,11 @@
+<% wrap_layout :layout do %>
+  <article class="article">
+    <a href="/debug.html">← Back to Debug Tactics</a>
+
+    <div class="header">
+      <h1><%= current_page.data[:title] %></h1>
+    </div>
+
+    <%= yield %>
+  </article>
+<% end %>

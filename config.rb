@@ -12,11 +12,13 @@ page "/feed.xml", :layout => false
 page "/index.html", :layout => "layout"
 page "/about-me.html", :layout => "about_layout"
 
+page "/debug/*", :layout => "debug_layout"
+
 ignore "article_layout.erb"
 ignore "about_layout.erb"
 
 set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true
+set :markdown, :fenced_code_blocks => true, :smartypants => true, :tables => true
 
 activate :syntax
 

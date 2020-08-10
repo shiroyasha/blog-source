@@ -10,7 +10,8 @@
         title: "Variable control",
         description: "Reduce the unknowns by tightly controlling the environment and system input",
         type: "reproduce",
-        image: "https://ouch-cdn.icons8.com/thumb/945/f36ba414-6504-4484-9cd4-d45ea869fd19.png"
+        image: "https://ouch-cdn.icons8.com/thumb/945/f36ba414-6504-4484-9cd4-d45ea869fd19.png",
+        link: "debug/variable-control.html"
       },
       {
         title: "Fast Reproduction",
@@ -150,7 +151,7 @@
 
     <div class="debug--strategies">
       <% @tactics.select { |t| t[:type] == "reproduce" }.each do |tactic| %>
-        <div class="debug--strategy--card">
+        <a href="<%= tactic[:link] %>" class="debug--strategy--card">
           <div class="debug--strategy-pic">
             <img src="<%= tactic[:image] %>">
           </div>
@@ -158,7 +159,7 @@
           <h2><%= tactic[:title] %></h2>
           <%# <span class="debug--types debug--types--<%= tactic[:type] %1>"><%= tactic[:type].upcase %1></span> %>
           <p><%= tactic[:description] %></p>
-        </div>
+        </a>
       <% end %>
     </div>
   </div>
