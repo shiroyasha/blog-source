@@ -1,58 +1,58 @@
-@import "body";
-@import "navigation";
-@import "links";
-@import "home";
-@import "article";
-@import "articles";
-@import "books";
-@import "about";
-@import "follow_on_twitter";
-@import "comments";
-@import "code_highlight";
+// @import "body";
+// @import "navigation";
+// @import "links";
+// @import "home";
+// @import "article";
+// @import "articles";
+// @import "books";
+// @import "about";
+// @import "follow_on_twitter";
+// @import "comments";
+// @import "code_highlight";
 
-.job-ad {
-  width: 100%;
-  border-bottom: 3px solid tomato;
-  text-align: center;
-  padding: 10px;
-  font-size: 0.8em;
-}
+// .job-ad {
+//   width: 100%;
+//   border-bottom: 3px solid tomato;
+//   text-align: center;
+//   padding: 10px;
+//   font-size: 0.8em;
+// }
 
-.footer {
-  margin-top: 5em;
-  background: black;
-  color: white;
-  text-align: center;
-  width: 100%;
+// .footer {
+//   margin-top: 5em;
+//   background: black;
+//   color: white;
+//   text-align: center;
+//   width: 100%;
 
-  .content {
-    padding: 5vw 0;
-  }
-}
+//   .content {
+//     padding: 5vw 0;
+//   }
+// }
 
-.photos {
-  padding: 1em;
-  margin: auto;
-  max-width: 850px;
-  min-height: 600px;
-}
+// .photos {
+//   padding: 1em;
+//   margin: auto;
+//   max-width: 850px;
+//   min-height: 600px;
+// }
 
-@media (max-width: 600px) {
-  .books {
-    .book {
-      flex-wrap: wrap;
-    }
+// @media (max-width: 600px) {
+//   .books {
+//     .book {
+//       flex-wrap: wrap;
+//     }
 
-    .book .book-image {
-      width: 100%;
+//     .book .book-image {
+//       width: 100%;
 
-      img {
-        width: 100%;
-      }
-    }
+//       img {
+//         width: 100%;
+//       }
+//     }
 
-    .book .book-description {
-      width: 100%;
-    }
-  }
-}
+//     .book .book-description {
+//       width: 100%;
+//     }
+//   }
+// }
