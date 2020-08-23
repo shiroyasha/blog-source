@@ -20,7 +20,7 @@ blog: blog
     </p>
 
     <div>
-      <a class="f3 orange link" href="/articles.html">Start Reading →</a>
+      <a class="f4 orange link" href="/articles.html">Start Reading &rarr;</a>
     </div>
   </div>
 
@@ -31,54 +31,41 @@ blog: blog
 
 <hr style="width: 100px; margin: auto">
 
+<section>
+  <header class="mb4 tc">
+    <h2 class="f-subheadline lh-title mb0">Greatest Hits</h2>
+    <span class="f2">hand-picked list of best my articles</span>
+  </header>
 
-  <main class="greatest-hits mt6">
-    <header class="page-header">
-      <h2>
-        Greatest Hits
-        <span class="subheader">hand-picked list of best my articles</span>
-      </h1>
-    </header>
+  <div class="flex flex-column items-center">
+    <article class="ma4 measure-wide">
+      <h1 class="f3"><a class="link black" href="/killing-a-process-and-all-of-its-descendants.html">Killing a process and all of its descendants</a></h3>
 
-    <section class="grid">
-      <article>
-        <h3><a href="/killing-a-process-and-all-of-its-descendants.html">Killing a process and all of its descendants</a></h3>
+      <div>
+        Killing processes in a Unix-like system can be trickier than expected.
+      </div>
 
-        <p>
-          Killing processes in a Unix-like system can be trickier than expected. Last
-          week I was debugging an odd issue related to job stopping on Semaphore.
-          More specifically, an issue related to the killing of a running process in a
-          job.
-        </p>
+      <%= link_to "Read &rarr;", "/killing-a-process-and-all-of-its-descendants.html", class: "mt2 db link orange" %>
+    </article>
 
-        <%= link_to "Keep reading &rarr;", "/killing-a-process-and-all-of-its-descendants.html" %>
-      </article>
+    <article class="ma4 measure-wide">
+      <h1 class="f3"><a class="link black" href="/running.html">Why I fell in love with running?</a></h3>
 
-      <article>
-        <h3><a href="/running.html">Why I fell in love with running?</a></h3>
+      <div>
+        Learn how to deal with the stress of the everyday by doing active medetation.
+      </div>
 
-        <p>
-          If you are a bit like me, you are naturally quite neurotic and experience
-          feelings such as anxiety, worry, fear, anger and frustration more often
-          than you should. Deep down, your rational self knows that these feelings
-          should not control your life. However, detaching from the 'now', zooming
-          out and focusing on the big picture is easier said than done.
-        </p>
+      <%= link_to "Read &rarr;", "/running.html", class: "mt2 db link orange" %>
+    </article>
 
-        <%= link_to "Keep reading &rarr;", "/running.html" %>
-      </article>
+    <article class="ma4 measure-wide">
+      <h1 class="f3"><a class="link black" href="/five-principles-that-improved-my-software-engineering-skills.html">Five principles that improved my software engineering skills</a></h3>
 
-      <article>
-        <h3><a href="/five-principles-that-improved-my-software-engineering-skills.html">Five principles that improved my software engineering skills</a></h3>
+      <div>
+        Mentoring younger developers is a very rewarding experience.
+      </div>
 
-        <p>
-          Mentoring younger developers is a very rewarding experience. It challenges your
-          your pre-established ways of thinking, and it forces you to re-evaluate your
-          long held principles. For example, a simple question like "Why does it matter
-          to DRY out your code?" is remarkably hard to answer.
-        </p>
-
-        <%= link_to "Keep reading &rarr;", "/five-principles-that-improved-my-software-engineering-skills.html" %>
-      </article>
-    </section>
-  </main>
+      <%= link_to "Read &rarr;", "/five-principles-that-improved-my-software-engineering-skills.html", class: "mt2 db link orange" %>
+    </article>
+  </div>
+</section>
