@@ -37,35 +37,48 @@ blog: blog
     <span class="f2">hand-picked list of best my articles</span>
   </header>
 
-  <div class="flex flex-column items-center">
-    <article class="ma4 measure-wide">
-      <h1 class="f3"><a class="link black" href="/killing-a-process-and-all-of-its-descendants.html">Killing a process and all of its descendants</a></h3>
+<style>
+	.shadow-1 { box-shadow: 1px 1px 2px 2px rgba( 0, 0, 0, 0.1 ); }
 
-      <div>
+  .card {
+		height: 400px;
+    background: #ccf2ff;
+		color: #0086b3 !important;
+	}
+
+  .card h1 {
+    height: 200px;
+	}
+
+  .card h1 a {
+		color: #0086b3 !important;
+	}
+
+</style>
+
+  <div class="flex items-center">
+    <article class="card w-third h9 ma4 measure-wide pa4 br4">
+      <h1 class="f2"><a class="link black" href="/killing-a-process-and-all-of-its-descendants.html">Killing a process and all of its descendants</a></h3>
+
+      <div class="bt pt3 b--blue">
         Killing processes in a Unix-like system can be trickier than expected.
       </div>
-
-      <%= link_to "Read &rarr;", "/killing-a-process-and-all-of-its-descendants.html", class: "mt2 db link orange" %>
     </article>
 
-    <article class="ma4 measure-wide">
-      <h1 class="f3"><a class="link black" href="/running.html">Why I fell in love with running?</a></h3>
+    <article class="card w-third h9 ma4 measure-wide pa4 br4">
+      <h1 class="f2"><a class="link black" href="/running.html">Why I fell in love with running?</a></h3>
 
-      <div>
+      <div class="bt pt3 b--blue">
         Learn how to deal with the stress of the everyday by doing active medetation.
       </div>
-
-      <%= link_to "Read &rarr;", "/running.html", class: "mt2 db link orange" %>
     </article>
 
-    <article class="ma4 measure-wide">
-      <h1 class="f3"><a class="link black" href="/five-principles-that-improved-my-software-engineering-skills.html">Five principles that improved my software engineering skills</a></h3>
+    <article class="card w-third h9 ma4 measure-wide pa4 br4">
+      <h1 class="f2"><a class="link black" href="/five-principles-that-improved-my-software-engineering-skills.html">Five principles that improved my software engineering skills</a></h3>
 
-      <div>
+      <div class="bt pt3 b--blue">
         Mentoring younger developers is a very rewarding experience.
       </div>
-
-      <%= link_to "Read &rarr;", "/five-principles-that-improved-my-software-engineering-skills.html", class: "mt2 db link orange" %>
     </article>
   </div>
 </section>
