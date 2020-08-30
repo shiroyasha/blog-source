@@ -10,15 +10,21 @@ blog: blog
     </h1>
   </header>
 
-  <section class="grid">
+  <section class="flex flex-wrap">
     <% page_articles.each.with_index do |article| %>
-      <article>
-        <h2><%= link_to article.title, article %></h2>
-        <time>Published on <%= article.date.strftime("%B %e, %Y") %></time>
+      <div class="w-third flex">
+        <a class="card measure-wide pa4 mr4 mb4" href="<%= article.url %>">
+          <h1 class="f3"><%= article.title %></h3>
 
-        <%= article.summary(240) %>
-        <%= link_to "Keep reading &rarr;", article.url %>
-      </article>
+          <div class="bt pt3 bw1 summary">
+            <%= article.summary(240) %>
+          </div>
+
+          <div class="f6 gray">
+            <time><%= article.date.strftime("%B %e, %Y") %></time>
+          </div>
+        </a>
+      </div>
     <% end %>
   </section>
 </main>

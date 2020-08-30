@@ -1,3 +1,29 @@
+.card {
+  background: #fafafa;
+  border: 1px solid #eee;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.card h1 {
+  height: 70px;
+}
+
+.card .summary {
+  flex: 1 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 // @import "body";
 // @import "navigation";
 // @import "links";
@@ -9,50 +35,3 @@
 // @import "follow_on_twitter";
 // @import "comments";
 // @import "code_highlight";
-
-// .job-ad {
-//   width: 100%;
-//   border-bottom: 3px solid tomato;
-//   text-align: center;
-//   padding: 10px;
-//   font-size: 0.8em;
-// }
-
-// .footer {
-//   margin-top: 5em;
-//   background: black;
-//   color: white;
-//   text-align: center;
-//   width: 100%;
-
-//   .content {
-//     padding: 5vw 0;
-//   }
-// }
-
-// .photos {
-//   padding: 1em;
-//   margin: auto;
-//   max-width: 850px;
-//   min-height: 600px;
-// }
-
-// @media (max-width: 600px) {
-//   .books {
-//     .book {
-//       flex-wrap: wrap;
-//     }
-
-//     .book .book-image {
-//       width: 100%;
-
-//       img {
-//         width: 100%;
-//       }
-//     }
-
-//     .book .book-description {
-//       width: 100%;
-//     }
-//   }
-// }
