@@ -1,14 +1,41 @@
 .home {
   .home-about {
-    margin: 5em auto 7em;
-    max-width: 900px;
-    padding: 0 10px;
+    display: flex;
+    border: 1px solid #ccc;
+    background: url("https://images.unsplash.com/photo-1589362281138-e3f7ebe47f1a");
+    background-size: contain;
 
-    h1 {
-      font-size: 3em;
-      color: black;
-      margin: 0;
-      text-align: center;
+    .img {
+      img {
+        border-radius: 50%;
+        box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+        max-width: 100px;
+      }
+
+      padding-top: 2em;
+    }
+
+    .desc {
+      padding: 0 2em;
+      max-width: 600px;
+
+      h1 {
+        font-size: 3em;
+        color: black;
+        margin: 0;
+      }
+
+      small {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+
+      a.silent {
+        color: black;
+      }
     }
   }
 
@@ -65,7 +92,7 @@
       }
 
       .grid {
-        max-width: 80%;
+        padding: 10px;
 
         article {
           width: 30%;
