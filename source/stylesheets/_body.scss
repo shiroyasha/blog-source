@@ -13,11 +13,13 @@ body, html {
   line-height: 1.6;
   color: black;
   font-weight: 400;
+  max-width: 1200px;
+  margin: auto;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: calc(1.6em + 0.5vw);
+  font-size: calc(1.6em + 0.4vw);
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
