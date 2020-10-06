@@ -1,10 +1,14 @@
 <% wrap_layout :layout do %>
   <article class="article about">
-    <div class="header">
-      <h1>About Igor Šarčević</h1>
-    </div>
+    <div class=about-header>
+      <div class=image>
+        <img src="/images/igor.png" href="Igor Šarčević">
+      </div>
 
-    <img class="image" src="/images/igor.png" href="Igor Šarčević">
+      <div class="header">
+        <h1>About Me</h1>
+      </div>
+    </div>
 
     <%= yield %>
   </article>
