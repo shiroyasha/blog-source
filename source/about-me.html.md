@@ -1,61 +1,38 @@
 ---
-title: About Igor Šarčević
+title: About Me
 tags: programming
 image: igor.png
 ---
 
-My name is Igor Šarčević. I'm a software engineer,
-amateur adventurer, math enthusiasts. This is my personal blog where
-I write about technology, philosophy, and share my insights about the
-human condition.
+I'm Igor Šarčević. I live in Novi Sad, Serbia, with my girlfriend, a cat, and a
+bunch of computers. I work at <a href="https://semaphoreci.com" target=_blank>Semaphore</a>, a
+cloud-based continuous integration and deployment tool.
 
-I'm a part of the <a href="http://renderedtext.com">RenderedText</a> crew &mdash;
-the team that brings you <a href="https://semaphoreci.com">SemaphoreCI</a>.
+My expertise is in software development, primarily in developing web apps.
+For almost a decade (since 2012), I've been developing software
+professionally. In the last two years, I'm focusing on software architecture.
+At Semaphore, I'm running architecture and algorithm design.
 
-My passion lies in creating well crafted software systems.
+I have several strong opinions about development:
 
-## My story so far
+- An asynchronous workplace is the best place to develop software.
+- I prefer long-form, written communication, over chat, or meetings.
+- There are no 10x developers, but there are 10x work environments
 
-Raised in a small town in Serbia, I found my passion for computers early in my
-childhood. I was one of those kids that you had to force away from the
-computer.
-
-Growing up, my love for codding only grew bigger. I spent most of my teen years
-on my trusted Pentium 3, hacking in Visual Basic, Flash, and latter on when I
-switched to Linux as my primary desktop, Python.
-
-In search of like-minded people, I enrolled as a student at the University of
-Novi Sad, picking computer science as my major. Later on this led me to a small
-group of Ruby enthusiasts, who showed me what it means to be part of team that
-truly enjoys our craft and isn't afraid to challenge the world.
-
-This group of Ruby enthusiasts, is the same group of people behind SemaphoreCI.
-I joined them 5 years ago, when the whole company was only a handful of people.
-Since then, we have boldly tackled every challenge in front of us, bringing the
-fastest CI/CD solution to the market.
-
-Currently, I consider myself a well rounded software engineer, boasting with
-plenty of additional DevOps experience that I learned while architecting our
-AWS/Gcloud/K8s/On-Premise clusters.
-
-Lately I fancy Go as my primary language, but I keep Ruby/Elixir close to my
-heart.
+My main programming languages are Golang and Elixir. I'm reasonably well-versed
+in JavaScript and Ruby as well.
 
 ## List of fun facts
 
-- I speak four languages: English, Serbian, Hungarian and Japanese.
+- I speak four languages: English, Serbian, Hungarian, and Japanese.
 - Chess is my favorite game. I consider myself a "pretty good" player.
-- I practiced martial arts for 24 years so far. Currently, I'm a black belt
-  ninja.
+- I have practiced martial arts for 24 years so far. I'm a black belt ninja.
 - Running and Hiking are my primary choice of recreation. There is a good chance
   that I will be on top of a mountain during the weekend.
-- In my spare time, I like to do origami. I finished a
-  [Senbazuru](https://en.wikipedia.org/wiki/One_thousand_origami_cranes) twice
-  in my life.
 
 ## How can you contact me?
 
-I enjoy dark, locally brewed beer. If you are from Novi Sad feel free to invite
+I enjoy dark, locally brewed beer. If you are in Novi Sad, feel free to invite
 me to one of our local places for a pint or two.
 
 You can also find me on:
