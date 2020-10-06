@@ -5,12 +5,15 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Morning Coffee" %>
 
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.svg">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Update your html tag to include the itemscope and itemtype attributes. -->
-    <title><%= current_article.title + ' - ' unless current_article.nil?%>Igor Sarcevic</title>
+    <% if current_article.nil? %>
+      <title>Morning Coffee &mdash; by Igor Šarčević</title>
+    <% else %>
+      <title><%= current_article.title %> &mdash; by Igor Šarčević</title>
+    <% end %>
 
     <!-- Place this data between the <head> tags of your website -->
     <% if current_article %>
