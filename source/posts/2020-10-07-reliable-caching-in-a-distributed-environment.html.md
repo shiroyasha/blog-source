@@ -19,46 +19,20 @@ concerns, but out-of-the-box performance is rarely a highlight of this
 architecture. In this regard, monolithic applications have an edge.
 
 To explore this problem, lets look at the following example screen that depends
-on five upstream APIs to construct the page.
+on three upstream APIs to construct the page.
 
 ![](/images/distributed-caching-example-001.png)
 
-The first optimization measure we can introduce is to fetch the upstream data
-from the APIs in parallel. Assumed that the loaded data has no relationships
-that would force us two serialize these requests, we can fetch with:
+To render the page, we need to collect information from three backend services.
+The accounts service, the endpoints service, and the service that collects
+metrics data.
 
-``` elixir
-user_data_fetch_task = Task.run(fn -> UserService.fetch_data() end)
-endpoints_fetch_task = Task.run(fn -> EndpointService.fetch_data() end)
-metrics_fetch_task   = Task.run(fn -> MetricsService.fetch_data() end)
+For this page to be considered "fast" a good rule of thumb on the web is to be
+able to provide a response under 250ms. This requirement cascades up the
+service dependency tree and puts a hard limit on the response times for the
+upstream services.
 
-{:ok, user_data} = Task.await(user_data_fetch_task)
-{:ok, endpoints} = Task.await(endpoints_fetch_task)
-{:ok, metrics}   = Task.await(metrics_fetch_task)
-
-render_page(user_data, endpoints, metrics)
-```
-
-Usually, web applications set a goal to respond in 250ms or less to the caller.
-If we take some assumptions, like that rendering of the fetched data takes
-around 50ms, we can set an upper limit for our upstream APIs. Every upstream
-service must respond in 200ms or less
-
-Now, to ensure optimal performance of 250ms or less, we must guarantee that the
-three upstream services have faster than 200ms response times. However, any
-reasonable team would not accept an upper limit for response times without a
-well defined defect budget. Let's define that limit to be 0.1%.
-
-Math can give us a hard time. If each service has a 99% percentage of fast
-responses, we can find out that the defect rate of our service is lower than we
-might expect. Let's look at the formula:
-
-1 - (1 - 0.1)^3 = 0.02
-
-Or in other words, 2% of the requests for the whole page will not hit the 250ms
-target. The situation gets even worse if we increase the number of upstream
-services.
-
+## Setting up a caching mechanism
 
 The general solution in computing for speeding up response times is caching.
 For example, if you send a request to my web application, I can calculate and
