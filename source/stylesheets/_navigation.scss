@@ -6,6 +6,7 @@
     }
 
     .close {
+      z-index: 102;
       display: none;
     }
 
@@ -16,6 +17,7 @@
 
       display: flex;
       justify-content: space-between;
+      z-index: 101;
 
       .close {
         display: none;
@@ -121,5 +123,25 @@
         }
       }
     }
+  }
+
+  @media (max-width: 600px) {
+	  .nav-content {
+		  z-index: 100;
+		  position: fixed;
+
+		  ul:first-child {
+			  margin-top: 150px;
+		  }
+
+		  ul:nth-child(2) {
+			  margin-top: 30px;
+		  }
+	  }
+
+	  .close {
+		  z-index: 101;
+		  position: fixed;
+	  }
   }
 }
