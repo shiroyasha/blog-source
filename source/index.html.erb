@@ -31,6 +31,22 @@ blog: blog
     </li>
   </ul>
 
+  <h2>How to build and lead technical teams</h2>
+
+  <ul>
+  <% page_articles.select { |p| p.data.tags.include?("tech-lead") }.each.with_index do |article| %>
+    <li>
+      <div class="home-title" style="display: flex; align-items: baseline; justify-content: space-between;">
+        <div><%= link_to((article.data.tags.include?("postgres") ? "PostgreSQL: " : "") + article.title, article, style: "text-decoration: underline") %></div>
+
+        <div style="text-align: right; color: #444;">
+          <time><%= article.date.strftime("%b %e, %Y") %></time>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+
   <h2>Articles about software</h2>
 
   <ul>
