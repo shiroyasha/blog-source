@@ -2,51 +2,66 @@
 blog: blog
 ---
 
-<div style="display: flex; margin-top: 40px;">
-  <div>
-    <img src="/images/igor.png" style="width: 150px; border: 2px solid black; border-radius: 3px;">
-  </div>
+<div class=home style="margin: 10px">
 
-  <div style="font-size: 16px; padding: 15px; width: 600px; box-shaddow: 1px">
-    Hi! I'm Igor, a software architect. <br><br>
-    I lead the development of Semaphore, a CI/CD platform focused on speed
-    and simplicity. On this blog, I share my thoughts on development, architecture,
-    tech leadirship, and life-work balance.
-  </div>
-</div>
+  <div style="display: flex; margin-top: 40px;">
+    <div class="home-image">
+      <img src="/images/igor.png" style="width: 150px; border: 2px solid black; border-radius: 3px;">
+    </div>
 
-<h2>Books</h2>
-
-<div style="display: flex; align-items: baseline; justify-content: space-between;">
-  <div>Rails Testing Handbook (<a href="https://semaphoreci.com/ebooks/rails-testing-handbook">PDF</a>, <a href="https://www.amazon.com/dp/B07DKFYS1Q">Kindle</a>).</div>
-
-  <div style="text-align: right; color: #444;">
-    <time>2018</time>
-  </div>
-</div>
-
-<h2>Articles about software</h2>
-
-<% page_articles.select { |p| p.data.tags.include?("programming") }.each.with_index do |article| %>
-  <div style="display: flex; align-items: baseline; justify-content: space-between;">
-    <div><%= link_to((article.data.tags.include?("postgres") ? "PostgreSQL: " : "") + article.title, article, style: "text-decoration: underline") %></div>
-
-    <div style="text-align: right; color: #444;">
-      <time><%= article.date.strftime("%b %e, %Y") %></time>
+    <div style="font-size: 16px; padding: 15px; width: 600px; box-shaddow: 1px">
+      Hi! I'm Igor, a software architect. <br><br>
+      I lead the development of Semaphore, a CI/CD platform focused on speed
+      and simplicity. On this blog, I share my thoughts on development, architecture,
+      tech leadirship, and life-work balance.
     </div>
   </div>
-<% end %>
 
-<%# <h2>How to lead a software team</h2> %>
+  <h2>Books</h2>
 
-<h2>Balacing life and work</h2>
+  <ul>
+    <li>
+      <div style="display: flex; align-items: baseline; justify-content: space-between;">
+        <div class="home-title">Rails Testing Handbook (<a href="https://semaphoreci.com/ebooks/rails-testing-handbook">PDF</a>, <a href="https://www.amazon.com/dp/B07DKFYS1Q">Kindle</a>).</div>
 
-<% page_articles.select { |p| p.data.tags.include?("life-work") }.each.with_index do |article| %>
-  <div style="display: flex; align-items: baseline; justify-content: space-between;">
-    <div><%= link_to(article.title, article, style: "text-decoration: underline") %></div>
+        <div style="text-align: right; color: #444;">
+          <time>2018</time>
+        </div>
+      </div>
+    </li>
+  </ul>
 
-    <div style="text-align: right; color: #444;">
-      <time><%= article.date.strftime("%b %e, %Y") %></time>
-    </div>
-  </div>
-<% end %>
+  <h2>Articles about software</h2>
+
+  <ul>
+  <% page_articles.select { |p| p.data.tags.include?("programming") }.each.with_index do |article| %>
+    <li>
+      <div class="home-title" style="display: flex; align-items: baseline; justify-content: space-between;">
+        <div><%= link_to((article.data.tags.include?("postgres") ? "PostgreSQL: " : "") + article.title, article, style: "text-decoration: underline") %></div>
+
+        <div style="text-align: right; color: #444;">
+          <time><%= article.date.strftime("%b %e, %Y") %></time>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+
+  <%# <h2>How to lead a software team</h2> %>
+
+  <h2>Balacing life and work</h2>
+
+  <ul>
+  <% page_articles.select { |p| p.data.tags.include?("life-work") }.each.with_index do |article| %>
+    <li>
+      <div class="home-title" style="display: flex; align-items: baseline; justify-content: space-between;">
+        <div><%= link_to(article.title, article, style: "text-decoration: underline") %></div>
+
+        <div style="text-align: right; color: #444;">
+          <time><%= article.date.strftime("%b %e, %Y") %></time>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+</div>
