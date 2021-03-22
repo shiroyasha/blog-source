@@ -1,10 +1,28 @@
 ---
 id: f7788acb-e6ba-43eb-9a4a-4ce86e7ee4e0
 title: Feedback Loops
+subtitle: The backbone of product development teams
 date: 2021-03-22
 tags: tech-lead
 image: 2021-03-22-feedback-loops.png
 ---
+
+A framework that enables us to experiment often, act fast,
+and to make <br>high-quality decisions independently.
+
+## Background: Why we need feedback loops?
+
+On any reasonably sized project, you need to have a team of highly qualified
+people to help you build it. You need two ingredients for this. First, you need
+to gather a group of qualified individuals. Then, you need to provide an
+environment where they can thrive.
+
+<img src="https://i.imgur.com/o419lSy.png">
+
+Individuals + Good Communication = Team
+
+
+"Feedback loops" are a set of processes that we use at Semaphore
 
 Explain the core problem.
 How do feedback loops solve this problem?

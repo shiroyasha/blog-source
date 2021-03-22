@@ -1,6 +1,11 @@
 <% wrap_layout :layout do %>
   <article class="article">
     <div class="header">
+
+      <% if current_article.data.subtitle %>
+        <small style="text-transform: uppercase; letter-spacing: 1.5px;"><%= current_article.data.subtitle %></small>
+      <% end %>
+
       <h1><%= current_article.title %></h1>
 
       <div class="subtitle">
