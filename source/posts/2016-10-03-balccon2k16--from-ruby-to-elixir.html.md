@@ -2,7 +2,7 @@
 id: 85297253-e411-4162-a9d8-10fc785f0e9c
 title: "BalCCon2k16: From Ruby to Elixir"
 date: 2016-10-03
-tags: programming
+tags: hidden
 image: igor-sarcevic-ballcon2016.png
 ---
 

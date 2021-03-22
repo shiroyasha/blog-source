@@ -1,7 +1,7 @@
 ---
 id: fd59b19f-7a5d-4054-9374-9e2c68f41b9b
 title: Zen moments in life
-tags: programming
+tags: life-work
 image: zen-moments-in-life.png
 ---
 

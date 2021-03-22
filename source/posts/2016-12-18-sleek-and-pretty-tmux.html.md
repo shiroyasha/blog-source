@@ -2,7 +2,7 @@
 id: ef018655-316e-4147-8cd9-af78a60edc1b
 title: Sleek and Pretty Tmux
 date: 2016-12-18
-tags: programming
+tags: hidden
 image: tmux.png
 ---
 

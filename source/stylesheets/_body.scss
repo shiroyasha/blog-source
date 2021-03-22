@@ -13,18 +13,19 @@ body, html {
   line-height: 1.6;
   color: black;
   font-weight: 400;
-  max-width: 1200px;
+  max-width: 700px;
   margin: auto;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;900&display=swap');
+
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: calc(1.6em + 0.4vw);
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Raleway', sans-serif;
     font-weight: 900;
-    line-height: 1.25;
+    line-height: 1;
     letter-spacing: -0.04em;
   }
 
@@ -34,5 +35,7 @@ body {
 
   h2, h3, h4, h5, h6 {
     font-size: 1.5em;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
   }
 }

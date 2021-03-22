@@ -2,7 +2,7 @@
 id: 33975acb-7995-4dcf-899a-2c020bcfbe75
 title: Books, books, books!
 date: 2016-12-04
-tags: programming
+tags: hidden
 image: books-books-books.jpg
 ---
 

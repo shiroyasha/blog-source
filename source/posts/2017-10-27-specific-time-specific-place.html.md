@@ -2,7 +2,7 @@
 id: 68c2c539-9b9f-4ab8-9a00-2163c8bc2e29
 title: "Specific time & Specific place"
 date: 2017-10-27
-tags: programming
+tags: life-work
 image: specific-time-specific-place.png
 ---
 

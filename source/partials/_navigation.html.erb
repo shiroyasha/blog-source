@@ -1,33 +1,10 @@
-<nav class="navigation">
-  <a class="close">✕</a>
-  <a class="open">☰</a>
+<nav class="navigation" style="padding: 10px;">
+  <div style="display: flex">
 
-  <div class="nav-content">
-    <ul>
-      <li>
-        <a href="/">
-          ❈ Morning Coffee
-        </a>
-      </li>
-    </ul>
+    <div>
+      <a href="/" style="color: crimson;">Morning Coffee</a>
+      <div style="font-size: 16px;">Written by Igor Sarcevic ‧ Lead Software Architect at SemaphoreCI</div>
+    </div>
 
-    <ul>
-      <li><%= nav_link "all articles", "/articles.html" %></li>
-      <li><%= nav_link "books", "/books.html" %></li>
-      <li><%= nav_link "about me", "/about-me.html" %></li>
-    </ul>
-  </ul>
+  </div>
 </nav>
-
-<script>
-  document.querySelector(".navigation .close").addEventListener("click", function() {
-    document.querySelector(".navigation .nav-content").style.display = "none"
-    document.querySelector(".navigation .close").style.display = "none"
-  })
-
-  document.querySelector(".navigation .open").addEventListener("click", function() {
-    document.querySelector(".navigation .nav-content").style.display = "flex"
-    document.querySelector(".navigation .close").style.display = "flex"
-  })
-</script>
-

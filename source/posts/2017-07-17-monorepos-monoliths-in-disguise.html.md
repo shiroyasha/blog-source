@@ -2,7 +2,7 @@
 id: 44ed38c0-ed32-447e-8e0f-1d0479e41867
 title: "Monorepos: Monoliths in Disguise"
 date: 2017-07-17
-tags: programming
+tags: hidden
 image: monorepos.png
 ---
 

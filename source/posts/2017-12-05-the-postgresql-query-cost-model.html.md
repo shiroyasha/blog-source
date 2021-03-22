@@ -2,7 +2,7 @@
 id: f7c883cc-e3db-4238-8a44-c3d68ff1e291
 title: The PostgreSQL Query Cost Model
 date: 2017-12-05
-tags: programming
+tags: programming, postgres
 image: 2017-12-05-the-postgresql-query-cost-model.png
 ---
 

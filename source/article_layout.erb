@@ -4,15 +4,14 @@
       <h1><%= current_article.title %></h1>
 
       <div class="subtitle">
-        Written by <a href="https://twitter.com/igor_sarcevic">@igor_sarcevic</a>
-        on <time><%= current_article.date.strftime("%B %e, %Y") %></time>
+        Published on <time><%= current_article.date.strftime("%B %e, %Y") %></time>
       </div>
     </div>
 
     <%= yield %>
 
-    <%= partial "partials/share", :locals => { :current_article => current_article } %>
-    <%= partial "partials/follow_on_twitter" %>
+    <%# <%= partial "partials/share", :locals => { :current_article => current_article } %1> %>
+    <%# <%= partial "partials/follow_on_twitter" %1> %>
 
     <%# <%= partial "partials/comments", :locals => { :url => current_article.url, :id => current_article.data[:id] } %1> %>
   </article>

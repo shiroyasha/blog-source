@@ -2,7 +2,7 @@
 id: 6e3f2cc4-adca-49db-97cb-f07a6039cdf0
 title: "Intimate connections: Sharing a database"
 date: 2017-07-19
-tags: programming
+tags: hidden
 image: shared-databases.png
 ---
 

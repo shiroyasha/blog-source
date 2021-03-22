@@ -1,6 +1,5 @@
 .article {
-  padding: 1em;
-  max-width: 900px;
+  max-width: 750px;
   margin: auto;
 
   h2, h3, h4, h5, h6 {
@@ -15,8 +14,8 @@
   img {
     @media (min-width: 900px) {
       max-width: 120%;
-      width: 120%;
-      margin-left: -10%;
+      width: 110%;
+      margin-left: -5%;
     }
 
     @media (max-width: 900px) {

@@ -2,7 +2,7 @@
 id: f7cf75ed-da3c-49dc-a57c-bf409d2a95c1
 title: How to get things done?
 date: 2021-02-04
-tags: programming
+tags: work-life
 image: 2021-02-04-how-to-get-things-done?.png
 ---
 

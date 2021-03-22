@@ -2,7 +2,7 @@
 id: 388a832c-4b33-46c1-8429-e106235df900
 title: Advisory Locks and How to Use Them
 date: 2017-11-16
-tags: programming
+tags: programming, postgres
 image: advisory-locks-and-how-to-use-them.jpg
 ---
 

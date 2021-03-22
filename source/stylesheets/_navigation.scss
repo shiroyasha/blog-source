@@ -1,5 +1,7 @@
 .navigation {
 
+  border-bottom: 3px solid;
+
   @media (min-width: 600px) {
     .open {
       display: none;
@@ -30,8 +32,6 @@
         li {
           display: inline-block;
           padding: 0 10px;
-          font-family: 'Raleway', sans-serif;
-          font-weight: 900;
 
           a {
             display: block;
@@ -104,7 +104,6 @@
         li {
           display: block;
           padding: 0 10px;
-          font-family: 'Raleway', sans-serif;
           font-weight: 900;
 
           a {

@@ -2,7 +2,7 @@
 id: 6199153d-d06e-4b3a-a14f-e69c87ed59d9
 title: Selecting for Share and Update in PostgreSQL
 date: 2017-11-18
-tags: programming
+tags: programming, postgres
 image: 2017-11-18-selecting-for-share-and-update-in-postgresql.png
 ---
 

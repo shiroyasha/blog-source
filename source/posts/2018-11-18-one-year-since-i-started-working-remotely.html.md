@@ -2,7 +2,7 @@
 id: 2873a810-2b10-498b-9c51-f7b468690daa
 title: One year since I started working remotely
 date: 2018-11-18
-tags: programming
+tags: life-work
 image: 2018-11-18-one-year-since-i-started-working-remotely.png
 ---
 

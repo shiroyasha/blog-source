@@ -1,8 +1,8 @@
 ---
 id: ab3093b6-6da3-4f64-a1bb-a5d67a7dbad8
-title: Boolean short circuiting is not guaranteed in SQL
+title: Boolean short circuiting is not guaranteed
 date: 2018-12-09
-tags: programming
+tags: programming, postgres
 image: 2018-12-09-boolean-short-circuiting-is-not-guaranteed-in-sql.png
 ---
 

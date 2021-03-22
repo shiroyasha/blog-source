@@ -2,7 +2,7 @@
 id: ae4cc0c4-0e9d-4d23-a51b-59ee3681bfa8
 title: Linux utils that you might not know
 date: 2017-05-21
-tags: programming
+tags: hidden
 image: 2017-05-21-coreutils-that-you-might-not-know.png
 ---
 

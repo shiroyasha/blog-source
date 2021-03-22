@@ -1,7 +1,7 @@
 ---
 id: a4f2ff6f-76b4-42b6-9580-3fd0bb0abf04
 title: The importance of a good command line prompt
-tags: programming
+tags: shell
 image: running-shell-commands-from-ruby.png
 ---
 

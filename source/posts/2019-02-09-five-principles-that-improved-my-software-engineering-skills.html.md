@@ -2,7 +2,7 @@
 id: 8867d970-bea2-4508-a172-4b8d732b9869
 title: Five principles that improved my software engineering skills
 date: 2019-02-09
-tags: programming
+tags: life-work
 image: 2019-02-09-five-tips-to-improve-your-software-engineering-skills.png
 ---
 

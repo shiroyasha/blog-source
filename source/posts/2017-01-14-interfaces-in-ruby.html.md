@@ -2,7 +2,7 @@
 id: 35df3513-e739-4d6d-82f4-85580c58fac4
 title: The Power of Interfaces in Ruby
 date: 2017-01-14
-tags: programming
+tags: hidden
 image: interfaces-in-ruby.png
 ---
 

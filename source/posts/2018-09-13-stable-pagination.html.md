@@ -2,7 +2,7 @@
 id: 1b4b5b03-475c-4f67-ba4d-392ad2484ce0
 title: Stable Pagination
 date: 2018-09-13
-tags: programming
+tags: programming, postgres
 image: 2018-09-13-stable-pagination.png
 ---
 

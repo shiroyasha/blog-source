@@ -2,7 +2,7 @@
 id: 454b324c-cf4b-4559-9e82-11e042be13da
 title: Understanding PostgreSQL locks
 date: 2017-11-12
-tags: programming
+tags: programming, postgres
 image: 2017-11-12-understanding-postgresql-locks.png
 ---
 

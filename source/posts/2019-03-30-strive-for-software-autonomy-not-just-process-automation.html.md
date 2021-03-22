@@ -2,7 +2,7 @@
 id: cb486a8e-0b82-4f88-beee-637365370b76
 title: Strive for Software Autonomy, not just Process Automation
 date: 2019-03-30
-tags: programming
+tags: hidden
 image: 2019-03-30-strive-for-software-autonomy-not-just-process-automation.png
 ---
 
