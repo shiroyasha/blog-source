@@ -1,14 +1,12 @@
 ---
 id: f7788acb-e6ba-43eb-9a4a-4ce86e7ee4e0
 title: Feedback Loops
-subtitle: The backbone of product development teams
+uptitle: "The backbone of product development teams"
+subtitle: "A framework that enables us to experiment often, act fast, and to make <br>high-quality decisions independently."
 date: 2021-03-22
 tags: tech-lead
 image: 2021-03-22-feedback-loops.png
 ---
-
-A framework that enables us to experiment often, act fast,
-and to make <br>high-quality decisions independently.
 
 <img src="https://www.homesciencetools.com/content/images/assets/FruitRipenStep4.jpg">
 
@@ -32,10 +30,10 @@ or passion fruit.
 This feedback loop is often used in fruit production, with apples being exposed
 to manufactured ethylene gas to make them ripen faster.
 
-## The power of the feedback loop
+## Feedback loops for software products
 
-Here is a fact: Most teams, most of the times, don't know where they are stand
-on projects that are important to them.
+Here is a fact: Most teams, most of the times, don't know where they are
+stand on projects that are important to them.
 
 Software teams want to increase software stability, but they don't collect bug
 reports from their systems. Engineers want to make their software faster, but
@@ -46,39 +44,46 @@ do they analyze the failed ones.
 My take is that we should play an active role in the feedback loops that shape
 our products.
 
-Companies that fail to self-examine tend to few lucky successes and many
+Products that fail to self-examine tend to few lucky successes and many
 invisible failures. These failures that are left untreated tend to anchor them
 down, and keep them spiraling in a downright trend.
 
-Hopefully, the reverse is also true. Companies that carefully design and
+Hopefully, the reverse is also true. Products that carefully design and
 monitor their feedback loops recognize and monitor the threats, and act on
 opportunities faster.
 
-## Designing your feedback loops
+## Designing a feedback loops
 
-On any reasonably sized project, you need to have a team of highly qualified
-people to help you build it. You need two ingredients for this. First, you need
-to gather a group of qualified individuals. Then, you need to provide an
-environment where they can thrive.
+We will design a feedback loops that consists of three stages:
 
-Software engineering teams have been inspired by many disciplines. Some model
-their environment that resembles a military-like chain of command, where
-discipline and precision are key. Other teams are inspired by craftsman, where
-creativity and dedication to the craft are the prime virtues.
-
-In this article, we will be primarily inspired by the core principles of
-science.
-
-These principles are:
-
-1. _Build Hypothesis: We build our software by building hypothesis._
-2. _Measure: We measure our outcomes, trying to be as objective as possible._
-3. _Analyze: We analyze the metrics, learn, and build new hypothesis._
+1. Build: We build our software by building hypothesis.
+2. Measure: We measure our outcomes, trying to be as objective as possible.
+3. Learn: We analyze the metrics, learn, and build new hypothesis.
 
 <img src="/images/2021-03-22-feedback-loops.png">
 
-## The building blocks of a feedback loop
+In regards to product development, we can divide feedback loops into three
+distinct types:
 
+**A balancing feedback loop** Where the goal is to maintain the desired state
+of the system. Product uptime, performance of the system, and number of defects
+per week are good examples of balancing feedback loops. Our goal is to establish
+a baseline, measure the system continuously, and adapt in case of problems.
+
+**A corrective feedback loop** Where the goal is break negative patterns that
+are spiraling the system down a undesirable path. Preventing the spread of
+negligent software patterns, introducing code quality tests, and restricting
+access to privileged data are good examples. Our goal is to restore a failing
+system into a stable system that can be monitored with a balancing feedback
+loop.
+
+**A progressive feedback loop** Where the goal is improve the system
+continuously until a desired state is achieved. Increasing the market reach of
+a product, releasing a new feature, or running an R&D project are a good
+examples of progressive feedback loops. We don't yet know what the system can
+achieve, our goal is to be better every day.
+
+<img src="/images/2021-03-22-feedback-loop-types.png">
 
 ## How to set up your first feedback loop in the company?
 
