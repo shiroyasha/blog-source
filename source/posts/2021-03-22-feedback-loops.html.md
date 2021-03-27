@@ -63,7 +63,7 @@ Here are few examples:
   group them into categories [success, failure] / [slow, fast] / [paid, free].
   Analyse the bottlenecks every Friday at 10:00am. Repeat every Friday.
 
-- **Want to reduce number of Pager calls?** Sum the number of Pager calls/week.
+- **Want to reduce number of Pager calls?** Count the number of Pager calls/week.
   Review the numbers every Monday at 3:00pm. If the numbers cross a threshold,
   kick-start a dedicated sprint.
 
@@ -110,17 +110,40 @@ are yet to reach a stable state.
 
 ## How to set up your first feedback loop in the company?
 
-Avoid these common anti-patterns are:
+Feedback loops are already present in every product, but they are implicit.
+Setting up a feedback loop is an exploratory exercise, where you find an
+existing loop and make it explicit.
 
-- **Avoid "All or Nothing" mentality**. Setting up a feedback loop for every
+To make a feedback loop explicit:
+
+**Find an area where you want to improve**. Common examples are product
+    stability, the onboarding experience, or performance of the key pages in the
+    application.
+
+**Find a set of measurements to follow**. In case of stability this can be
+    the number of exceptions/week.
+
+**Establish a review rhythm** For example, once per week at 14:00.
+
+Here is one example from our Platform team at Semaphore CI.
+
+<img src="/images/2021-03-22-feedback-loop-rhythm.png" style="max-width: 60%; margin: auto;">
+
+## Why feedback loops fail?
+
+Avoid these common anti-patterns:
+
+**Avoid "All or Nothing" mentality**. Setting up a feedback loop for every
     team and every feature will certainly take months, and will often yield
     suboptimal results. Introducing new, untested practices, company wide is
     asking for trouble. Start small and iterate.
 
-- **Avoid ambiguous metrics**. The point of feedback loops is to have
-    measurements that are as objective as possible.
+**Avoid ambiguous metrics**. The point of feedback loops is to have
+    measurements that are as objective as possible. A common example is "Uptime
+    as reported by John, the team lead", where John decides what he considers a
+    downtime.
 
-## How we implemented feedback loops at Semaphore?
-
-Feedback loops at Semaphore.
-What did we learn? What could we do better?
+**Avoid waiting for perfect metrics**. Avoiding ambiguous metrics pushes some
+    teams into the opposite direction. They postpone any building until they
+    fully objective numbers. Don't reject clear signals just because they have
+    errors.
