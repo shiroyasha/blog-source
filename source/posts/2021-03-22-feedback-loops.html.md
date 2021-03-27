@@ -52,9 +52,24 @@ Hopefully, the reverse is also true. Products that carefully design and
 monitor their feedback loops recognize and monitor the threats, and act on
 opportunities faster.
 
-## Designing a feedback loops
+Here are few examples:
 
-We will design a feedback loops that consists of three stages:
+- **Want to improve the performance of your application?** Start measuring the
+  99th percentile of your key pages. Analyse the numbers with the product team
+  every Wednesday at 14:00. Introduce changes in the product. Repeat until the
+  goal is reached.
+
+- **Want to improve the product onboarding experience?** Collect every signup,
+  group them into categories [success, failure] / [slow, fast] / [paid, free].
+  Analyse the bottlenecks every Friday at 10:00am. Repeat every Friday.
+
+- **Want to reduce number of Pager calls?** Sum the number of Pager calls/week.
+  Review the numbers every Monday at 3:00pm. If the numbers cross a threshold,
+  kick-start a dedicated sprint.
+
+## Types of feedback loops
+
+A feedback loop consists of three stages:
 
 1. Build: We build our software by building hypothesis.
 2. Measure: We measure our outcomes, trying to be as objective as possible.
@@ -85,28 +100,27 @@ achieve, our goal is to be better every day.
 
 <img src="/images/2021-03-22-feedback-loop-types.png">
 
+The type of a feedback loop dictates the main variables in our design. Balancing
+and corrective feedback loops often have well defined metrics, while a
+progressive loop usually needs to explore the which metrics to track.
+
+The review/analysis rhythm also tend to differ. For balancing feedback loops the
+status quo is the desired state, while progressive and corrective feedback loops
+are yet to reach a stable state.
+
 ## How to set up your first feedback loop in the company?
 
-Start small, be programmatic, measure things that have the biggest impact.
+Avoid these common anti-patterns are:
+
+- **Avoid "All or Nothing" mentality**. Setting up a feedback loop for every
+    team and every feature will certainly take months, and will often yield
+    suboptimal results. Introducing new, untested practices, company wide is
+    asking for trouble. Start small and iterate.
+
+- **Avoid ambiguous metrics**. The point of feedback loops is to have
+    measurements that are as objective as possible.
 
 ## How we implemented feedback loops at Semaphore?
 
 Feedback loops at Semaphore.
 What did we learn? What could we do better?
-
-----
-
-Other articles?...
-
-Feedback loop Anti-Patterns.
-The team that sets up the feedback loop, is not the one who runs it.
-
-Explain types of feedback loops.
-
-- Feedback loops that aim to make a breakthrough.
-- Feedback loops that keep a system stable.
-- Feedback loops that break aim to stop a crumbling system.
-
-How to design feedback loops that aim to make a breakthrough.
-How to design feedback loops that aim to keep a system stable and growing.
-How to design feedback loops that aim to stop a crumbling system.
