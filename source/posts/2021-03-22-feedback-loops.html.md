@@ -110,24 +110,29 @@ are yet to reach a stable state.
 
 ## How to set up your first feedback loop in the company?
 
-Feedback loops are already present in every product, but they are implicit.
-Setting up a feedback loop is an exploratory exercise, where you find an
-existing loop and make it explicit.
+Feedback loops are already implicitly present in every product. Your task is to
+make them explicit. To do this:
 
-To make a feedback loop explicit:
+1. Find an area where you want to improve
+2. Find a set of measurements to follow
+3. Establish a review rhythm
 
-**Find an area where you want to improve**. Common examples are product
-    stability, the onboarding experience, or performance of the key pages in the
-    application.
+Here is one example of a balancing feedback loop from our teams at Semaphore.
+We measure the quality of scheduling in our system.
 
-**Find a set of measurements to follow**. In case of stability this can be
-    the number of exceptions/week.
+<p style="text-align: center;">
+  <img src="/images/2021-03-22-feedback-loop-metrics.png">
+  <small style="margin-top: -5px;">Measurments of job scheduling performance</small>
+</p>
 
-**Establish a review rhythm** For example, once per week at 14:00.
+Green values mean that we have achieved our goals for the last week. Red numbers
+mean that the system is loosing stability, and most likely we need to scale our
+platform.
 
-Here is one example from our Platform team at Semaphore CI.
-
-<img src="/images/2021-03-22-feedback-loop-rhythm.png" style="max-width: 60%; margin: auto;">
+<p style="text-align: center;">
+  <img src="/images/2021-03-22-feedback-loop-rhythm.png" style="max-width: 60%; display: block; margin: auto;">
+  <small>Weekly analysis of Build Platform every Friday 10am.</small>
+</p>
 
 ## Why feedback loops fail?
 
