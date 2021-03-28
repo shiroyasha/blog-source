@@ -134,6 +134,11 @@ platform.
   <small>Weekly analysis of Build Platform every Friday 10am.</small>
 </p>
 
+<p style="text-align: center;">
+  <img src="/images/2021-03-22-feedback-loop-tasks.png">
+  <small>Results of weekly platform analysis.</small>
+</p>
+
 ## Why feedback loops fail?
 
 Avoid these common anti-patterns:
