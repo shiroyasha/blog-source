@@ -117,13 +117,38 @@ make them explicit. To do this:
 2. Find a set of measurements to follow
 3. Establish a review rhythm
 
-Here is one example of a balancing feedback loop from our teams at Semaphore.
-We measure the quality of scheduling in our system.
+It is important to be pragmatic while setting up your first loop. Choose a loop
+that is already implicitly known by your team, and has established metrics.
+While this loop might not be the most important one for your product, it is good
+to gain some collective knowledge about the process, before you start digging
+into deeper subjects.
+
+## Real World example: Platform quality at Semaphore
+
+At Semaphore, we had a KPI set up since basically the start of the product. This
+is the "measurement" part of the feedback loop. What we missed was a systematic
+approach for analysis and hypothesis collection. The important leap we did at
+the start of 2020, was to establish a weekly rhythm for reviewing and storing
+data.
+
+We started with a feedback loop that had two important characteristics. A clear
+metric that we can use, and a clear benefit for reviewing it on a weekly basis.
+This was the quality of our job scheduling system.
 
 <p style="text-align: center;">
   <img src="/images/2021-03-22-feedback-loop-metrics.png">
   <small style="margin-top: -5px;">Measurments of job scheduling performance</small>
 </p>
+
+The speed of job scheduling is one of the key metrics of a CI/CD system. It
+tells us if our customers' pipelines are starting fast enough. Any delays in job
+scheduling are directly hurting the productivity of the teams that rely on our
+service.
+
+__which factors impact these numbers?__
+
+Internally, these numbers are the best indicator if our capacity planning
+calculations are correct.
 
 Green values mean that we have achieved our goals for the last week. Red numbers
 mean that the system is loosing stability, and most likely we need to scale our
