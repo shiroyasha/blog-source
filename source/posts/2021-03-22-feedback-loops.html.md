@@ -125,8 +125,8 @@ into deeper subjects.
 
 ## Real World example: Platform quality at Semaphore
 
-At Semaphore, we had a KPI set up since basically the start of the product. This
-is the "measurement" part of the feedback loop. What we missed was a systematic
+At Semaphore, we had a KPI set up since the start of the product. This is the
+"measurement" part of the feedback loop. What we missed was a systematic
 approach for analysis and hypothesis collection. The important leap we did at
 the start of 2020, was to establish a weekly rhythm for reviewing and storing
 data.
@@ -145,40 +145,70 @@ tells us if our customers' pipelines are starting fast enough. Any delays in job
 scheduling are directly hurting the productivity of the teams that rely on our
 service.
 
-__which factors impact these numbers?__
+The numbers we collect proved to be the best indicator if our capacity planning
+calculations are correct. Green values mean that we have achieved our goals for
+the last week. Red numbers mean that the system is loosing stability. We need
+to scale our platform.
 
-Internally, these numbers are the best indicator if our capacity planning
-calculations are correct.
-
-Green values mean that we have achieved our goals for the last week. Red numbers
-mean that the system is loosing stability, and most likely we need to scale our
-platform.
+The next piece of the puzzle is an appropriate review rhythm, or in other words
+how often are we collecting and reviewing the measurements. Using the same
+review cycle for all feedback loops is a suboptimal strategy. Instead, we always
+aim to pick one that matches the natural fluctuation of the product area.
 
 <p style="text-align: center;">
   <img src="/images/2021-03-22-feedback-loop-rhythm.png" style="max-width: 60%; display: block; margin: auto;">
   <small>Weekly analysis of Build Platform every Friday 10am.</small>
 </p>
 
+For platform quality, we got the results if we scheduled a weekly review cycle.
+
 <p style="text-align: center;">
   <img src="/images/2021-03-22-feedback-loop-tasks.png">
   <small>Results of weekly platform analysis.</small>
 </p>
 
-## Why feedback loops fail?
+Every review cycle results in a set of problems and hypothesis how to solve
+them. We use GitHub issues to collect observations.
+
+## Why some feedback loops fail?
+
+Feedback loops are a simple yet powerful tool if implemented correctly. On the
+flip side, incorrectly implemented feedback loops can cause more harm than good.
+Feedback loops that don't have clear metrics can often lead to frustration. You
+need to have a objective data to make the right choices.
+
+Even feedback loops that are properly set up can lead to frustration. Feedback
+loops that are tracking low-level details produce lots of operational work, but
+little impact in the overall state of the product.
 
 Avoid these common anti-patterns:
 
 **Avoid "All or Nothing" mentality**. Setting up a feedback loop for every
-    team and every feature will certainly take months, and will often yield
-    suboptimal results. Introducing new, untested practices, company wide is
-    asking for trouble. Start small and iterate.
+  team and every feature will certainly take months, and will often yield
+  suboptimal results. Introducing new, untested practices, company wide is
+  asking for trouble. Start small and iterate.
 
 **Avoid ambiguous metrics**. The point of feedback loops is to have
-    measurements that are as objective as possible. A common example is "Uptime
-    as reported by John, the team lead", where John decides what he considers a
-    downtime.
+  measurements that are as objective as possible. A common example is "Uptime
+  as reported by John, the team lead", where John decides what he considers a
+  downtime.
 
 **Avoid waiting for perfect metrics**. Avoiding ambiguous metrics pushes some
-    teams into the opposite direction. They postpone any building until they
-    fully objective numbers. Don't reject clear signals just because they have
-    errors.
+  teams into the opposite direction. They postpone any building until they
+  fully objective numbers. Don't reject clear signals just because they have
+  errors.
+
+**Avoid setting up a feedback loop for every detail**. Instead, focus on the
+  largest possible scope that your team controls.
+
+## High quality feedback leads to high quality products
+
+It is surprising easy to slide down the wrong path, build features that nobody
+wants, improving performance in the wrong place, or worry too much about
+unimportant details. Without examining the feedback loops of our product we are
+effectively flying blind.
+
+Feedback loops influence everything from the tasks we do every day to the
+happiness of the team that is working on the product. We can be the victims of
+implicit feedback loops, or we can make a concious choice to design and mold
+them.
