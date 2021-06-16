@@ -26,4 +26,7 @@ Here are some other issues that I have with traditional standups:
   include way too many people who are working on completely unrelated problems.
   The perfect balance is hard to achieve regularly.
 
-- They are very good at creating busywork.
+- They are very good at creating busywork, and scheduling more meetings for the
+  day.
+
+
