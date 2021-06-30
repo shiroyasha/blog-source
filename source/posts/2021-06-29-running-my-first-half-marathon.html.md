@@ -13,11 +13,11 @@ reflect and learn from this experience.
 
 ![Running my first half-marathon](images/2021-06-29-running-my-first-half-marathon.png)
 
-I started jogging regularly back in 2017. It is my way of zoning out, breathing
-deeply, and disconnecting from the day-to-day stress of the modern workplace. In
-a word, meditating. But then corona hit us last year and halted everything. No
-more running, no more healthy eating, no more friends, only anxiety and soft
-panic attacks when someone gets closer than 6 feet to you.
+I started jogging regularly [back in 2017](/running.html). It is my way of
+zoning out, breathing deeply, and disconnecting from the day-to-day stress of
+the modern workplace. In a word, meditating. But then corona hit us last year
+and halted everything. No more running, no more healthy eating, no more friends,
+only anxiety and soft panic attacks when someone gets closer than 6 feet to you.
 
 After around two years of no actual physical activity, I got pulled into running
 a half marathon by a friend. I started from zero three weeks ago, and when I say
