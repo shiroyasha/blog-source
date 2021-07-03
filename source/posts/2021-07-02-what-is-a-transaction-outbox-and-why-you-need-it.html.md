@@ -41,7 +41,7 @@ end
 Let's examine what can go wrong with this implementation. We need to answer
 three questions:
 
-- What happens if RabbitMQ is temporarily available?
+- What happens if RabbitMQ is temporarily unavailable?
 - What happens if writing to RabbitMQ fails?
 - What happens if the service is restarted right after the transaction finishes
   but right before the RabbitMQ message is published?
