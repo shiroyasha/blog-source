@@ -6,19 +6,19 @@ tags: programming
 image: 2021-07-02-what-is-a-transaction-outbox-and-why-you-need-it?.png
 ---
 
-Receiving a request, saving it into a database, and then publishing a message
-can be trickier than expected. A naive implementation can either lose messages,
-or even worse publish incorrect messages.
+Receiving a request, saving it into a database, and finally publishing a message
+can be trickier than expected. A naive implementation can either lose messages
+or, even worse, post incorrect messages.
 
-Let's take an example where a user signs up, the backend saves this request to
-the database, and finally publishes a "user-signed-up" message on RabbitMQ.
-Based on this message, the User Greeter service sends a welcome message to the
-user, while the Analytics service records a new signup and updates the business
-dashboards.
+Let's look at an example. A user registration service allows users to sign up.
+The backend of this system saves this request to a database and publishes a
+"user-signed-up" message on RabbitMQ. Based on this message, the User Greeter
+service sends a welcome message to the user, while the Analytics service records
+new signup and updates the business dashboards.
 
 ![Transactional Outbox: Architecture Example](images/transactional-outbox/architecture-example.png)
 
-Now, let's focus on the **User Registration Service** and try out several ways to
+We will focus on the **User Registration Service** and try out several ways to
 implement the registration action.
 
 **Implementation 1: Publishing after the user insert transaction finishes**
@@ -38,12 +38,12 @@ def register_user(name)
 end
 ```
 
-Now, lets examine what can go wrong with this implementation. We need to answer
+Let's examine what can go wrong with this implementation. We need to answer
 three questions:
 
 - What happens if RabbitMQ is temporarily available?
 - What happens if writing to RabbitMQ fails?
-- What happens if the service is restarted right after the transaction finishes,
+- What happens if the service is restarted right after the transaction finishes
   but right before the RabbitMQ message is published?
 
 The answer to all three questions is: The user will be saved to the database,
@@ -66,11 +66,10 @@ def register_user(name)
 end
 ```
 
-Now, lets examine this approach as well. It seems that this one is also
-problematic:
+Let's examine this approach as well. It seems that this one is also problematic.
 
 If the transaction fails or rollbacks (for example, due to a uniqueness
-constraint) we are going to publish a message to RabbitMQ that is not correct.
+constraint) we will publish a message to RabbitMQ that is not correct.
 
 The user was **not created**, yet we still sent a "user-signed-up" message to
 upstream services. Our service is lying. Unacceptable!
@@ -85,8 +84,8 @@ publish the message. How to guarantee message dispatching?
 
 Using a transactional outbox is one way to solve this problem.
 
-We will introduce an auxiliary database table, called outbox, that will store
-outgoing messages from our service. A publisher service will than read from this
+We will introduce a supplementary database table, called outbox, that will store
+outgoing messages from our service. A publisher service will then read from this
 table and publish messages to the queue.
 
 ![Transactional Outbox](images/transactional-outbox/outbox.png)
@@ -140,29 +139,28 @@ end
 
 We had two problems in our original implementations:
 
-The first attempted implementation tried to publish to the queue after database
-transaction was finished. This opened up the possibility of not publishing
+The first attempted implementation tried to publish to the queue after a
+finished database transaction. This opened up the possibility of not publishing
 anything even if the user was persisted in the database.
 
 We resolved this problem by moving the message creation inside of the
 transaction. This ensured that if a user was created, the message was persisted
 as well.
 
-The second attempted implementation tried to publish inside of the transaction,
-but because we were trying to write an different system, we ended up publishing
-fake messages in case the user creation transaction rolled back. When I say fake
-message I mean that the queue would contain a "user-signed-up" message, but
+The second attempted implementation tried to publish inside of the transaction.
+Still, because we were trying to write to a different system, we published fake
+messages in case the user creation transaction rolled back. When I say fake
+message, I mean that the queue would contain a "user-signed-up" message, but
 the user would not be saved to the database.
 
 We resolved this problem by writing both the user and the message into the
-database. This allowed us to have a clean rollback in case the user creation
-failed.
+database, which allowed us to have a clean rollback if the user creation failed.
 
 ## Problems not resolved by the transactional outbox?
 
-The transactional outbox has an **at least once** message publishing guarantee.
-This means that the system guarantees that the message will be published to the
-queue at least once if a user is created, however, it can happen that this
+The transactional outbox has an **at-least-once** message publishing guarantee,
+which means that the system guarantees that the message will be published to the
+queue at least once if a user is created. However, it can happen that this
 message is published multiple times to the queue.
 
 How this happens?
@@ -188,8 +186,8 @@ transaction do
 end
 ```
 
-A possible timeline of events that causes multiple publishing is illustrated in
-this example:
+I'll illustrate a possible timeline of events that causes multiple publishing in
+the following example:
 
 ```
 event 01: messages = "select * from outbox"
@@ -212,9 +210,8 @@ event 10: Outbox.delete(msg1)
 
 ## How can clients protect themselves from repeated messages?
 
-Repeated messages can be a real headache. For example, in our case the service
-that is responsible for sending Welcome emails to new users can send this
-message two times in a row. Yikes!
+Repeated messages can be a real headache. The User Greeter service from our
+original example will send out to emails. Yikes!
 
 One way to resolve this problem is to make the message receiving endpoint
 **idempotent**. This means if the server receives two messages in, for example
@@ -223,10 +220,10 @@ occurrence of the `user_id: 1` message.
 
 ![Transactional Outbox: Idempotent Client](images/transactional-outbox/idempotent-client.png)
 
-You will notice that in this case, the receiving service needs a way to store
-message that it receives.
+In this case, you will notice that the receiving service needs a way to store
+the message that it receives.
 
-Let's look at a possible implementation:
+Let's look at the implementation:
 
 ``` ruby
 RabbitMQ.subscribe("user-signed-up") do |message|
@@ -250,15 +247,14 @@ end
 
 <hr style="width: 50%; margin-top: 3em; border-color: gray;">
 
-Distributed, multi-database, systems are hard. While working on Semaphore I've
-encountered this and many other tricky problems. If we were lucky we caught them
-in during PR reviews, but I also remember several unlucky examples were these
-bugs caused more serious problems.
+Distributed, multi-database systems are complicated. While working on Semaphore,
+I've encountered this and many other tricky problems. If we were lucky, we
+caught them in during PR reviews, but I also remember several unlucky examples
+where these bugs caused more severe problems.
 
 Problems in distributed systems show up many months or even years after you
-introduced them. Usually this happens when the system hits a critical number of
-requests. This feedback loop is much slower than what we are typically used to,
-it is important that we educate ourselves in advance.
+introduced them. Usually, this happens when the system hits a critical number of
+requests. This feedback loop is slow; we must educate ourselves in advance.
 
 Here are some great resources for further reading:
 
