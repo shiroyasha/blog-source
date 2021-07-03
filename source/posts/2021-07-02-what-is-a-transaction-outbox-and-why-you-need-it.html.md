@@ -75,11 +75,91 @@ constraint) we are going to publish a message to RabbitMQ that is not correct.
 The user was **not created**, yet we still sent a "user-signed-up" message to
 upstream services. Our service is lying. Unacceptable!
 
-## Introducing the transactional outbox pattern
+<hr style="width: 50%; margin-top: 3em; border-color: gray;">
 
-In the previous examples, if we published after the transaction we were in
-trouble. However, we were in a similar trouble if we tried to publish before the
-transaction was over.
+**Problem Statement**: If we publish in the transaction, we can publish a fake
+message. If we publish after the transaction, we are risking that we will never
+publish the message. How to guarantee message dispatching?
 
-It would be ideal if we could do those two actions at the same time, or at least
-in the same transaction.
+## The transactional outbox pattern
+
+Using a transactional outbox is one way to solve this problem.
+
+We will introduce an auxiliary database table, called outbox, that will store
+outgoing messages from our service. A publisher service will than read from this
+table and publish messages to the queue.
+
+![Transactional Outbox](images/transactional-outbox/outbox.png)
+
+In code, the registration controller would do the following:
+
+``` ruby
+def register_user(name)
+  DB.transaction do
+    user = User.new(name: name)
+    user.save!
+
+    outbox = Outbox.new(
+      "message": json({user_id: user.ID}),
+      "exchange": "users",
+      "routing-key": "user-signed-up")
+
+    outbox.save!
+  end
+end
+```
+
+In the meantime, a Publisher service polls the outbox table and publishes the
+messages to RabbitMQ.
+
+``` ruby
+module Publisher
+  def start
+    loop do
+      poll_and_publish()
+      sleep(1.second)
+    end
+  end
+
+  def poll_and_publish
+    transaction do
+      # SELECT * FROM outbox FOR UPDATE SKIP LOCKED LIMIT 10
+      messages = Outbox.lock("FOR UPDATE SKIP LOCKED").limit(10).load()
+
+      messages.each do |msg|
+        RabbitMQ.publish(msg)
+
+        Outbox.delete(msg.id)
+      end
+    end
+  end
+end
+```
+
+## Problems resolved by the transactional outbox?
+
+## Problems not resolved by the transactional outbox?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
