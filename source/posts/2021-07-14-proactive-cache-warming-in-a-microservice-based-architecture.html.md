@@ -45,6 +45,37 @@ This sets the minimal time to render the page to `400ms` plus the time it takes
 to process the data and prepare the HTML page. Let's say that the later part
 takes `100ms`. In total, `500ms` to respond.
 
-## Using caching to make the page faster
-
 Caching is a common tool that we utilize to make slow things faster.
+Let's explore some caching strategies.
+
+## Time-to-live based caching
+
+One of the simple to implement caching strategies we can use to speed up a page
+is to render the page and store it in the cache for an acceptable time period.
+
+``` ruby
+CACHE_EXPIRES_IN = 1.hour
+
+def recent_orders(company_id)
+  cached_page = Cache.find("recent_orders_page", company_id)
+
+  if cached_page.present?
+    return cached_page
+  else
+    content = full_render(company_id)
+
+    Cache.store("recent_orders_page", company_id, content, ttl: CACHE_EXPIRES_IN)
+
+    return content
+  end
+end
+
+def full_render(company_id)
+  orders = OrdersService.get_recent_orders(company_id)
+
+  customer_ids = orders.map(&:customer_ids)
+  customers = CustomerService.get_customer_details(customer_ids)
+
+  render_page(orders, customers)
+end
+```
