@@ -45,29 +45,36 @@ This sets the minimal time to render the page to `400ms` plus the time it takes
 to process the data and prepare the HTML page. Let's say that the later part
 takes `100ms`. In total, `500ms` to respond.
 
-Caching is a common tool that we utilize to make slow things faster.
+Caching is a common tool that we utilize to make slow things faster. Key/Value
+memory stores like redis can easily support `1ms` response times.
+
 Let's explore some caching strategies.
 
 ## Time-to-live based caching
 
-One of the simple to implement caching strategies we can use to speed up a page
-is to render the page and store it in the cache for an acceptable time period.
+A simple-to-implement caching strategy is a time based one. This strategy
+renders the page and keeps in the cache for a given amount of time.
 
 ``` ruby
 CACHE_EXPIRES_IN = 1.hour
 
 def recent_orders(company_id)
-  cached_page = Cache.find("recent_orders_page", company_id)
+  key = cache_key(company_id)
+  cached_page = Cache.find(key)
 
   if cached_page.present?
-    return cached_page
+    cached_page
   else
     content = full_render(company_id)
 
-    Cache.store("recent_orders_page", company_id, content, ttl: CACHE_EXPIRES_IN)
+    Cache.store(key, content, ttl: CACHE_EXPIRES_IN)
 
-    return content
+    content
   end
+end
+
+def cache_key(company_id)
+  "recent_orders_page_#{company_id}"
 end
 
 def full_render(company_id)
@@ -79,3 +86,64 @@ def full_render(company_id)
   render_page(orders, customers)
 end
 ```
+
+This strategy can be an ideal one when the domain of the problem is time bound.
+For example, if the page would display orders processed for the last day,
+instead of listing all the most recent ones.
+
+The most significant downside is that the page will not refresh its content
+even if a new order is placed into the system. It will be fast, but stale.
+
+## Signature based caching
+
+Another way to improve the speed of our page is to fetch some minimal amount of
+data that can signal to our system if our cached value is stale or still viable.
+
+Let's assume that in the above example, the order processing system has an
+endpoint that can return us the timestamp of the last processed order by a given
+company. Let's also assume that the service can provide us with this data under
+`100ms`.
+
+We can use this information to optimize our rendering function.
+
+``` ruby
+def recent_orders(company_id)
+  last_order_at = OrdersService.get_last_order_timestamp(company_id)
+  key = cache_key(company_id, last_order_at)
+
+  cached_page = Cache.find(key)
+
+  if cached_page.present?
+    cached_page
+  else
+    content = full_render(company_id)
+
+    Cache.store(key, content, ttl: CACHE_EXPIRES_IN)
+
+    content
+  end
+end
+
+def cache_key(company_id, last_order_at)
+  "recent_orders_page_#{company_id}_#{md5(last_order_at)}"
+end
+
+def full_render(company_id)
+  orders = OrdersService.get_recent_orders(company_id)
+
+  customer_ids = orders.map(&:customer_ids)
+  customers = CustomerService.get_customer_details(customer_ids)
+
+  render_page(orders, customers)
+end
+```
+
+This implementation makes sure that we never have a stale state on the page,
+however, the performance gains are not so good as in our previous iteration.
+
+In case we have a cache hit, the performance will be around `100ms` as it takes
+this long to fetch the timestamp of the last order.
+
+In case we have a cache miss, the performance will be worse than it would be
+without caching. We will need `100ms` to find the timestamp of the last order,
+plus the `500ms` duration for the full
