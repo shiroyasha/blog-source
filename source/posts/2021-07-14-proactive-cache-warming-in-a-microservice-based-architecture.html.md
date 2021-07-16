@@ -146,4 +146,16 @@ this long to fetch the timestamp of the last order.
 
 In case we have a cache miss, the performance will be worse than it would be
 without caching. We will need `100ms` to find the timestamp of the last order,
-plus the `500ms` duration for the full
+plus the `500ms` duration for the full page render.
+
+## Event based caching
+
+In both of the previous implementations the core problem was how and when to
+clear the cached values. It turns out it is quite hard to deduce this on the
+client side.
+
+One strategy common in distributed systems is to use events to propagate
+information about state changes. We can use this architecture to have a clear
+signal when our needs to be cleared.
+
+![Proactive Cache Warming: Event Based Cache Invalidation](images/proactive-caching/invalidation.png)
