@@ -156,6 +156,51 @@ client side.
 
 One strategy common in distributed systems is to use events to propagate
 information about state changes. We can use this architecture to have a clear
-signal when our needs to be cleared.
+signal when our cache needs to be cleared.
 
 ![Proactive Cache Warming: Event Based Cache Invalidation](images/proactive-caching/invalidation.png)
+
+In this architecture, both the order processing service and the customer service
+are publishing events when their datasets change. The cache invalidator then
+listens to those events and clears the data from the UI layer's cache.
+
+``` ruby
+def recent_orders(company_id)
+  key = cache_key(company_id)
+  cached_page = Cache.find(key)
+
+  if cached_page.present?
+    cached_page
+  else
+    content = full_render(company_id)
+
+    Cache.store(key, content)
+
+    content
+  end
+end
+
+subscribe("orders_service", "order-created") do |event|
+  key = cache_key(event.company_id)
+
+  Cache.clear(key)
+end
+
+subscribe("customers_service", "customer-updated") do |event|
+  key = cache_key(event.company_id)
+
+  Cache.clear(key)
+end
+```
+
+With this architecture we can achieve pretty fast response times and up-to-date
+content in the cache.
+
+In case we have a cache hit, we can respond under `1ms`, the amount of time it
+takes to fetch the data from the cache.
+
+In case we have a cache miss, we can respond in `500ms`, the amount of data it
+takes to have a full page render.
+
+This solution is better in both cases from the signature based caching solution
+we explored in the previous section.
