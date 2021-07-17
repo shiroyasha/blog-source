@@ -1,9 +1,9 @@
 ---
 id: 0148d118-2d34-4eb0-bcb0-5f546953d12a
 title: Proactive cache warming in a microservice-based architecture
-date: 2021-07-14
+date: 2021-07-17
 tags: programming
-image: 2021-07-14-proactive-cache-warming-in-a-microservice-based-architecture.png
+image: 2021-07-17-proactive-cache-warming-in-a-microservice-based-architecture.png
 ---
 
 With the microservice architecture style, services and their data are contained
