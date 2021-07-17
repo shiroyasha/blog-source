@@ -7,22 +7,21 @@ image: 2021-07-14-proactive-cache-warming-in-a-microservice-based-architecture.p
 ---
 
 With the microservice architecture style, services and their data are contained
-within a single bounded context. This architectural decision helps us developing
-and deploying changes in the business unit fast and independent of other
-services our system. However, collecting and analyzing data from multiple
-services can be much harder and slower than in a typical monolithic service
-where the caller has access to data from a single big database system.
+within a single bounded context. This architectural decision helps us to develop
+and deploy changes in one business unit fast and independent of other services
+in our system.
 
-Let's look at an example. A web application that allows its users to place
-orders wants to add a new page that displays information about the most recent
-orders in a company.
+However, collecting and analyzing data from multiple services can be slow and
+much more complex than in a typical monolithic service where the caller has
+access to data from a single big database system.
+
+Let's look at an example: A web application for ordering items with a page that
+displays information about the most recent orders in a company.
 
 ![Proactive Cache Warming: Architecture Example](images/proactive-caching/architecture-example.png)
 
-We will focus on the front service, more specifically on its recent orders
-controller action. The most straightforward implementation would reach out to
-the orders service and the customers services sequentially, merge the data, and
-render the HTML page.
+We will focus on the front service from the above architecture. More
+specifically, on its recent orders controller action.
 
 ``` ruby
 def recent_orders(company_id)
@@ -37,23 +36,24 @@ end
 
 Our next challenge is how to make this page fast.
 
-Lets assume for the sake of the argument that both the Orders Service and the
-Customers Services take around `200ms` to respond, and that we don't have any
-viable way of making these response times faster.
+Let's assume for the sake of the argument that both the Orders Service and the
+Customer Services take around 200ms to respond and that we don't have any viable
+way of making these response times faster.
 
-This sets the minimal time to render the page to `400ms` plus the time it takes
-to process the data and prepare the HTML page. Let's say that the later part
-takes `100ms`. In total, `500ms` to respond.
+To render the page, we need to wait 200ms for the Orders Service, then 200ms for
+the Customers Service, and finally, we need some time to generate the HTML page,
+100ms. The minimum time to render the page is 500ms, which is relatively slow.
 
-Caching is a common tool that we utilize to make slow things faster. Key/Value
-memory stores like redis can easily support `1ms` response times.
+Caching is a standard tool that we use to make slow things faster. Key/Value
+memory stores like Redis can easily support 1ms response times if we figure out
+how to use it effectively.
 
 Let's explore some caching strategies.
 
 ## Time-to-live based caching
 
-A simple-to-implement caching strategy is a time based one. This strategy
-renders the page and keeps in the cache for a given amount of time.
+A simple-to-implement caching strategy is a time-based one. This strategy
+renders the page and keeps it in the cache for a given amount of time.
 
 ``` ruby
 CACHE_EXPIRES_IN = 1.hour
@@ -87,22 +87,22 @@ def full_render(company_id)
 end
 ```
 
-This strategy can be an ideal one when the domain of the problem is time bound.
-For example, if the page would display orders processed for the last day,
+This strategy can be the ideal one when the domain of the problem is time-bound.
+For example, if the page would display orders processed for the previous day
 instead of listing all the most recent ones.
 
-The most significant downside is that the page will not refresh its content
-even if a new order is placed into the system. It will be fast, but stale.
+The most significant downside is that the page will not refresh its content even
+if the system receives new orders. The page will be fast but stale.
 
-## Signature based caching
+## Signature-based caching
 
-Another way to improve the speed of our page is to fetch some minimal amount of
-data that can signal to our system if our cached value is stale or still viable.
+We can use this information to optimize our rendering function.  Another way to
+improve the speed of our page is to fetch some minimal amount of data that can
+signal to our system if our cached value is stale or usable.
 
 Let's assume that in the above example, the order processing system has an
-endpoint that can return us the timestamp of the last processed order by a given
-company. Let's also assume that the service can provide us with this data under
-`100ms`.
+additional endpoint that can tell us the timestamp of the last processed order
+by a given company in 100ms.
 
 We can use this information to optimize our rendering function.
 
@@ -138,25 +138,26 @@ def full_render(company_id)
 end
 ```
 
-This implementation makes sure that we never have a stale state on the page,
-however, the performance gains are not so good as in our previous iteration.
+The above implementation makes sure that we never have a stale state on the
+page. However, the performance gains are not so good as in our previous
+iteration.
 
-In case we have a cache hit, the performance will be around `100ms` as it takes
-this long to fetch the timestamp of the last order.
+If we have a cache hit, the performance will be 100ms as it takes this long to
+fetch the timestamp of the last order.
 
-In case we have a cache miss, the performance will be worse than it would be
-without caching. We will need `100ms` to find the timestamp of the last order,
-plus the `500ms` duration for the full page render.
+If we have a cache miss, the performance will be worse than it would be without
+caching. We will need 100ms to find the timestamp of the last order, plus the
+500ms duration for the full page render.
 
-## Event based caching
+## Event-based caching
 
-In both of the previous implementations the core problem was how and when to
-clear the cached values. It turns out it is quite hard to deduce this on the
-client side.
+In both of the previous implementations, the core problem was how and when to
+clear the cached values. It turns out it is pretty hard to deduce this on the
+client-side.
 
 One strategy common in distributed systems is to use events to propagate
 information about state changes. We can use this architecture to have a clear
-signal when our cache needs to be cleared.
+signal of when to clear our cache.
 
 ![Proactive Cache Warming: Event Based Cache Invalidation](images/proactive-caching/invalidation.png)
 
@@ -193,36 +194,34 @@ subscribe("customers_service", "customer-updated") do |event|
 end
 ```
 
-With this architecture we can achieve pretty fast response times and up-to-date
-content in the cache.
+We get pretty fast response times and up-to-date content in the cache. Neat!
 
-In case we have a cache hit, we can respond under `1ms`, the amount of time it
-takes to fetch the data from the cache.
+If we have a cache hit, we can respond under 1ms, the amount of time it takes to
+fetch the data from the cache.
 
-In case we have a cache miss, we can respond in `500ms`, the amount of data it
-takes to have a full page render.
+If we have a cache miss, we can respond in 500ms, the amount of data it takes to
+have a full page render.
 
-This solution is better in both cases from the signature based caching solution
-we explored in the previous section.
+The event-based cache invalidation is better in both cases from the
+signature-based caching solution we explored in the previous section.
 
 ## Event-based proactive caching
 
-In that last section we had a `1ms` response for cached pages, and `500ms` for
-when the page wasn't cached. Can we do better?
+We had a 1ms response for cached pages in that last section and 500ms for when
+the page wasn't cached. Can we do better?
 
-One approach that can guarantee us fast `1ms` responses is to utilize proactive
-caching, meaning to prepare the page cache even before the customers load it for
-the first time.
+One approach that can guarantee a fast (1ms) response is to utilize proactive
+caching, meaning to prepare the page cache before the customers load it for the
+first time.
 
 ![Proactive Cache Warming: Event Based Cache Updater](images/proactive-caching/reactor.png)
 
-In this architecture, the UI layer is always reading responses from the cache,
+In this architecture, the UI layer always reads responses from the cache,
 meaning that it can guarantee a fast response time for both first visits and
 repeated visits to the page.
 
-The content of the cache is being maintained by the reactor, a subsystem in the
-UI layer, that reacts to various events in the system and recalculates the
-cache content.
+The reactor maintains the cache's content, a subsystem in the UI layer that
+reacts to various events in the system and recalculates the cached content.
 
 ``` ruby
 def recent_orders(company_id)
@@ -252,26 +251,26 @@ Let's analyze this pattern. What are the shortcomings of this caching approach?
 On the pros side, this caching approach can guarantee us fast response times for
 every page visit.
 
-On the cons side, the reactor might be caching pages that are rarely visited by
-our customers. This leads to lots of busywork in our system because we are
-preparing and crunching data that might never be used.
+On the cons side, the reactor might be caching pages that our customers rarely
+visit, which leads to lots of busywork in our system. We might prepare and
+crunch an enormous amount of unused data.
 
-The storage size can also drastically increase when we start using this
-approach as we are no longer storing only visited pages in the cache, but all
-the pages in the cache.
+The storage size can also drastically increase when we start using this approach
+as we are no longer storing only visited pages but all the pages in the cache.
 
-Still, if your number one priority is speed, the added storage and architectural
-complexity could be acceptable.
+If your number one priority is speed, the added storage and architectural
+complexity could be acceptable; otherwise, you might be crunching data
+needlessly. Choose carefully.
 
 <hr style="width: 50%; margin-top: 3em; border-color: gray;">
 
-Caching is complicated. Even more so in distributed systems.
+Caching is complicated, even more so in distributed systems.
 
-Event-based proactive caching is widely used to make our UI layer fast and
-responsive in SemaphoreCI. Over the years we faced many challenges while using
-this system, including race conditions and high queue processing latency, and
-while these problems were challenging we are still happy with this architectural
-choice even after several years in production.
+At [SemaphoreCI](https://semaphoreci.com), we use event-based proactive caching
+to make our UI layer fast.  Over the years, we faced many challenges while using
+this system, including race conditions and high queue processing latency.
+However, while these problems were challenging, we are still happy with this
+architectural choice even after several years in production.
 
 Here are some great resources for further reading:
 
