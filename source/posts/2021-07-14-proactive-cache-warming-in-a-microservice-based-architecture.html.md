@@ -204,3 +204,77 @@ takes to have a full page render.
 
 This solution is better in both cases from the signature based caching solution
 we explored in the previous section.
+
+## Event-based proactive caching
+
+In that last section we had a `1ms` response for cached pages, and `500ms` for
+when the page wasn't cached. Can we do better?
+
+One approach that can guarantee us fast `1ms` responses is to utilize proactive
+caching, meaning to prepare the page cache even before the customers load it for
+the first time.
+
+![Proactive Cache Warming: Event Based Cache Updater](images/proactive-caching/reactor.png)
+
+In this architecture, the UI layer is always reading responses from the cache,
+meaning that it can guarantee a fast response time for both first visits and
+repeated visits to the page.
+
+The content of the cache is being maintained by the reactor, a subsystem in the
+UI layer, that reacts to various events in the system and recalculates the
+cache content.
+
+``` ruby
+def recent_orders(company_id)
+  key = cache_key(company_id)
+  cached_page = Cache.find(key)
+
+  return cached_page
+end
+
+subscribe("orders_service", "order-created") do |event|
+  key = cache_key(event.company_id)
+  new_content = full_render(company_id)
+
+  Cache.store(key, new_content)
+end
+
+subscribe("customers_service", "customer-updated") do |event|
+  key = cache_key(event.company_id)
+  new_content = full_render(company_id)
+
+  Cache.store(key, new_content)
+end
+```
+
+Let's analyze this pattern. What are the shortcomings of this caching approach?
+
+On the pros side, this caching approach can guarantee us fast response times for
+every page visit.
+
+On the cons side, the reactor might be caching pages that are rarely visited by
+our customers. This leads to lots of busywork in our system because we are
+preparing and crunching data that might never be used.
+
+The storage size can also drastically increase when we start using this
+approach as we are no longer storing only visited pages in the cache, but all
+the pages in the cache.
+
+Still, if your number one priority is speed, the added storage and architectural
+complexity could be acceptable.
+
+<hr style="width: 50%; margin-top: 3em; border-color: gray;">
+
+Caching is complicated. Even more so in distributed systems.
+
+Event-based proactive caching is widely used to make our UI layer fast and
+responsive in SemaphoreCI. Over the years we faced many challenges while using
+this system, including race conditions and high queue processing latency, and
+while these problems were challenging we are still happy with this architectural
+choice even after several years in production.
+
+Here are some great resources for further reading:
+
+- [Reporting Database](https://martinfowler.com/bliki/ReportingDatabase.html)
+- [Microservices: AntiPatterns and Pitfalls](https://www.oreilly.com/library/view/microservices-antipatterns-and/9781492042716/)
+- [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
