@@ -1,8 +1,8 @@
 newpost:
 	./bin/newpost $(TITLE)
 
-dev.setup:
-	./bin/setup
+setup:
+	docker-compose run app bundle install
 
-dev.server:
-	./bin/server
+server:
+	docker-compose run --service-ports app bundle exec middleman server --port 4000 --bind-address 0.0.0.0
