@@ -3,39 +3,7 @@ blog: blog
 ---
 
 <div class=home style="margin: 10px">
-
-  <div style="display: flex; margin-top: 40px;">
-    <div class="home-image">
-      <img src="/images/igor.png" style="width: 300px; border-radius: 16px; box-shadow: 1px 1px 10px rgba(0,0,0, 0.5);">
-    </div>
-
-    <div style="padding: 32px; width: 600px">
-      <div style="margin-bottom: 16px;">Hello 👋🏻</div>
-
-      <div>﹡ My name is Igor Sarcevic</div>
-      <div>﹡ I'm a Software Architect</div>
-      <div>﹡ Lead Architect at SemaphoreCI</div>
-      <div>﹡ Based in Novi Sad, Serbia</div>
-      <div>﹡ Follow me on <a style="color: black; text-decoration: underline" href="https://twitter.com/igor_sarcevic" target="_blank">Twitter</a></div>
-      <div>﹡ Check out my work on <a style="color: black; text-decoration: underline" href="https://github.com/shiroyasha" target="_blank">GitHub</a></div>
-    </div>
-  </div>
-
-  <h2>Books</h2>
-
-  <ul>
-    <li>
-      <div style="display: flex; align-items: baseline; justify-content: space-between;">
-        <div class="home-title">Rails Testing Handbook (<a href="https://semaphoreci.com/ebooks/rails-testing-handbook">PDF</a>, <a href="https://www.amazon.com/dp/B07DKFYS1Q">Kindle</a>).</div>
-
-        <div style="text-align: right; color: #444;">
-          <time>2018</time>
-        </div>
-      </div>
-    </li>
-  </ul>
-
-  <h2>Articles about software</h2>
+  <h2>Software</h2>
 
   <ul>
   <% page_articles.select { |p| p.data.tags.include?("programming") }.each.with_index do |article| %>
@@ -53,7 +21,7 @@ blog: blog
 
   <%# <h2>How to lead a software team</h2> %>
 
-  <h2>Balacing life and work</h2>
+  <h2>Life</h2>
 
   <ul>
   <% page_articles.select { |p| p.data.tags.include?("life-work") }.each.with_index do |article| %>
@@ -68,4 +36,19 @@ blog: blog
     </li>
   <% end %>
   </ul>
+
+  <h2>Books</h2>
+
+  <ul>
+    <li>
+      <div style="display: flex; align-items: baseline; justify-content: space-between;">
+        <div class="home-title">Rails Testing Handbook (<a href="https://semaphoreci.com/ebooks/rails-testing-handbook">PDF</a>, <a href="https://www.amazon.com/dp/B07DKFYS1Q">Kindle</a>).</div>
+
+        <div style="text-align: right; color: #444;">
+          <time>2018</time>
+        </div>
+      </div>
+    </li>
+  </ul>
+
 </div>
