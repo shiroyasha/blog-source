@@ -1,3 +1,5 @@
+.PHONY: build
+
 newpost:
 	./bin/newpost $(TITLE)
 
