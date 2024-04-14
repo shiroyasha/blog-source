@@ -1,4 +1,4 @@
-FROM ruby:2.3.1
+FROM ruby:3.3.0
 
 WORKDIR /app
 
@@ -13,8 +13,12 @@ RUN set -uex \
     && apt-get update \
     && apt-get install nodejs -y
 
+# install nokogiri dependencies
+RUN apt-get install -y libxml2-dev libxslt1-dev
+
 ADD Gemfile .
 ADD Gemfile.lock .
+RUN bundle config set --path 'vendor/bundle'
 RUN bundle install
 
 ENV MIDDLEMAN_HOST="0.0.0.0"
