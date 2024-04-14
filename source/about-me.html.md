@@ -1,5 +1,5 @@
 ---
-title: Who are you and why should I care?
+title: About
 tags: programming
 image: igor.png
 ---

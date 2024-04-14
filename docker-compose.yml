@@ -3,7 +3,8 @@ version: "2.0"
 services:
   app:
     build: .
+    command: bundle exec middleman server --port 5000 --bind-address 0.0.0.0
     volumes:
       - .:/app
     ports:
-    - "4000:4000"
+    - "5000:5000"
