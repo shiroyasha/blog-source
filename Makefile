@@ -6,3 +6,6 @@ setup:
 
 server:
 	docker compose up
+
+build:
+	docker compose run -e NO_CONTRACTS=true app bundle exec middleman build
