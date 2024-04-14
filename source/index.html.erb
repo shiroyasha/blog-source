@@ -3,31 +3,13 @@ blog: blog
 ---
 
 <div class=home style="margin: 10px">
-  <h2>Software</h2>
+  <h2>Blog</h2>
 
   <ul>
   <% page_articles.select { |p| p.data.tags.include?("programming") }.each.with_index do |article| %>
     <li>
       <div class="home-title" style="display: flex; align-items: baseline; justify-content: space-between;">
         <div><%= link_to((article.data.tags.include?("postgres") ? "PostgreSQL: " : "") + article.title, article, style: "text-decoration: underline") %></div>
-
-        <div style="text-align: right; color: #444;">
-          <time><%= article.date.strftime("%b %e, %Y") %></time>
-        </div>
-      </div>
-    </li>
-  <% end %>
-  </ul>
-
-  <%# <h2>How to lead a software team</h2> %>
-
-  <h2>Life</h2>
-
-  <ul>
-  <% page_articles.select { |p| p.data.tags.include?("life-work") }.each.with_index do |article| %>
-    <li>
-      <div class="home-title" style="display: flex; align-items: baseline; justify-content: space-between;">
-        <div><%= link_to(article.title, article, style: "text-decoration: underline") %></div>
 
         <div style="text-align: right; color: #444;">
           <time><%= article.date.strftime("%b %e, %Y") %></time>
