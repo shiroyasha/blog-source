@@ -12,7 +12,7 @@ server:
 build:
 	docker compose run -e NO_CONTRACTS=true app bundle exec middleman build
 
-deploy:
+deploy: build
 	rm -rf /tmp/shiroyasha.github.io
 	git clone git@github.com:shiroyasha/shiroyasha.github.io.git /tmp/shiroyasha.github.io
 	rm -rf /tmp/shiroyasha.github.io/*
