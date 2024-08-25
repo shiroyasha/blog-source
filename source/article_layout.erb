@@ -1,12 +1,12 @@
 <% wrap_layout :layout do %>
   <article class="article">
     <div class="header">
-      <h1><%= current_article.title %></h1>
 
-      <div style="display: flex; items-align: center; font-size: 18px; color: #444; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding-top: 10px; padding-bottom: 10px;">
-        <img src="/images/igor.png" alt="Igor Šarčević" style="height: 30px; width: 30px; border-radius: 50%; margin-right: 8px;">
-        Igor wrote this in <%= current_article.date.strftime('%B %Y') %>
+      <div style="display: flex; items-align: center; font-size: 18px; color: #444; padding-top: 10px; padding-bottom: 10px;">
+        <%= current_article.date.strftime('%B %e, %Y') %> <span style="padding-left: 6px; padding-right: 6px;">&middot;</span> Igor Šarčević
       </div>
+
+      <h1 style="line-height: 70px"><%= current_article.title %></h1>
     </div>
 
     <div class="content">
