@@ -6,6 +6,9 @@ newpost:
 setup:
 	docker compose run app bundle install
 
+shell:
+	docker compose run app bash
+
 server:
 	docker compose up
 

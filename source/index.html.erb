@@ -2,35 +2,20 @@
 blog: blog
 ---
 
-<div class=home style="margin: 10px">
-  <h2>Blog</h2>
+<div class="my-16 flex flex-col items-center block">
+  <img src="https://operately.com/_astro/igor.CWS1MLnE.jpg" class="rounded-full w-32 h-32" alt="Igor Šarčević">
 
-  <ul>
-  <% page_articles.select { |p| p.data.tags.include?("programming") }.each.with_index do |article| %>
-    <li>
-      <div class="home-title" style="display: flex; align-items: baseline; justify-content: space-between;">
-        <div><%= link_to((article.data.tags.include?("postgres") ? "PostgreSQL: " : "") + article.title, article, style: "text-decoration: underline") %></div>
+  <div class="text-gray-700 mt-6 text-xl font-bold mb-2">Morning Coffee by Igor Šarčević</div>
+  <div class="max-w-xl text-center">Founder of <a class="underline decoration-dotted hover:text-blue-600" href="http://operately.com">Operately</a>, Software Engineer, ex. Lead Architect at <a class="underline decoration-dotted hover:text-blue-600" href="http://semaphoreci.com">SemaphoreCI</a>. Cat & Dog person. Coffee lover. Husband of Daniela. Hiker. Writer.</div>
+</div>
 
-        <div style="text-align: right; color: #444;">
-          <time><%= article.date.strftime("%b %e, %Y") %></time>
-        </div>
-      </div>
-    </li>
+<div class="flex flex-col gap-8">
+  <% page_articles.select { |p| (p.data.tags || []).include?("programming") }.each.with_index do |article| %>
+    <a class="p-10 border border-gray-200 shadow rounded hover:border-gray-300" href="<%= article.url %>">
+      <div class="text-rose-500 text-sm"><time><%= article.date.strftime("%b %e, %Y") %></time></div>
+      <div class="text-xl font-extrabold mb-2"><%= article.title %></div>
+
+      <%= article.summary(240) %>
+    </a>
   <% end %>
-  </ul>
-
-  <h2>Books</h2>
-
-  <ul>
-    <li>
-      <div style="display: flex; align-items: baseline; justify-content: space-between;">
-        <div class="home-title">Rails Testing Handbook (<a href="https://semaphoreci.com/ebooks/rails-testing-handbook">PDF</a>, <a href="https://www.amazon.com/dp/B07DKFYS1Q">Kindle</a>).</div>
-
-        <div style="text-align: right; color: #444;">
-          <time>2018</time>
-        </div>
-      </div>
-    </li>
-  </ul>
-
 </div>

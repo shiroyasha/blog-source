@@ -18,6 +18,12 @@ ignore "about_layout.erb"
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true
 
+activate :external_pipeline,
+  name: :tailwind,
+  command: "npx tailwindcss -i ./source/stylesheets/site.css -o ./dist/stylesheets/site.css #{"--watch" unless build?}",
+  latency: 2,
+  source: "./dist/"
+
 activate :syntax
 
 set :css_dir, 'stylesheets'
@@ -30,11 +36,9 @@ configure :build do
 end
 
 helpers do
-
   def nav_link(link_text, url, options = {})
     options[:class] ||= ""
     options[:class] << " active" if url == current_page.url
     link_to(link_text, url, options)
   end
-
 end

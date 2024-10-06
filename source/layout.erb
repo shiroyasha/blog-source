@@ -42,15 +42,12 @@
       <meta property="article:published_time" content="<%= current_article.date %>" />
     <% end %>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway:900&display=swap" rel="stylesheet">
-    <%= stylesheet_link_tag "style" %>
+    <%= stylesheet_link_tag "site" %>
   </head>
   <body>
     <%= partial "partials/career_cta" %>
 
-    <div id="main" role="main">
-      <%= partial "partials/navigation" %>
-
+    <div id="main" role="main" class="container mx-auto max-w-2xl">
       <%= yield %>
 
       <%= partial "partials/footer" %>

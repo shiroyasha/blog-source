@@ -1,21 +1,16 @@
 <% wrap_layout :layout do %>
-  <article class="article">
-    <div class="header">
+  <a class="link mt-10 block" href="/">Home</a>
+  <article class="max-w-2xl mt-16">
+    <div class="mb-10">
+      <h1 class="text-5xl font-extrabold mb-2 leading-wide"><%= current_article.title %></h1>
 
-      <div style="display: flex; items-align: center; font-size: 18px; color: #444; padding-top: 10px; padding-bottom: 10px;">
-        <%= current_article.date.strftime('%B %e, %Y') %> <span style="padding-left: 6px; padding-right: 6px;">&middot;</span> Igor Šarčević
+      <div class="flex gap-1.5 items-center">
+        <%= current_article.date.strftime('%B %e, %Y') %> <span>&middot;</span> Igor Šarčević
       </div>
-
-      <h1 style="line-height: 70px"><%= current_article.title %></h1>
     </div>
 
-    <div class="content">
+    <div class="content prose-lg">
       <%= yield %>
     </div>
-
-    <%# <%= partial "partials/share", :locals => { :current_article => current_article } %1> %>
-    <%# <%= partial "partials/follow_on_twitter" %1> %>
-
-    <%# <%= partial "partials/comments", :locals => { :url => current_article.url, :id => current_article.data[:id] } %1> %>
   </article>
 <% end %>
