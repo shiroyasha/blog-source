@@ -65,3 +65,5 @@ wouldn't involve ripping off the hard work of others.
 
 So let's call this behavior what it is: parasitic. And let's make sure it has no
 place in our industry. 
+
+&mdash; Igor
