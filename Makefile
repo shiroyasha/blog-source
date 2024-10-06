@@ -13,7 +13,7 @@ server:
 	docker compose up
 
 build:
-	docker compose run -e NO_CONTRACTS=true app bundle exec middleman build
+	docker compose run -e NO_CONTRACTS=true app bundle exec middleman build --verbose
 
 deploy: build
 	rm -rf /tmp/shiroyasha.github.io
