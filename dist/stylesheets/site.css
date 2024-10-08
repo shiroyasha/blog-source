@@ -1023,6 +1023,11 @@ body {
   color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
+ul {
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));

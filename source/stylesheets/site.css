@@ -12,3 +12,7 @@ body {
 .link {
    @apply text-blue-600 hover:text-blue-500 underline underline-offset-2 cursor-pointer;
 }
+
+ul {
+  @apply list-disc list-inside;
+}
