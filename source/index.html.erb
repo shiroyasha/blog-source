@@ -9,13 +9,14 @@ blog: blog
   <div class="max-w-xl text-center">Founder of <a class="underline decoration-dotted hover:text-blue-600" href="http://operately.com">Operately</a>, Software Engineer, ex. Lead Architect at <a class="underline decoration-dotted hover:text-blue-600" href="http://semaphoreci.com">SemaphoreCI</a>. Cat & Dog person. Coffee lover. Husband of Daniela. Hiker. Writer.</div>
 </div>
 
-<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-8 mx-auto max-w-2xl">
   <% page_articles.select { |p| (p.data.tags || []).include?("programming") }.each.with_index do |article| %>
-    <a class="p-10 border border-gray-200 shadow rounded hover:border-gray-300" href="<%= article.url %>">
-      <div class="text-rose-500 text-sm"><time><%= article.date.strftime("%b %e, %Y") %></time></div>
-      <div class="text-xl font-extrabold mb-2"><%= article.title %></div>
+    <a class="p-6 md:p-10 border border-gray-200 shadow rounded-xl hover:border-gray-300" href="<%= article.url %>">
+      <div class="text-stone-400 text-sm mb-1"><time><%= article.date.strftime("%b %e, %Y") %></time></div>
+      <div class="font-semibold mb-2 text-xl"><%= article.title %></div>
 
       <%= article.summary(240) %>
+
     </a>
   <% end %>
 </div>

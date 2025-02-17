@@ -10,6 +10,8 @@ I saw something insane on LinkedIn today. A founder bragging about his
 co-founder about submitting a pull-request during his own wedding. Let that
 sink in for a moment.
 
+READMORE
+
 When I started working in the industry, I thought I knew what hard work was.
 Working until my eyes bled out and my fingers were numb. I was wrong. True
 hard work isn't about grinding until you drop. It's about passion, focus,

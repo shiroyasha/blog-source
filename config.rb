@@ -20,12 +20,11 @@ set :markdown, :fenced_code_blocks => true, :smartypants => true
 
 activate :external_pipeline,
   name: :tailwind,
-  command: "npx tailwindcss -i ./source/stylesheets/site.css -o ./dist/stylesheets/site.css #{"--watch" unless build?}",
+  command: "npx tailwindcss -i ./source/stylesheets/site.css -o ./dist/stylesheets/site.css",
   latency: 2,
   source: "./dist/"
 
 activate :syntax
-
 
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'

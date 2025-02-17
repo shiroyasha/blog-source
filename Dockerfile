@@ -11,7 +11,8 @@ RUN set -uex \
     && NODE_MAJOR=18 \
     && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list \
     && apt-get update \
-    && apt-get install nodejs -y
+    && apt-get install nodejs -y \
+    && apt-get install inotify-tools -y
 
 # install nokogiri dependencies
 RUN apt-get install -y libxml2-dev libxslt1-dev
