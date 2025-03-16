@@ -4,16 +4,16 @@ newpost:
 	./bin/newpost $(TITLE)
 
 setup:
-	docker compose run app bundle install
+	docker compose run -rm app bundle install
 
 shell:
-	docker compose run app bash
+	docker compose run -rm app bash
 
 server:
 	docker compose up
 
 build:
-	docker compose run -e NO_CONTRACTS=true app bundle exec middleman build --verbose
+	docker compose run -rm -e NO_CONTRACTS=true app bundle exec middleman build --verbose
 
 deploy: build
 	rm -rf /tmp/shiroyasha.github.io
